@@ -4,6 +4,10 @@
  */
 package Model.Enterprise;
 
+import Model.Organization.OrganizationDirectory;
+import Model.UserAccount.UserAccountDirectory;
+import Model.WorkQueue.WorkQueue;
+
 /**
  *
  * @author alilovepeach
@@ -73,3 +77,4 @@ public abstract class Enterprise {
     public String toString() {
         return name;
     }
+}

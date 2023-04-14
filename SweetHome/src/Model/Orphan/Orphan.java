@@ -4,6 +4,8 @@
  */
 package Model.Orphan;
 
+import Model.Enterprise.OrphanShelterEnterprise;
+import Model.UserAccount.UserAccount;
 import Model.WorkQueue.WorkQueue;
 import javax.swing.ImageIcon;
 

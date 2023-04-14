@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model.Organization;
-
+import Model.Organization.Organization.Type;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +34,7 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.Adopter.getValue())) {
             organization = new AdopterOrganization(name);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Doctory.getValue())) {
+        } else if (type.getValue().equals(Type.Doctor.getValue())) {
             organization = new DoctorOrganization(name);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Pharmacy.getValue())) {
@@ -46,8 +46,8 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.OrphanManagement.getValue())) {
             organization = new OrphanManagementOrganization(name);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.AdoptionOperation.getValue())) {
-            organization = new AdoptionOperationOrganization(name);
+        } else if (type.getValue().equals(Type.Authority.getValue())) {
+            organization = new AuthorityOrganization(name);
             organizationList.add(organization);
         }
 
