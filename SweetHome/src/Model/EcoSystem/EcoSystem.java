@@ -13,11 +13,11 @@ import java.util.ArrayList;
  *
  * @author alilovepeach
  */
-public class EcoSystems {
+public class EcoSystem {
     ArrayList<Network> networkList;
     UserAccountDirectory userAccountDirectory;
     
-    public EcoSystems(){
+    public EcoSystem(){
         this.networkList = new ArrayList<Network>();
         this.userAccountDirectory = new UserAccountDirectory();
     }
