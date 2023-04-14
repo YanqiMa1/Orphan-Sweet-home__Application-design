@@ -4,6 +4,8 @@
  */
 package Model.Organization;
 
+import Model.Role.PharmacistRole;
+import Model.Role.Role;
 import java.util.ArrayList;
 
 /**

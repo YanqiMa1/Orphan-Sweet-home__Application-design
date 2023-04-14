@@ -4,6 +4,8 @@
  */
 package Model.Organization;
 
+import Model.Role.AdopterRole;
+import Model.Role.Role;
 import java.util.ArrayList;
 
 /**

@@ -4,6 +4,7 @@
  */
 package Model.UserAccount;
 
+import Model.Role.Role;
 import java.util.ArrayList;
 
 /**
@@ -29,15 +30,6 @@ public class UserAccountDirectory {
         return user;
     }
     
-    public UserAccount findById(String id) {
-        for(UserAccount u: this.userAccountList) {
-            if(u.getAccountId().equals(id)) {
-                return u;
-            }
-        }
-        
-        return null;
-    }
     
     public UserAccount getUserAccount(String username, String password, Role role) {
         for(UserAccount u: this.userAccountList) {

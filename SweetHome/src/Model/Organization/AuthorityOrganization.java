@@ -4,6 +4,8 @@
  */
 package Model.Organization;
 
+import Model.Role.AuthorityRole;
+import Model.Role.Role;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +14,7 @@ import java.util.ArrayList;
  */
 public class AuthorityOrganization extends Organization{
     public AuthorityOrganization(String nameAdopter) {
-        super(nameAdopter, Organization.Type.AdoptionOperation);
+        super(nameAdopter, Organization.Type.Authority);
     }
     
     @Override

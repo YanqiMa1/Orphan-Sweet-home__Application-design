@@ -4,6 +4,8 @@
  */
 package Model.Organization;
 
+import Model.Role.Role;
+import Model.Role.VolunteerManagerRole;
 import java.util.ArrayList;
 
 /**
