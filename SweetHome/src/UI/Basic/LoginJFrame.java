@@ -137,7 +137,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         kGradientPanel1.add(jLabel3);
         jLabel3.setBounds(450, 50, 240, 48);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon1.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Icons/icon_children.png"))); // NOI18N
         kGradientPanel1.add(jLabel6);
         jLabel6.setBounds(390, 210, 420, 320);
 
@@ -186,6 +186,8 @@ public class LoginJFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
