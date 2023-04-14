@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model.Role;
 
 
@@ -18,7 +15,7 @@ import ui.Authority.AuthorityWorkAreaJFrame;
 
 /**
  *
- * @author fanyesun
+ * @author Ma2017
  */
 public class AuthorityRole extends Role {
 

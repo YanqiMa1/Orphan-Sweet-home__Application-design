@@ -8,6 +8,7 @@ package Model.UserAccount;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Role.Role;
 
 import java.util.ArrayList;
 

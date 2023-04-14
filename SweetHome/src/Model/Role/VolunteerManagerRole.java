@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model.Role;
 
 
@@ -19,7 +16,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author YifeiChen
+ * @author Ma2017
  */
 public class VolunteerManagerRole extends Role {
 

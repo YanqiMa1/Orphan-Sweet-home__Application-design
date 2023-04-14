@@ -14,7 +14,7 @@ import ui.Adopter.AdopterWorkAreaJFrame;
 
 /**
  *
- * @author fanyesun
+ * @author Ma2017
  */
 public class AdopterRole extends Role {
 
