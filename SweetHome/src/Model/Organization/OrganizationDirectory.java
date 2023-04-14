@@ -46,8 +46,8 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.OrphanManagement.getValue())) {
             organization = new OrphanManagementOrganization(name);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.AdoptionOperation.getValue())) {
-            organization = new AdoptionOperationOrganization(name);
+        } else if (type.getValue().equals(Type.Authority.getValue())) {
+            organization = new AuthorityOrganization(name);
             organizationList.add(organization);
         }
 

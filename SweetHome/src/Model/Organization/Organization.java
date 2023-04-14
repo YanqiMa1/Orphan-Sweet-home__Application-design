@@ -23,7 +23,7 @@ public abstract class Organization {
         Doctor("Doctor Organization"),
         Pharmacy("Pharmacy Organization"),
         Adopter("Adopter Organization"), 
-        AdoptionOperation("Adoption Operation Organization"), 
+        Authority("Authority Organization"), 
         VolunteerManagement("Volunteer Management Organization"), 
         Volunteer("Volunteer Organization");
         

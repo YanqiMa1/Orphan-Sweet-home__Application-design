@@ -10,15 +10,15 @@ import java.util.ArrayList;
  *
  * @author alilovepeach
  */
-public class AdoptionOperationOrganization extends Organization{
-    public AdoptionOperationOrganization(String nameAdopter) {
+public class AuthorityOrganization extends Organization{
+    public AuthorityOrganization(String nameAdopter) {
         super(nameAdopter, Organization.Type.AdoptionOperation);
     }
     
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> supportRoles = new ArrayList<>();
-        supportRoles.add(new AdoptionManagerRole());
+        supportRoles.add(new AuthorityRole());
         return supportRoles;
     }
     
