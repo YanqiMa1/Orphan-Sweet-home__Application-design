@@ -4,6 +4,9 @@
  */
 package Model.EcoSystem;
 
+import Model.Enterprise.EnterpriseDirectory;
+import Model.WorkQueue.WorkQueue;
+
 /**
  *
  * @author alilovepeach

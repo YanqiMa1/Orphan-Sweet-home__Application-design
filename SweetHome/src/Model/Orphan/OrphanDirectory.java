@@ -2,6 +2,8 @@ package Model.Orphan;
 
 
 import Model.Enterprise.Enterprise;
+import Model.Enterprise.OrphanShelterEnterprise;
+import Model.UserAccount.UserAccount;
 import java.util.ArrayList;
 
 /*
