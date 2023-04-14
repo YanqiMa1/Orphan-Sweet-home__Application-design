@@ -1,6 +1,8 @@
 package Model.EcoSystem;
 
 import Model.Enterprise.EnterpriseDirectory;
+import Model.UserAccount.UserAccountDirectory;
+import java.util.ArrayList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,18 +14,18 @@ import Model.Enterprise.EnterpriseDirectory;
  * @author alilovepeach
  */
 public class EcoSystems {
-    EnterpriseDirectory enterpriseDirectory;
+    ArrayList<Network> networkList;
     UserAccountDirectory userAccountDirectory;
     
     public EcoSystems(){
-        this.enterpriseDirectory = new EnterpriseDirectory();
+        this.networkList = new ArrayList<Network>();
         this.userAccountDirectory = new UserAccountDirectory();
     }
 
-    public EnterpriseDirectory getEnterpriseDirectory() {
-        return enterpriseDirectory;
+    public ArrayList<Network> getNetworkList() {
+        return networkList;
     }
-
+    
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
