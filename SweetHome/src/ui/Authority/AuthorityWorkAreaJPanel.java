@@ -36,30 +36,34 @@ public class AuthorityWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(0, 102, 153));
         lblTitle.setText("Adopter Authorization");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 210, 60));
 
         btnApprove.setBackground(new java.awt.Color(0, 102, 153));
+        btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnApprove.setForeground(new java.awt.Color(255, 255, 255));
         btnApprove.setText("Approve");
+        btnApprove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, -1));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 100, 30));
 
         btnAssign.setBackground(new java.awt.Color(0, 102, 153));
+        btnAssign.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAssign.setForeground(new java.awt.Color(255, 255, 255));
         btnAssign.setText("Assign to Me");
+        btnAssign.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 110, 30));
 
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -91,7 +95,7 @@ public class AuthorityWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblWorkRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 610, 260));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 640, 270));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed

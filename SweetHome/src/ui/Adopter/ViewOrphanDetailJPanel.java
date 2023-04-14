@@ -35,18 +35,12 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
         lblMessage7 = new javax.swing.JLabel();
         txtOrphanGender = new javax.swing.JTextField();
         lblMessage8 = new javax.swing.JLabel();
-        txtOrphanWeight = new javax.swing.JTextField();
-        lblMessage11 = new javax.swing.JLabel();
         txtOrphanMessageFromDr = new javax.swing.JTextField();
         lblMessage12 = new javax.swing.JLabel();
         txtOrphanMessageFromPharmacy = new javax.swing.JTextField();
         lblMessage13 = new javax.swing.JLabel();
-        lblMessage6 = new javax.swing.JLabel();
-        txtOrphanlName = new javax.swing.JTextField();
         lblMessage9 = new javax.swing.JLabel();
         txtOrphanRace = new javax.swing.JTextField();
-        lblMessage10 = new javax.swing.JLabel();
-        txtOrphanHeight = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(254, 236, 236));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -67,85 +61,58 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
         add(lblPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 200, 200));
 
         txtOrphanfName.setEnabled(false);
-        add(txtOrphanfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 217, -1));
+        add(txtOrphanfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 217, -1));
 
         lblMessage5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage5.setForeground(new java.awt.Color(0, 102, 153));
         lblMessage5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage5.setText("First Name:");
-        add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, 30));
+        lblMessage5.setText("Name:");
+        add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 90, 30));
 
         txtOrphanArea.setEnabled(false);
-        add(txtOrphanArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 217, -1));
+        add(txtOrphanArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 217, -1));
 
         lblMessage7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage7.setForeground(new java.awt.Color(0, 102, 153));
         lblMessage7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage7.setText("Area:");
-        add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 60, 20));
+        lblMessage7.setText("Age:");
+        add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 60, 20));
 
         txtOrphanGender.setEnabled(false);
-        add(txtOrphanGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 217, -1));
+        add(txtOrphanGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 217, -1));
 
         lblMessage8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage8.setForeground(new java.awt.Color(0, 102, 153));
         lblMessage8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage8.setText("Gender:");
-        add(lblMessage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 50, 20));
-
-        txtOrphanWeight.setEnabled(false);
-        add(txtOrphanWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 217, -1));
-
-        lblMessage11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblMessage11.setForeground(new java.awt.Color(0, 102, 153));
-        lblMessage11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage11.setText("Weight:");
-        add(lblMessage11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 80, 20));
+        lblMessage8.setText("Sex:");
+        add(lblMessage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 50, 20));
 
         txtOrphanMessageFromDr.setEnabled(false);
-        add(txtOrphanMessageFromDr, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 217, -1));
+        add(txtOrphanMessageFromDr, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 217, -1));
 
         lblMessage12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage12.setForeground(new java.awt.Color(0, 102, 153));
         lblMessage12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage12.setText("Docter Feedback:");
-        add(lblMessage12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, -1));
+        add(lblMessage12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 120, -1));
 
         txtOrphanMessageFromPharmacy.setEnabled(false);
-        add(txtOrphanMessageFromPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 217, -1));
+        add(txtOrphanMessageFromPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 217, -1));
 
         lblMessage13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage13.setForeground(new java.awt.Color(0, 102, 153));
         lblMessage13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage13.setText("Pharmacy Feedback:");
-        add(lblMessage13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 120, -1));
-
-        lblMessage6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblMessage6.setForeground(new java.awt.Color(0, 102, 153));
-        lblMessage6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage6.setText("Last Name:");
-        add(lblMessage6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 90, 30));
-
-        txtOrphanlName.setEnabled(false);
-        add(txtOrphanlName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 217, -1));
+        add(lblMessage13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 120, -1));
 
         lblMessage9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage9.setForeground(new java.awt.Color(0, 102, 153));
         lblMessage9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage9.setText("Race:");
-        add(lblMessage9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 50, 20));
+        add(lblMessage9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 50, 20));
 
         txtOrphanRace.setEnabled(false);
-        add(txtOrphanRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 217, -1));
-
-        lblMessage10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblMessage10.setForeground(new java.awt.Color(0, 102, 153));
-        lblMessage10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage10.setText("Height:");
-        add(lblMessage10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 50, 20));
-
-        txtOrphanHeight.setEnabled(false);
-        add(txtOrphanHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 217, -1));
+        add(txtOrphanRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 217, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -155,12 +122,9 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel lblMessage10;
-    private javax.swing.JLabel lblMessage11;
     private javax.swing.JLabel lblMessage12;
     private javax.swing.JLabel lblMessage13;
     private javax.swing.JLabel lblMessage5;
-    private javax.swing.JLabel lblMessage6;
     private javax.swing.JLabel lblMessage7;
     private javax.swing.JLabel lblMessage8;
     private javax.swing.JLabel lblMessage9;
@@ -168,12 +132,9 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtOrphanArea;
     private javax.swing.JTextField txtOrphanGender;
-    private javax.swing.JTextField txtOrphanHeight;
     private javax.swing.JTextField txtOrphanMessageFromDr;
     private javax.swing.JTextField txtOrphanMessageFromPharmacy;
     private javax.swing.JTextField txtOrphanRace;
-    private javax.swing.JTextField txtOrphanWeight;
     private javax.swing.JTextField txtOrphanfName;
-    private javax.swing.JTextField txtOrphanlName;
     // End of variables declaration//GEN-END:variables
 }

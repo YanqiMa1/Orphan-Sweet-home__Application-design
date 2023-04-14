@@ -43,7 +43,7 @@ public class AdopterWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAuthorizationStatus.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblAuthorizationStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAuthorizationStatus.setForeground(new java.awt.Color(0, 102, 153));
         lblAuthorizationStatus.setText("Authorization Status:");
         add(lblAuthorizationStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
@@ -59,7 +59,7 @@ public class AdopterWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Gender", "Area", "Authority", "Orphan Shelter"
+                "Name", "Gender", "Age", "Authority", "Orphan Shelter"
             }
         ) {
             Class[] types = new Class [] {
@@ -79,36 +79,40 @@ public class AdopterWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbOrphanList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 560, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 590, 110));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 480, 10));
 
-        lblOrphanSelection.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblOrphanSelection.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrphanSelection.setForeground(new java.awt.Color(0, 102, 153));
         lblOrphanSelection.setText("Orphan Selection:");
         add(lblOrphanSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 104, -1, -1));
 
         btnViewDetails.setBackground(new java.awt.Color(0, 102, 153));
+        btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnViewDetails.setForeground(new java.awt.Color(238, 238, 238));
         btnViewDetails.setText("View");
+        btnViewDetails.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewDetailsActionPerformed(evt);
             }
         });
-        add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, -1));
+        add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 70, 30));
 
         btnSendRequest.setBackground(new java.awt.Color(0, 102, 153));
+        btnSendRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSendRequest.setForeground(new java.awt.Color(238, 238, 238));
         btnSendRequest.setText("Adopt");
+        btnSendRequest.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSendRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSendRequestActionPerformed(evt);
             }
         });
-        add(btnSendRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, -1, -1));
+        add(btnSendRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 300, 70, 30));
         add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 311, 530, 10));
 
-        lblAdoptionRequest.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblAdoptionRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAdoptionRequest.setForeground(new java.awt.Color(0, 102, 153));
         lblAdoptionRequest.setText("Your Adoption Request:");
         add(lblAdoptionRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 348, -1, -1));
@@ -143,7 +147,7 @@ public class AdopterWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblAdoptionRequests);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 560, 120));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 590, 120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
