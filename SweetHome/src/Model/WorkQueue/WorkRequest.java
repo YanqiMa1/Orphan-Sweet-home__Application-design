@@ -4,9 +4,9 @@
  */
 package Model.WorkQueue;
 
-import Model.Orphan.Orphan;
 import Model.UserAccount.UserAccount;
 import java.util.Date;
+import Model.Orphan.Orphan;
 
 /**
  *
