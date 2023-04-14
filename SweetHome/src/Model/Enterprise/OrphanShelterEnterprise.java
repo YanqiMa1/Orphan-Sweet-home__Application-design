@@ -4,6 +4,8 @@
  */
 package Model.Enterprise;
 
+import Model.Orphan.OrphanDirectory;
+
 /**
  *
  * @author alilovepeach

@@ -21,10 +21,6 @@ public class UserAccountDirectory {
     public ArrayList<UserAccount> getUserAccountList() {
         return userAccountList;
     }
-
-    public ArrayList<UserAccount> getUseraccountlist() {
-        return userAccountList;
-    }
      
     public UserAccount createUserAccount(String username, String password, Role role) {
         UserAccount user = new UserAccount(username, password, role);
