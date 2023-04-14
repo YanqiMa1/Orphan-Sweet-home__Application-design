@@ -28,13 +28,12 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         btnAssignOrphan = new javax.swing.JButton();
         btnViewOrphan = new javax.swing.JButton();
         btnViewAdoptionReq = new javax.swing.JButton();
-        btnRegOrphan = new javax.swing.JButton();
-        btnRequestVolunteer = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -52,14 +51,13 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(200, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel1.setPreferredSize(new java.awt.Dimension(795, 400));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jSplitPane1.setRightComponent(jPanel1);
+        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel2.setBackground(new java.awt.Color(255, 236, 236));
-        jPanel2.setMinimumSize(new java.awt.Dimension(200, 600));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        kGradientPanel1.setkEndColor(new java.awt.Color(101, 78, 163));
+        kGradientPanel1.setkStartColor(new java.awt.Color(101, 78, 163));
+        kGradientPanel1.setMinimumSize(new java.awt.Dimension(800, 80));
+        kGradientPanel1.setPreferredSize(new java.awt.Dimension(800, 80));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAssignOrphan.setText("Orphan Assignment");
         btnAssignOrphan.addActionListener(new java.awt.event.ActionListener() {
@@ -67,31 +65,49 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
                 btnAssignOrphanActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAssignOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 220, 190, -1));
+        kGradientPanel1.add(btnAssignOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 190, 40));
 
         btnViewOrphan.setText("View On Going Orphan");
-        jPanel2.add(btnViewOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 270, 190, -1));
+        btnViewOrphan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewOrphanActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnViewOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 190, 40));
 
         btnViewAdoptionReq.setText("View Adoption Request");
-        jPanel2.add(btnViewAdoptionReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 320, 190, -1));
-
-        btnRegOrphan.setText("Register Orphan");
-        btnRegOrphan.addActionListener(new java.awt.event.ActionListener() {
+        btnViewAdoptionReq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegOrphanActionPerformed(evt);
+                btnViewAdoptionReqActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 120, 190, -1));
+        kGradientPanel1.add(btnViewAdoptionReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 190, 40));
 
-        btnRequestVolunteer.setText("Request Volunteer");
-        btnRequestVolunteer.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRequestVolunteerActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRequestVolunteer, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 170, 190, -1));
+        kGradientPanel1.add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        jSplitPane1.setLeftComponent(jPanel2);
+        jSplitPane1.setLeftComponent(kGradientPanel1);
+
+        kGradientPanel2.setkEndColor(new java.awt.Color(101, 78, 163));
+        kGradientPanel2.setkStartColor(new java.awt.Color(234, 175, 200));
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 515, Short.MAX_VALUE)
+        );
+
+        jSplitPane1.setRightComponent(kGradientPanel2);
 
         getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
@@ -100,15 +116,24 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
 
     private void btnAssignOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignOrphanActionPerformed
         // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new OrphanAssignmentJPanel());
     }//GEN-LAST:event_btnAssignOrphanActionPerformed
 
-    private void btnRegOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOrphanActionPerformed
+    private void btnViewOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrphanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegOrphanActionPerformed
+        jSplitPane1.setRightComponent(new ViewOrphanJPanel());
+    }//GEN-LAST:event_btnViewOrphanActionPerformed
 
-    private void btnRequestVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestVolunteerActionPerformed
+    private void btnViewAdoptionReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAdoptionReqActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRequestVolunteerActionPerformed
+        jSplitPane1.setRightComponent(new AdoptionRequestJPanel());
+    }//GEN-LAST:event_btnViewAdoptionReqActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        this.setVisible(false);
+        //        MainJFrame mainJFrame = new MainJFrame();
+        //        mainJFrame.setVisible(true);
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,13 +172,12 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignOrphan;
-    private javax.swing.JButton btnRegOrphan;
-    private javax.swing.JButton btnRequestVolunteer;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnViewAdoptionReq;
     private javax.swing.JButton btnViewOrphan;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     // End of variables declaration//GEN-END:variables
 }
