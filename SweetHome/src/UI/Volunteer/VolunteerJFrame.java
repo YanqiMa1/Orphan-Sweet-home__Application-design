@@ -58,8 +58,8 @@ public class VolunteerJFrame extends javax.swing.JFrame {
 
         kGradientPanel2.setkEndColor(new java.awt.Color(101, 78, 163));
         kGradientPanel2.setkStartColor(new java.awt.Color(234, 175, 200));
-        kGradientPanel2.setMinimumSize(new java.awt.Dimension(800, 503));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(800, 495));
+        kGradientPanel2.setMinimumSize(new java.awt.Dimension(800, 520));
+        kGradientPanel2.setPreferredSize(new java.awt.Dimension(800, 520));
         kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
