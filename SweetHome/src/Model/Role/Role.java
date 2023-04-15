@@ -9,6 +9,7 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import ui.AdministrativeRole.AdminWorkAreaJFrame;
 
@@ -49,7 +50,7 @@ public abstract class Role {
 
     public RoleType type;
     
-    public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem Ecosystem);
+    public abstract JFrame createWorkArea(EcoSystem ecosystem, Network network, Enterprise enterprise, UserAccount useraccount);
 
     public JPanel createAdminWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem) {
         this.type = RoleType.SystemAdmin;
