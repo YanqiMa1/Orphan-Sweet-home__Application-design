@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model.Role;
 
 import Model.EcoSystem.EcoSystem;
@@ -14,7 +11,7 @@ import ui.AdministrativeRole.AdminWorkAreaJFrame;
 
 /**
  *
- * @author Jiale Lyu
+ * @author Ma2017
  */
 public abstract class Role {
     

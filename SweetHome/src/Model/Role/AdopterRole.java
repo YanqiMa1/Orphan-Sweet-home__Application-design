@@ -8,13 +8,13 @@ import Model.Organization.AdopterOrganization;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import ui.Adopter.AdopterWorkAreaJFrame;
+
 
 
 
 /**
  *
- * @author fanyesun
+ * @author Ma2017
  */
 public class AdopterRole extends Role {
 
