@@ -8,7 +8,7 @@ import Model.Organization.AdopterOrganization;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import ui.Adopter.AdopterWorkAreaJFrame;
+
 
 
 
