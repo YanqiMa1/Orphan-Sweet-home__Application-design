@@ -6,8 +6,9 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
 import ui.AdministrativeRole.AdminWorkAreaJFrame;
+
 
 
 /**
@@ -19,10 +20,14 @@ public class SystemAdminRole extends Role {
     public SystemAdminRole() {
         this.type = RoleType.SystemAdmin;
     }
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem ecosystem) {
-        this.type = RoleType.SystemAdmin;
-        return new AdminWorkAreaJFrame(userProcessContainer, account, ecosystem);
+
+    
+     @Override
+    public JFrame createWorkArea(EcoSystem ecosys, Network network,Enterprise enterprise, Organization org, UserAccount useraccount) {
+      
+  
+        return new AdminWorkAreaJFrame(ecosys,useraccount);
+        
     }
 
 }

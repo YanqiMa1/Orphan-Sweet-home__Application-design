@@ -9,7 +9,8 @@ import Model.Organization.Organization;
 import Model.Organization.VolunteerOrganization;
 import Model.UserAccount.UserAccount;
 import UI.Volunteer.VolunteerJFrame;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
+
 
 /**
  *
@@ -23,17 +24,12 @@ public class VolunteerRole extends Role {
     }
 
 
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization,
-            
-            Enterprise enterprise, Network network, EcoSystem ecosystem) {
+     @Override
+    public JFrame createWorkArea(EcoSystem ecosys, Network network,Enterprise enterprise, Organization org, UserAccount useraccount) {
+      
+  
+        return new VolunteerJFrame(ecosys,network,(VolunteerEnterprise)enterprise, (VolunteerOrganization)org,  useraccount);
         
-        
-        this.type = RoleType.Volunteer;
-        
-        return new VolunteerJFrame(userProcessContainer, account, (VolunteerOrganization) organization,
-                
-                (VolunteerEnterprise) enterprise, network, ecosystem);
     }
 
 
