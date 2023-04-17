@@ -26,10 +26,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        btnBack = new javax.swing.JButton();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
         lblUsersList = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -46,43 +43,14 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         lblPassword = new javax.swing.JLabel();
         pwdUser = new javax.swing.JPasswordField();
         btnCreateUser = new javax.swing.JButton();
+        lblOrganizationPicker = new javax.swing.JLabel();
+        cmbNetworkList = new javax.swing.JComboBox();
 
         setLayout(new java.awt.BorderLayout());
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(255, 221, 225));
-        kGradientPanel1.setkStartColor(new java.awt.Color(238, 156, 167));
-        kGradientPanel1.setPreferredSize(new java.awt.Dimension(800, 80));
-
-        btnBack.setBackground(new java.awt.Color(238, 156, 167));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("<< Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(867, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(23, 23, 23))
-        );
-
-        jSplitPane1.setTopComponent(kGradientPanel1);
-
-        kGradientPanel2.setkEndColor(new java.awt.Color(255, 221, 225));
-        kGradientPanel2.setkStartColor(new java.awt.Color(238, 156, 167));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(800, 520));
+        kGradientPanel3.setkEndColor(new java.awt.Color(255, 221, 225));
+        kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
+        kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,14 +65,14 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "User Name", "Role", "Organization", "Enterprise"
+                "User Name", "Role", "Organization", "Enterprise", "Network"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -153,100 +121,120 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         btnCreateUser.setText("Create User");
         btnCreateUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsersList)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCreateUser)
-                            .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblOrganization)
-                                        .addComponent(lblEmployee)
-                                        .addComponent(lblRole)
-                                        .addComponent(lblUserName)
-                                        .addComponent(lblPassword))
-                                    .addGap(19, 19, 19)
-                                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cmbEnterprise, 0, 138, Short.MAX_VALUE)
-                                        .addComponent(cmbOrg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbRoles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtUserName)
-                                        .addComponent(pwdUser))))))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(lblTitle)))
-                .addContainerGap(217, Short.MAX_VALUE))
+        lblOrganizationPicker.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
+        lblOrganizationPicker.setText("Region:");
+
+        cmbNetworkList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNetworkList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNetworkListActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
+                .addGap(337, 337, 337))
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel3Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEmployee)
+                                    .addComponent(lblOrganization)
+                                    .addComponent(lblOrganizationPicker))
+                                .addGap(18, 18, 18)
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblUserName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreateUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCreateUser, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRole, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(lblUsersList))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(lblTitle))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(lblUsersList)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addContainerGap(143, Short.MAX_VALUE)
+                        .addComponent(lblUsersList)
+                        .addGap(28, 28, 28))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(lblTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblOrganizationPicker))
+                        .addGap(7, 7, 7)))
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblOrganization)
                             .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmployee))
-                        .addGap(27, 27, 27)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmployee)
+                            .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRole)
                             .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
+                        .addGap(18, 18, 18)
                         .addComponent(lblCreateUser)
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblUserName)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUserName))
+                        .addGap(27, 27, 27)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPassword)
                             .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78))
+                        .addGap(24, 24, 24)
+                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106))
         );
 
-        jSplitPane1.setRightComponent(kGradientPanel2);
-
-        add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbNetworkListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkListActionPerformed
+
+        populateEnterpriseCombo();
+    }//GEN-LAST:event_cmbNetworkListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateUser;
     private javax.swing.JComboBox cmbEnterprise;
+    private javax.swing.JComboBox cmbNetworkList;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbRoles;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSplitPane jSplitPane1;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblCreateUser;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblOrganization;
+    private javax.swing.JLabel lblOrganizationPicker;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;

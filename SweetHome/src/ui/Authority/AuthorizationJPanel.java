@@ -28,15 +28,12 @@ public class AuthorizationJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWorkRequests = new javax.swing.JTable();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        btnBack = new javax.swing.JButton();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        btnAssign = new javax.swing.JButton();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
-        btnApprove = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblWorkRequests1 = new javax.swing.JTable();
+        btnAssign = new javax.swing.JButton();
+        btnApprove = new javax.swing.JButton();
 
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -72,56 +69,13 @@ public class AuthorizationJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new java.awt.BorderLayout());
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(247, 183, 51));
-        kGradientPanel1.setkStartColor(new java.awt.Color(252, 74, 26));
-        kGradientPanel1.setPreferredSize(new java.awt.Dimension(800, 80));
-
-        btnBack.setBackground(new java.awt.Color(252, 74, 26));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("<< Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(btnBack)
-                .addContainerGap(718, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setTopComponent(kGradientPanel1);
-
-        kGradientPanel2.setkEndColor(new java.awt.Color(247, 183, 51));
-        kGradientPanel2.setkStartColor(new java.awt.Color(252, 74, 26));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(800, 520));
-
-        btnAssign.setBackground(new java.awt.Color(252, 74, 26));
-        btnAssign.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAssign.setForeground(new java.awt.Color(255, 255, 255));
-        btnAssign.setText("Assign to Me");
-        btnAssign.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel3.setkEndColor(new java.awt.Color(247, 183, 51));
+        kGradientPanel3.setkStartColor(new java.awt.Color(252, 74, 26));
+        kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Adopter Authorization");
-
-        btnApprove.setBackground(new java.awt.Color(252, 74, 26));
-        btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnApprove.setForeground(new java.awt.Color(255, 255, 255));
-        btnApprove.setText("Approve");
-        btnApprove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jScrollPane2.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -153,52 +107,61 @@ public class AuthorizationJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblWorkRequests1);
 
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAssign)
-                .addGap(35, 35, 35)
-                .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(296, 296, 296)
-                .addComponent(lblTitle)
-                .addContainerGap(239, Short.MAX_VALUE))
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        btnAssign.setBackground(new java.awt.Color(252, 74, 26));
+        btnAssign.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAssign.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssign.setText("Assign to Me");
+        btnAssign.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnApprove.setBackground(new java.awt.Color(252, 74, 26));
+        btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnApprove.setForeground(new java.awt.Color(255, 255, 255));
+        btnApprove.setText("Approve");
+        btnApprove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(btnAssign)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addGap(259, 259, 259))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
         );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnApprove)
-                    .addComponent(btnAssign)))
+                    .addComponent(btnAssign))
+                .addGap(99, 99, 99))
         );
 
-        jSplitPane1.setRightComponent(kGradientPanel2);
-
-        add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnAssign;
-    private javax.swing.JButton btnBack;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSplitPane jSplitPane1;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblWorkRequests;
     private javax.swing.JTable tblWorkRequests1;

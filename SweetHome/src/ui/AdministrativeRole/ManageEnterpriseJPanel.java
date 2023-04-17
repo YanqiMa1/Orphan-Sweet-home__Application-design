@@ -26,64 +26,33 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        btnBack = new javax.swing.JButton();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
-        lblEnterpriseList = new javax.swing.JLabel();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
+        lblEnterpriseList = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEnterprises = new javax.swing.JTable();
-        cmbEnterprise = new javax.swing.JComboBox();
         lblAdd = new javax.swing.JLabel();
         lblSelectEnterpriseType = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
-        txtName = new javax.swing.JTextField();
+        cmbEnterprise = new javax.swing.JComboBox();
         lblEnterpriseName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        btnCreateEnterprise = new javax.swing.JButton();
+        lblSelectNetwork = new javax.swing.JLabel();
+        cmbNetworkList = new javax.swing.JComboBox();
 
         setLayout(new java.awt.BorderLayout());
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        kGradientPanel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        kGradientPanel1.setkEndColor(new java.awt.Color(255, 221, 225));
-        kGradientPanel1.setkStartColor(new java.awt.Color(238, 156, 167));
-
-        btnBack.setBackground(new java.awt.Color(238, 156, 167));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("<< Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(642, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(17, 17, 17))
-        );
-
-        jSplitPane1.setTopComponent(kGradientPanel1);
-
-        kGradientPanel2.setkEndColor(new java.awt.Color(255, 221, 225));
-        kGradientPanel2.setkStartColor(new java.awt.Color(238, 156, 167));
-
-        lblEnterpriseList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblEnterpriseList.setForeground(new java.awt.Color(255, 255, 255));
-        lblEnterpriseList.setText("Enterprise List:");
+        kGradientPanel3.setkEndColor(new java.awt.Color(255, 221, 225));
+        kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
+        kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Enterprise");
+
+        lblEnterpriseList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEnterpriseList.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnterpriseList.setText("Enterprise List:");
 
         tblEnterprises.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,8 +82,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEnterprises);
 
-        cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lblAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAdd.setForeground(new java.awt.Color(255, 255, 255));
         lblAdd.setText("Add Enterprise:");
@@ -123,99 +90,107 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         lblSelectEnterpriseType.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectEnterpriseType.setText("Select Enterprise Type:");
 
-        btnAdd.setBackground(new java.awt.Color(238, 156, 167));
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Create Enterprise");
-        btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        txtName.setBackground(new java.awt.Color(245, 245, 255));
+        cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblEnterpriseName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEnterpriseName.setForeground(new java.awt.Color(255, 255, 255));
         lblEnterpriseName.setText("Enterprise Name:");
 
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(275, 275, 275)
-                        .addComponent(lblTitle))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        txtName.setBackground(new java.awt.Color(245, 245, 255));
+
+        btnCreateEnterprise.setBackground(new java.awt.Color(238, 156, 167));
+        btnCreateEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCreateEnterprise.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateEnterprise.setText("Create Enterprise");
+        btnCreateEnterprise.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        lblSelectNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSelectNetwork.setForeground(new java.awt.Color(255, 255, 255));
+        lblSelectNetwork.setText("Select Network:");
+
+        cmbNetworkList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNetworkList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNetworkListActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEnterpriseList))
+                        .addGap(80, 80, 80)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSelectEnterpriseType)
-                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblAdd)))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(lblEnterpriseName)
-                        .addGap(32, 32, 32)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbEnterprise, 0, 164, Short.MAX_VALUE)
-                            .addComponent(txtName))
-                        .addGap(61, 61, 61)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEnterpriseList))))
-                .addContainerGap(115, Short.MAX_VALUE))
+                            .addComponent(lblAdd)
+                            .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEnterpriseName)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCreateEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSelectNetwork)))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(lblTitle)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblTitle)
-                .addGap(13, 13, 13)
-                .addComponent(lblEnterpriseList)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(lblAdd)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSelectEnterpriseType)
-                            .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(lblTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(lblEnterpriseList)
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEnterpriseName))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSelectNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblAdd)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSelectEnterpriseType)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblEnterpriseName)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnCreateEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(142, 142, 142))
         );
 
-        jSplitPane1.setRightComponent(kGradientPanel2);
-
-        add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbNetworkListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNetworkListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreateEnterprise;
     private javax.swing.JComboBox cmbEnterprise;
+    private javax.swing.JComboBox cmbNetworkList;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSplitPane jSplitPane1;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblAdd;
     private javax.swing.JLabel lblEnterpriseList;
     private javax.swing.JLabel lblEnterpriseName;
     private javax.swing.JLabel lblSelectEnterpriseType;
+    private javax.swing.JLabel lblSelectNetwork;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblEnterprises;
     private javax.swing.JTextField txtName;
