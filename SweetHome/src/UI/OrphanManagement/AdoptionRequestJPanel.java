@@ -4,17 +4,32 @@
  */
 package UI.OrphanManagement;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+
 /**
  *
  * @author alilovepeach
  */
 public class AdoptionRequestJPanel extends javax.swing.JPanel {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form AdoptionRequestJPanel
      */
-    public AdoptionRequestJPanel() {
+    public AdoptionRequestJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
     }
 
     /**
@@ -30,8 +45,8 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAnimalAdoptionWorkQueue = new javax.swing.JTable();
-        btnApproveAnimalAdoptionRequest = new javax.swing.JButton();
-        btnRejectAnimalAdoptionRequest = new javax.swing.JButton();
+        btnApproveAdoptionRequest = new javax.swing.JButton();
+        btnRejectAdoptionRequest = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 204));
         setSize(new java.awt.Dimension(800, 520));
@@ -76,37 +91,37 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
 
         kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 770, 350));
 
-        btnApproveAnimalAdoptionRequest.setText("Approve");
-        btnApproveAnimalAdoptionRequest.addActionListener(new java.awt.event.ActionListener() {
+        btnApproveAdoptionRequest.setText("Approve");
+        btnApproveAdoptionRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApproveAnimalAdoptionRequestActionPerformed(evt);
+                btnApproveAdoptionRequestActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnApproveAnimalAdoptionRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 170, 40));
+        kGradientPanel1.add(btnApproveAdoptionRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 170, 40));
 
-        btnRejectAnimalAdoptionRequest.setText("Reject");
-        btnRejectAnimalAdoptionRequest.addActionListener(new java.awt.event.ActionListener() {
+        btnRejectAdoptionRequest.setText("Reject");
+        btnRejectAdoptionRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectAnimalAdoptionRequestActionPerformed(evt);
+                btnRejectAdoptionRequestActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnRejectAnimalAdoptionRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 170, 40));
+        kGradientPanel1.add(btnRejectAdoptionRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 170, 40));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnApproveAnimalAdoptionRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveAnimalAdoptionRequestActionPerformed
+    private void btnApproveAdoptionRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveAdoptionRequestActionPerformed
 
-    }//GEN-LAST:event_btnApproveAnimalAdoptionRequestActionPerformed
+    }//GEN-LAST:event_btnApproveAdoptionRequestActionPerformed
 
-    private void btnRejectAnimalAdoptionRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectAnimalAdoptionRequestActionPerformed
+    private void btnRejectAdoptionRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectAdoptionRequestActionPerformed
 
-    }//GEN-LAST:event_btnRejectAnimalAdoptionRequestActionPerformed
+    }//GEN-LAST:event_btnRejectAdoptionRequestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnApproveAnimalAdoptionRequest;
-    private javax.swing.JButton btnRejectAnimalAdoptionRequest;
+    private javax.swing.JButton btnApproveAdoptionRequest;
+    private javax.swing.JButton btnRejectAdoptionRequest;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblTitle;

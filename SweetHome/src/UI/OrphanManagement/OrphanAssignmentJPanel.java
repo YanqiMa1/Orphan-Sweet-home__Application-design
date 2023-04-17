@@ -4,17 +4,33 @@
  */
 package UI.OrphanManagement;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+
 /**
  *
  * @author alilovepeach
  */
 public class OrphanAssignmentJPanel extends javax.swing.JPanel {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form OrphanAssignment
      */
-    public OrphanAssignmentJPanel() {
+    public OrphanAssignmentJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
+        this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
     }
 
     /**
@@ -26,9 +42,10 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblAnimalManagerWorkArea = new javax.swing.JTable();
-        btnAssignAnimalToMe = new javax.swing.JButton();
+        tblOrphanManagerWorkArea = new javax.swing.JTable();
+        btnAssignOrphanToMe = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         btnViewDetial = new javax.swing.JButton();
 
@@ -38,7 +55,11 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         setSize(new java.awt.Dimension(800, 520));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblAnimalManagerWorkArea.setModel(new javax.swing.table.DefaultTableModel(
+        kGradientPanel1.setkEndColor(new java.awt.Color(101, 78, 163));
+        kGradientPanel1.setkStartColor(new java.awt.Color(234, 175, 200));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblOrphanManagerWorkArea.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -64,22 +85,22 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblAnimalManagerWorkArea);
+        jScrollPane1.setViewportView(tblOrphanManagerWorkArea);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 780, 350));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 780, 350));
 
-        btnAssignAnimalToMe.setText("Assign to me");
-        btnAssignAnimalToMe.addActionListener(new java.awt.event.ActionListener() {
+        btnAssignOrphanToMe.setText("Assign to me");
+        btnAssignOrphanToMe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignAnimalToMeActionPerformed(evt);
+                btnAssignOrphanToMeActionPerformed(evt);
             }
         });
-        add(btnAssignAnimalToMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, 40));
+        kGradientPanel1.add(btnAssignOrphanToMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, 40));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Manage Animal");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 150, -1));
+        lblTitle.setText("Manage Orphan");
+        kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 150, -1));
 
         btnViewDetial.setText("View Detail");
         btnViewDetial.addActionListener(new java.awt.event.ActionListener() {
@@ -87,12 +108,14 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
                 btnViewDetialActionPerformed(evt);
             }
         });
-        add(btnViewDetial, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 110, 40));
+        kGradientPanel1.add(btnViewDetial, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 110, 40));
+
+        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAssignAnimalToMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignAnimalToMeActionPerformed
+    private void btnAssignOrphanToMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignOrphanToMeActionPerformed
 
-    }//GEN-LAST:event_btnAssignAnimalToMeActionPerformed
+    }//GEN-LAST:event_btnAssignOrphanToMeActionPerformed
 
     private void btnViewDetialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetialActionPerformed
 
@@ -100,10 +123,11 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAssignAnimalToMe;
+    private javax.swing.JButton btnAssignOrphanToMe;
     private javax.swing.JButton btnViewDetial;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tblAnimalManagerWorkArea;
+    private javax.swing.JTable tblOrphanManagerWorkArea;
     // End of variables declaration//GEN-END:variables
 }
