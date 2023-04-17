@@ -2,19 +2,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ui.Authority;
+package UI.Authority;
+
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
 
 /**
  *
  * @author hp
  */
 public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form AuthorityWorkAreaJFrame
      */
-    public AuthorityWorkAreaJFrame() {
+    
+    public AuthorityWorkAreaJFrame(){
         initComponents();
+    }
+    public AuthorityWorkAreaJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
     }
 
     /**

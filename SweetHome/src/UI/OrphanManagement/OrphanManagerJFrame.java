@@ -4,17 +4,39 @@
  */
 package UI.OrphanManagement;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+import UI.Basic.LoginJFrame;
+
 /**
  *
  * @author alilovepeach
  */
 public class OrphanManagerJFrame extends javax.swing.JFrame {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form OrphanManagerJFrame
      */
+    
     public OrphanManagerJFrame() {
         initComponents();
+
+    }
+    public OrphanManagerJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
     }
 
     /**
@@ -116,23 +138,23 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
 
     private void btnAssignOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignOrphanActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new OrphanAssignmentJPanel());
+        jSplitPane1.setRightComponent(new OrphanAssignmentJPanel(this.ecosys, this.network, this.enterprise, this.org, this.useraccount));
     }//GEN-LAST:event_btnAssignOrphanActionPerformed
 
     private void btnViewOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrphanActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ViewOrphanJPanel());
+        jSplitPane1.setRightComponent(new ViewOrphanJPanel(this.ecosys, this.network, this.enterprise, this.org, this.useraccount));
     }//GEN-LAST:event_btnViewOrphanActionPerformed
 
     private void btnViewAdoptionReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAdoptionReqActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new AdoptionRequestJPanel());
+        jSplitPane1.setRightComponent(new AdoptionRequestJPanel(this.ecosys, this.network, this.enterprise, this.org, this.useraccount));
     }//GEN-LAST:event_btnViewAdoptionReqActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
-        //        MainJFrame mainJFrame = new MainJFrame();
-        //        mainJFrame.setVisible(true);
+        LoginJFrame loginJFrame = new LoginJFrame();
+        loginJFrame.setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**

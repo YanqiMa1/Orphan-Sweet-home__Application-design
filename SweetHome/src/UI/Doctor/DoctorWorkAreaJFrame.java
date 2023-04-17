@@ -4,17 +4,38 @@
  */
 package UI.Doctor;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+import UI.Basic.LoginJFrame;
+
 /**
  *
  * @author Ma2017
  */
 public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form DoctorWorkAreaJFrame
      */
     public DoctorWorkAreaJFrame() {
         initComponents();
+    }
+
+    public DoctorWorkAreaJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
     }
 
     /**
@@ -108,6 +129,11 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBtn.setText("LOG OUT");
         logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +147,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logoutBtn)
                 .addGap(27, 27, 27))
         );
@@ -149,6 +175,13 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
     private void viewdetailBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewdetailBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewdetailBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        LoginJFrame loginJFrame = new LoginJFrame();
+        loginJFrame.setVisible(true);
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
