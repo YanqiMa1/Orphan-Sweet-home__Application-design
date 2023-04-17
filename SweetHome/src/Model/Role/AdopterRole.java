@@ -25,17 +25,11 @@ public class AdopterRole extends Role {
     }
 
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem ecosystem) {
-//        this.type = RoleType.Adopter;
-//        return new AdopterWorkAreaJFrame(userProcessContainer, account, (AdopterOrganization) organization, (AdoptionEnterprise) enterprise, network, ecosystem);
-//    }
-
     @Override
     public JFrame createWorkArea(EcoSystem ecosys, Network network,Enterprise enterprise, Organization org, UserAccount useraccount) {
       
   
-        return new AdopterWorkAreaJFrame(ecosys,  network, enterprise,  org,  useraccount);
+        return new AdopterWorkAreaJFrame(ecosys,  network, (AdoptionEnterprise)enterprise, (AdopterOrganization)org,  useraccount);
         
     }
 

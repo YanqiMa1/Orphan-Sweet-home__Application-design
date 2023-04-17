@@ -4,17 +4,39 @@
  */
 package UI.VolunteerManagement;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+
 /**
  *
  * @author Ma2017
  */
 public class VolunteerManagerJFrame extends javax.swing.JFrame {
 
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
+
     /**
      * Creates new form VolunteerManagerJFrame
      */
     public VolunteerManagerJFrame() {
         initComponents();
+    }
+
+    public VolunteerManagerJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
     }
 
     /**

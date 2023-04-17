@@ -4,19 +4,41 @@
  */
 package ui.AdministrativeRole;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+
 /**
  *
  * @author hp
  */
 public class AdminWorkAreaJFrame extends javax.swing.JFrame {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
+    
     /**
      * Creates new form AdminWorkAreaJFrame
      */
-    public AdminWorkAreaJFrame() {
+    
+      public AdminWorkAreaJFrame() {
         initComponents();
+
     }
 
+  public AdminWorkAreaJFrame(EcoSystem ecosys,UserAccount useraccount) {
+        initComponents();
+         this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -1,18 +1,19 @@
-
 package Model.Role;
-
 
 import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
+import Model.Enterprise.AdoptionEnterprise;
 import Model.Enterprise.Enterprise;
 import Model.Enterprise.VolunteerEnterprise;
+import Model.Organization.AdopterOrganization;
 import Model.Organization.Organization;
 import Model.Organization.VolunteerManagementOrganization;
 import Model.UserAccount.UserAccount;
 import UI.VolunteerManagement.VolunteerManagerJFrame;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-
+import ui.AdministrativeRole.AdminWorkAreaJFrame;
+import ui.Adopter.AdopterWorkAreaJFrame;
 
 /**
  *
@@ -24,17 +25,12 @@ public class VolunteerManagerRole extends Role {
         this.type = RoleType.VolunteerManeger;
     }
 
-
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, 
-            Organization organization, Enterprise enterprise, Network network, EcoSystem ecosystem) {
+    public JFrame createWorkArea(EcoSystem ecosys, Network network,Enterprise enterprise, Organization org, UserAccount useraccount) {
+      
+  
+        return new VolunteerManagerJFrame(ecosys,network,(VolunteerEnterprise)enterprise, (VolunteerManagementOrganization)org,  useraccount);
         
-        this.type = RoleType.VolunteerManeger;
-        
-        return new VolunteerManagerJFrame(userProcessContainer, account, (VolunteerManagementOrganization) organization,
-                
-                (VolunteerEnterprise) enterprise, network, ecosystem);
     }
-
 
 }
