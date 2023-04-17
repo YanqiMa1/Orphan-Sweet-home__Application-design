@@ -4,6 +4,8 @@
  */
 package UI.OrphanRegister;
 
+import UI.Basic.LoginJFrame;
+
 /**
  *
  * @author alilovepeach
@@ -83,8 +85,8 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
-        //        MainJFrame mainJFrame = new MainJFrame();
-        //        mainJFrame.setVisible(true);
+        LoginJFrame loginJFrame = new LoginJFrame();
+        loginJFrame.setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnRegOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOrphanActionPerformed

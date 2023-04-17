@@ -32,7 +32,7 @@ public class OrphanDirectory {
         return enterprise;
     }
 
-    public Orphan createAnimal(String name) {
+    public Orphan createOrphan(String name) {
         Orphan orphan = new Orphan(name);
         orphan.setEnterprise((OrphanShelterEnterprise) enterprise);
         orphan.setId(orphanList.size() + 1);

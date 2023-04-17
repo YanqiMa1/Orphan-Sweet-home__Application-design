@@ -2,19 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ui.Adopter;
+package UI.Adopter;
+
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
 
 /**
  *
  * @author hp
  */
 public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form AdopterWorkAreaJFrame
      */
-    public AdopterWorkAreaJFrame() {
+    public AdopterWorkAreaJFrame(EcoSystem ecosys, Network network,Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
+        this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
     }
 
     /**
@@ -151,7 +167,7 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdopterWorkAreaJFrame().setVisible(true);
+//                new AdopterWorkAreaJFrame().setVisible(true);
             }
         });
     }
