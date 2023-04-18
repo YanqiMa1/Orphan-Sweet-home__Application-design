@@ -50,6 +50,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
         btnManageOrganization = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         kGradientPanel2 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,19 +71,27 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
         btnManageOrganization.setText("Manage Adopter Authorization");
         btnManageOrganization.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btnLogOut.setBackground(new java.awt.Color(252, 74, 26));
+        btnLogOut.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogOut.setText("<< LOG OUT");
+        btnLogOut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addComponent(btnLogOut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(242, 242, 242))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(lblTitle)
-                        .addGap(273, 273, 273))))
+                        .addGap(273, 273, 273))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(242, 242, 242))))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +100,11 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageOrganization)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(21, 21, 21))
         );
 
         jSplitPane1.setTopComponent(kGradientPanel1);
@@ -154,6 +167,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnManageOrganization;
     private javax.swing.JSplitPane jSplitPane1;
     private keeptoo.KGradientPanel kGradientPanel1;

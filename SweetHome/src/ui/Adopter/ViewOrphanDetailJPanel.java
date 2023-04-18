@@ -26,102 +26,67 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        btnBack = new javax.swing.JButton();
-        kGradientPanel2 = new keeptoo.KGradientPanel();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
-        lblMessage7 = new javax.swing.JLabel();
-        txtOrphanMessageFromDr = new javax.swing.JTextField();
-        txtOrphanRace = new javax.swing.JTextField();
-        txtOrphanGender = new javax.swing.JTextField();
-        lblMessage8 = new javax.swing.JLabel();
         lblPhoto = new javax.swing.JLabel();
-        txtOrphanfName = new javax.swing.JTextField();
-        txtOrphanAge = new javax.swing.JTextField();
-        lblMessage12 = new javax.swing.JLabel();
-        lblMessage9 = new javax.swing.JLabel();
         lblMessage5 = new javax.swing.JLabel();
+        txtOrphanfName = new javax.swing.JTextField();
+        lblMessage7 = new javax.swing.JLabel();
+        txtOrphanAge = new javax.swing.JTextField();
+        lblMessage8 = new javax.swing.JLabel();
+        lblMessage9 = new javax.swing.JLabel();
+        txtOrphanRace = new javax.swing.JTextField();
+        lblMessage12 = new javax.swing.JLabel();
+        txtOrphanMessageFromDr = new javax.swing.JTextField();
         lblMessage11 = new javax.swing.JLabel();
         txtAnimalMessageFromPharmacy = new javax.swing.JTextField();
+        rbtnMale1 = new javax.swing.JRadioButton();
+        rbtnFemale = new javax.swing.JRadioButton();
 
         setBackground(new java.awt.Color(247, 183, 51));
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new java.awt.BorderLayout());
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        kGradientPanel1.setkEndColor(new java.awt.Color(247, 183, 51));
-        kGradientPanel1.setkStartColor(new java.awt.Color(252, 74, 26));
-        kGradientPanel1.setPreferredSize(new java.awt.Dimension(800, 80));
-
-        btnBack.setBackground(new java.awt.Color(252, 74, 26));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("<< Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(btnBack)
-                .addContainerGap(767, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(16, 16, 16))
-        );
-
-        jSplitPane1.setTopComponent(kGradientPanel1);
-
-        kGradientPanel2.setkEndColor(new java.awt.Color(247, 183, 51));
-        kGradientPanel2.setkStartColor(new java.awt.Color(252, 74, 26));
-        kGradientPanel2.setPreferredSize(new java.awt.Dimension(800, 520));
+        kGradientPanel3.setkEndColor(new java.awt.Color(247, 183, 51));
+        kGradientPanel3.setkStartColor(new java.awt.Color(252, 74, 26));
+        kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText(" Orphan Detail");
+
+        lblMessage5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMessage5.setForeground(new java.awt.Color(255, 255, 255));
+        lblMessage5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMessage5.setText("Name:");
+
+        txtOrphanfName.setEnabled(false);
 
         lblMessage7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMessage7.setForeground(new java.awt.Color(255, 255, 255));
         lblMessage7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage7.setText("Age:");
 
-        txtOrphanMessageFromDr.setEnabled(false);
-
-        txtOrphanRace.setEnabled(false);
-
-        txtOrphanGender.setEnabled(false);
+        txtOrphanAge.setEnabled(false);
 
         lblMessage8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMessage8.setForeground(new java.awt.Color(255, 255, 255));
         lblMessage8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage8.setText("Sex:");
 
-        txtOrphanfName.setEnabled(false);
+        lblMessage9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMessage9.setForeground(new java.awt.Color(255, 255, 255));
+        lblMessage9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMessage9.setText("Race:");
 
-        txtOrphanAge.setEnabled(false);
+        txtOrphanRace.setEnabled(false);
 
         lblMessage12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMessage12.setForeground(new java.awt.Color(255, 255, 255));
         lblMessage12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage12.setText("Docter Feedback:");
 
-        lblMessage9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblMessage9.setForeground(new java.awt.Color(255, 255, 255));
-        lblMessage9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage9.setText("Race:");
-
-        lblMessage5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblMessage5.setForeground(new java.awt.Color(255, 255, 255));
-        lblMessage5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblMessage5.setText("Name:");
+        txtOrphanMessageFromDr.setEnabled(false);
 
         lblMessage11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblMessage11.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,96 +95,121 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
 
         txtAnimalMessageFromPharmacy.setEnabled(false);
 
-        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
-        kGradientPanel2.setLayout(kGradientPanel2Layout);
-        kGradientPanel2Layout.setHorizontalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                    .addGap(452, 452, 452)
-                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblMessage8)
-                        .addComponent(lblMessage9)
-                        .addComponent(lblMessage7))
-                    .addGap(28, 28, 28)
-                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtOrphanRace, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtOrphanGender, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtOrphanAge, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtOrphanfName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                                    .addGap(32, 32, 32)
-                                    .addComponent(lblMessage12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblMessage5)
-                                    .addGap(28, 28, 28))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblMessage11)
-                            .addGap(18, 18, 18)))
-                    .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtOrphanMessageFromDr, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                        .addComponent(txtAnimalMessageFromPharmacy))
-                    .addGap(186, 186, 186)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+        rbtnMale1.setForeground(new java.awt.Color(255, 255, 255));
+        rbtnMale1.setSelected(true);
+        rbtnMale1.setText("Male");
+        rbtnMale1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnMale1ActionPerformed(evt);
+            }
+        });
+
+        rbtnFemale.setForeground(new java.awt.Color(255, 255, 255));
+        rbtnFemale.setText("Female");
+        rbtnFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnFemaleActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(297, 297, 297))
-        );
-        kGradientPanel2Layout.setVerticalGroup(
-            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addComponent(lblTitle)
+                .addGap(275, 275, 275))
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtOrphanfName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMessage5))
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMessage11)
+                            .addComponent(lblMessage12))
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtOrphanAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtOrphanGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtOrphanMessageFromDr, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnimalMessageFromPharmacy, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(259, 259, 259))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addComponent(lblMessage7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtOrphanAge, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblMessage8)
+                                    .addComponent(lblMessage9))
+                                .addGap(18, 18, 18)
+                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtOrphanRace, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                        .addComponent(rbtnMale1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbtnFemale))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel3Layout.createSequentialGroup()
+                                .addComponent(lblMessage5)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtOrphanfName, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(lblTitle)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtOrphanRace, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage12, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtOrphanMessageFromDr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtOrphanfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMessage5))
+                        .addGap(33, 33, 33)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMessage7)
+                            .addComponent(txtOrphanAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMessage8)
+                            .addComponent(rbtnMale1)
+                            .addComponent(rbtnFemale))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMessage9)
+                            .addComponent(txtOrphanRace, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtOrphanMessageFromDr, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMessage12))))
+                .addGap(30, 30, 30)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMessage11)
                     .addComponent(txtAnimalMessageFromPharmacy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(kGradientPanel2);
-
-        add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rbtnMale1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMale1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnMale1ActionPerformed
+
+    private void rbtnFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnFemaleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JSplitPane jSplitPane1;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblMessage11;
     private javax.swing.JLabel lblMessage12;
     private javax.swing.JLabel lblMessage5;
@@ -228,9 +218,11 @@ public class ViewOrphanDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMessage9;
     private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JRadioButton rbtnFemale;
+    private javax.swing.JRadioButton rbtnMale;
+    private javax.swing.JRadioButton rbtnMale1;
     private javax.swing.JTextField txtAnimalMessageFromPharmacy;
     private javax.swing.JTextField txtOrphanAge;
-    private javax.swing.JTextField txtOrphanGender;
     private javax.swing.JTextField txtOrphanMessageFromDr;
     private javax.swing.JTextField txtOrphanRace;
     private javax.swing.JTextField txtOrphanfName;
