@@ -4,6 +4,18 @@
  */
 package UI.OrphanRegister;
 
+import Model.Enterprise.OrphanShelterEnterprise;
+import Model.Orphan.Orphan;
+import Model.UserAccount.UserAccount;
+import java.awt.Image;
+import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author alilovepeach
@@ -13,6 +25,12 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form OrpanRegisterJPanel
      */
+    private OrphanShelterEnterprise enterprise;
+    private UserAccount userAccount;
+    private ImageIcon animalImage;
+    private File imageFile;
+    private Boolean validate = false;
+
     public OrphanRegisterJPanel() {
         initComponents();
     }
@@ -28,22 +46,21 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         kGradientPanel1 = new keeptoo.KGradientPanel();
-        btnSaveAnimal = new javax.swing.JButton();
+        btnRegisterOrphan = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
-        fieldAnimalName = new javax.swing.JTextField();
+        fieldOrphanName = new javax.swing.JTextField();
         lblMessage5 = new javax.swing.JLabel();
-        txtAnimalArea = new javax.swing.JTextField();
+        fieldAge = new javax.swing.JTextField();
         lblMessage6 = new javax.swing.JLabel();
         lblMessage7 = new javax.swing.JLabel();
-        fieldWeight = new javax.swing.JTextField();
+        fieldRace = new javax.swing.JTextField();
         lblMessage8 = new javax.swing.JLabel();
         lblMessage12 = new javax.swing.JLabel();
-        btnUploadAnimalPhoto = new javax.swing.JButton();
+        btnUploadPhoto = new javax.swing.JButton();
         fieldPhoto = new javax.swing.JTextField();
-        rbtnMale = new javax.swing.JRadioButton();
+        maleRadioBtn = new javax.swing.JRadioButton();
         rbtnFemale = new javax.swing.JRadioButton();
-        btnBrowsePhoto = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelImage = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 255));
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -54,23 +71,23 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         kGradientPanel1.setkStartColor(new java.awt.Color(234, 175, 200));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSaveAnimal.setText("Register");
-        btnSaveAnimal.addActionListener(new java.awt.event.ActionListener() {
+        btnRegisterOrphan.setText("Register");
+        btnRegisterOrphan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveAnimalActionPerformed(evt);
+                btnRegisterOrphanActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnSaveAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 100, 30));
+        kGradientPanel1.add(btnRegisterOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 100, 30));
 
         lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         lblTitle.setText("Register Orphan");
         kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
-        kGradientPanel1.add(fieldAnimalName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 217, -1));
+        kGradientPanel1.add(fieldOrphanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 217, -1));
 
         lblMessage5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage5.setText("Name:");
         kGradientPanel1.add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
-        kGradientPanel1.add(txtAnimalArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 217, -1));
+        kGradientPanel1.add(fieldAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 217, -1));
 
         lblMessage6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage6.setText("Age:");
@@ -80,17 +97,17 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         lblMessage7.setText("Sex:");
         kGradientPanel1.add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
 
-        fieldWeight.addActionListener(new java.awt.event.ActionListener() {
+        fieldRace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldWeightActionPerformed(evt);
+                fieldRaceActionPerformed(evt);
             }
         });
-        fieldWeight.addKeyListener(new java.awt.event.KeyAdapter() {
+        fieldRace.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                fieldWeightKeyPressed(evt);
+                fieldRaceKeyPressed(evt);
             }
         });
-        kGradientPanel1.add(fieldWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 217, -1));
+        kGradientPanel1.add(fieldRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 217, -1));
 
         lblMessage8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage8.setText("Race:");
@@ -100,24 +117,24 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         lblMessage12.setText("Photo:");
         kGradientPanel1.add(lblMessage12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
 
-        btnUploadAnimalPhoto.setText("Upload");
-        btnUploadAnimalPhoto.addActionListener(new java.awt.event.ActionListener() {
+        btnUploadPhoto.setText("Upload");
+        btnUploadPhoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUploadAnimalPhotoActionPerformed(evt);
+                btnUploadPhotoActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnUploadAnimalPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 100, 30));
+        kGradientPanel1.add(btnUploadPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 100, -1));
         kGradientPanel1.add(fieldPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 217, -1));
 
-        buttonGroup1.add(rbtnMale);
-        rbtnMale.setSelected(true);
-        rbtnMale.setText("Male");
-        rbtnMale.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(maleRadioBtn);
+        maleRadioBtn.setSelected(true);
+        maleRadioBtn.setText("Male");
+        maleRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnMaleActionPerformed(evt);
+                maleRadioBtnActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(rbtnMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+        kGradientPanel1.add(maleRadioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
 
         buttonGroup1.add(rbtnFemale);
         rbtnFemale.setText("Female");
@@ -127,33 +144,100 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
             }
         });
         kGradientPanel1.add(rbtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
-
-        btnBrowsePhoto.setText("browse...");
-        kGradientPanel1.add(btnBrowsePhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
-        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 200, 200));
+        kGradientPanel1.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 200, 200));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAnimalActionPerformed
+    private void btnRegisterOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterOrphanActionPerformed
 
-    }//GEN-LAST:event_btnSaveAnimalActionPerformed
+        String name = fieldOrphanName.getText();
 
-    private void fieldWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldWeightActionPerformed
+        String age = fieldAge.getText();
 
-    }//GEN-LAST:event_fieldWeightActionPerformed
+        String race = fieldRace.getText();
+        String photo = fieldPhoto.getText();
 
-    private void fieldWeightKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldWeightKeyPressed
+        Pattern special = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
+        Pattern phone = Pattern.compile("[^a-z]", Pattern.CASE_INSENSITIVE);
+        Pattern number = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
+        Pattern emailVailidation = Pattern.compile("^[A-Za-z0-9+_.-][@][A-Za-z0-9.-]+$");
+
+        Matcher matcherName = special.matcher(name);
+        Matcher matcherRace = special.matcher(race);
+        Matcher matcherRaceNumber = number.matcher(race);
+        Matcher matcherNameNumber = number.matcher(name);
+        Matcher matcherAge = special.matcher(age);
+
+        boolean nameContainsSymbols = matcherName.find();
+        boolean raceContainsSymbols = matcherRace.find();
+        boolean ageContainsSymbols = matcherAge.find();
+
+        boolean nameContainsNumber = matcherNameNumber.find();
+        boolean raceContainsNumber = matcherRaceNumber.find();
+
+        if (name.isEmpty() || age.isEmpty() || race.isEmpty() || photo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "please fill all field");
+            this.validate = true;
+        } else if (!nameContainsSymbols) {
+            JOptionPane.showMessageDialog(null, "Name Contains invalid Symbols");
+            this.validate = true;
+        } else if (!nameContainsNumber) {
+            JOptionPane.showMessageDialog(null, "Name Contains invalid Number");
+            this.validate = true;
+        } else if (!raceContainsSymbols) {
+            JOptionPane.showMessageDialog(null, "Race Contains invalid Symbols");
+            this.validate = true;
+        } else if (!raceContainsNumber) {
+            JOptionPane.showMessageDialog(null, "Race Contains invalid Number");
+            this.validate = true;
+        } else if (!ageContainsSymbols) {
+            JOptionPane.showMessageDialog(null, "age Contains invalid Symbols");
+            this.validate = true;
+        } else if (Integer.valueOf(age) < 0 || Integer.valueOf(age) > 18) {
+            JOptionPane.showMessageDialog(null, "age must be in the range of 0-18");
+            this.validate = true;
+        } else {
+            this.validate = false;
+            Orphan orphan = this.enterprise.getOrphanDirectory().createOrphan(name);
+            if (maleRadioBtn.isSelected()) {
+                orphan.setSex("male");
+            } else {
+                orphan.setSex("female");
+            }
+        }
+    }//GEN-LAST:event_btnRegisterOrphanActionPerformed
+
+    private void fieldRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldRaceActionPerformed
+
+    }//GEN-LAST:event_fieldRaceActionPerformed
+
+    private void fieldRaceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldRaceKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldWeightKeyPressed
+    }//GEN-LAST:event_fieldRaceKeyPressed
 
-    private void btnUploadAnimalPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadAnimalPhotoActionPerformed
+    private void btnUploadPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadPhotoActionPerformed
 
-    }//GEN-LAST:event_btnUploadAnimalPhotoActionPerformed
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnef);
 
-    private void rbtnMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMaleActionPerformed
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+
+            fieldPhoto.setText(selectedImagePath);
+            ImageIcon ii = new ImageIcon(selectedImagePath);
+            Image image = ii.getImage().getScaledInstance(jLabelImage.getWidth(), jLabelImage.getHeight(), Image.SCALE_SMOOTH);
+
+            jLabelImage.setIcon(new ImageIcon(image));
+        }
+    }//GEN-LAST:event_btnUploadPhotoActionPerformed
+
+    private void maleRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnMaleActionPerformed
+    }//GEN-LAST:event_maleRadioBtnActionPerformed
 
     private void rbtnFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemaleActionPerformed
         // TODO add your handling code here:
@@ -161,14 +245,14 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBrowsePhoto;
-    private javax.swing.JButton btnSaveAnimal;
-    private javax.swing.JButton btnUploadAnimalPhoto;
+    private javax.swing.JButton btnRegisterOrphan;
+    private javax.swing.JButton btnUploadPhoto;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField fieldAnimalName;
+    private javax.swing.JTextField fieldAge;
+    private javax.swing.JTextField fieldOrphanName;
     private javax.swing.JTextField fieldPhoto;
-    private javax.swing.JTextField fieldWeight;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField fieldRace;
+    private javax.swing.JLabel jLabelImage;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblMessage12;
     private javax.swing.JLabel lblMessage5;
@@ -176,8 +260,7 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMessage7;
     private javax.swing.JLabel lblMessage8;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JRadioButton maleRadioBtn;
     private javax.swing.JRadioButton rbtnFemale;
-    private javax.swing.JRadioButton rbtnMale;
-    private javax.swing.JTextField txtAnimalArea;
     // End of variables declaration//GEN-END:variables
 }

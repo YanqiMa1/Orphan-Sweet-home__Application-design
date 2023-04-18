@@ -6,10 +6,14 @@ import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Enterprise.MedicalCareEnterprise;
+import Model.Enterprise.OrphanShelterEnterprise;
 import Model.Organization.Organization;
+import Model.Organization.OrphanManagementOrganization;
 import Model.Organization.PharmacyOrganization;
 import Model.UserAccount.UserAccount;
+import UI.OrphanManagement.OrphanManagerJFrame;
 import UI.Pharmacist.PharmacistWorkAreaJFrame;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
@@ -26,13 +30,8 @@ public class PharmacistRole extends Role{
     }
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem ecosystem) {
-        
-        this.type = RoleType.Pharmacist;
-        
-        return new PharmacistWorkAreaJFrame(userProcessContainer, account, (PharmacyOrganization) organization, 
-                
-                (MedicalCareEnterprise) enterprise, network, ecosystem);
+    public JFrame createWorkArea(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        return new PharmacistWorkAreaJFrame(ecosys, network, (MedicalCareEnterprise) enterprise, (PharmacyOrganization) org, useraccount);
     }
 
 }

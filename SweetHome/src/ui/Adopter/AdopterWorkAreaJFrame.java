@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ui.Adopter;
+package UI.Adopter;
 
 import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
@@ -28,6 +28,7 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
 
     public AdopterWorkAreaJFrame() {
         initComponents();
+
     }
 
     public AdopterWorkAreaJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
@@ -38,6 +39,7 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.org = org;
         this.useraccount = useraccount;
+
     }
 
     /**
