@@ -4,8 +4,14 @@
  */
 package UI.Basic;
 
+import Model.EcoSystem.ConfigureABusiness;
+import Model.EcoSystem.EcoSystem;
+import Model.UserAccount.UserAccount;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,10 +19,21 @@ import java.awt.Color;
  */
 public class LoginJFrame extends javax.swing.JFrame {
 
+    private EcoSystem sys;
+    private UserAccount useraccount;
+
+    
     public LoginJFrame() {
         initComponents();
+        this.setVisible(true);
+        this.sys = ConfigureABusiness.configure();
+    }
     
-
+    public LoginJFrame(EcoSystem sys,UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.sys = sys;
+        this.useraccount=useraccount;
     }
 
     @SuppressWarnings("unchecked")
@@ -157,12 +174,45 @@ public class LoginJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpBtnActionPerformed
-        // TODO add your handling code here:
+        RegisterJFrame newJFrame = new RegisterJFrame(this.sys,this.useraccount);       
+        newJFrame.setLocationRelativeTo(null);
+        newJFrame.setVisible(true);
     }//GEN-LAST:event_SignUpBtnActionPerformed
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        // TODO add your handling code here:
+        Boolean foundUser = false;
+        String username = UsernameFID.getText();
+        String password = passwordFID.getText();
+
+        if (username.equals(sys.getSystemAdmin().getUsername())&& password.equals(sys.getSystemAdmin().getPassword())) {
+           
+            this.useraccount = this.sys.getSystemAdmin();
+            foundUser = true;
+           this.useraccount.getRole().createWorkArea(this.sys, null, null, null, useraccount);
+            this.setVisible(false);
+            UsernameFID.setText("");
+            passwordFID.setText("");
+        } else {
+            for (UserAccount ua : this.sys.getUserAccountDirectory().getUserAccountList()) {
+                if (this.sys.getUserAccountDirectory().authenticateUser(username, password) != null) {
+                    UserAccount user = this.sys.getUserAccountDirectory().authenticateUser(username, password);
+                    this.useraccount = user;
+                    foundUser = true;
+                    user.getRole().createWorkArea(this.sys, this.useraccount.getNetwork(), this.useraccount.getEnterprise(), this.useraccount.getOrgainization(), useraccount);
+                    this.setVisible(false);
+                    UsernameFID.setText("");
+                    passwordFID.setText("");
+                }
+            }
+        }
+            // if user not found
+            if (!foundUser) {
+                JOptionPane.showMessageDialog(null, "Invalid Credentials");
+            }
+
     }//GEN-LAST:event_loginBtnActionPerformed
+
+    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

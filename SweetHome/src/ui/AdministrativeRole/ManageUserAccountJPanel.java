@@ -4,17 +4,29 @@
  */
 package UI.AdministrativeRole;
 
+import Model.EcoSystem.EcoSystem;
+import Model.UserAccount.UserAccount;
+
 /**
  *
  * @author hp
  */
 public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
+    EcoSystem ecosys;
+    UserAccount useraccount;
+
     /**
      * Creates new form ManageUserAccountJPanel
      */
     public ManageUserAccountJPanel() {
         initComponents();
+    }
+
+    public ManageUserAccountJPanel(EcoSystem ecosys, UserAccount useraccount) {
+        initComponents();
+        this.ecosys = ecosys;
+        this.useraccount = useraccount;
     }
 
     /**
@@ -37,7 +49,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         cmbOrg = new javax.swing.JComboBox();
         lblRole = new javax.swing.JLabel();
         cmbRoles = new javax.swing.JComboBox();
-        lblCreateUser = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
@@ -45,20 +56,25 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         btnCreateUser = new javax.swing.JButton();
         lblOrganizationPicker = new javax.swing.JLabel();
         cmbNetworkList = new javax.swing.JComboBox();
+        btnDeleteUser = new javax.swing.JButton();
+        btnUpdateUser = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
         kGradientPanel3.setkEndColor(new java.awt.Color(255, 221, 225));
         kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
         kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
+        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Users");
+        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 81, 189, -1));
 
-        lblUsersList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUsersList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("Users List:");
+        kGradientPanel3.add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 138, -1, -1));
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,153 +101,93 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblUsers);
 
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 191, 411, 340));
+
         lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganization.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganization.setText("Enterprise:");
+        kGradientPanel3.add(lblOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
 
-        cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        kGradientPanel3.add(cmbEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 125, -1));
 
         lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployee.setText("Organization:");
+        kGradientPanel3.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, -1));
 
-        cmbOrg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        kGradientPanel3.add(cmbOrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 126, 20));
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("Role:");
+        kGradientPanel3.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
 
-        cmbRoles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblCreateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCreateUser.setForeground(new java.awt.Color(255, 255, 255));
-        lblCreateUser.setText("New User:");
+        kGradientPanel3.add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 126, -1));
 
         lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setText("User Name:");
+        kGradientPanel3.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
+        kGradientPanel3.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 130, -1));
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password:");
+        kGradientPanel3.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
+        kGradientPanel3.add(pwdUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 131, -1));
 
         btnCreateUser.setBackground(new java.awt.Color(238, 156, 167));
         btnCreateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCreateUser.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateUser.setText("Create User");
         btnCreateUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel3.add(btnCreateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 238, 33));
 
         lblOrganizationPicker.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationPicker.setText("Region:");
+        lblOrganizationPicker.setText("NetWork");
+        kGradientPanel3.add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
 
-        cmbNetworkList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbNetworkList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbNetworkListActionPerformed(evt);
             }
         });
+        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 125, -1));
 
-        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
-        kGradientPanel3.setLayout(kGradientPanel3Layout);
-        kGradientPanel3Layout.setHorizontalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitle)
-                .addGap(337, 337, 337))
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel3Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmployee)
-                                    .addComponent(lblOrganization)
-                                    .addComponent(lblOrganizationPicker))
-                                .addGap(18, 18, 18)
-                                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCreateUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreateUser, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRole, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addComponent(lblUsersList))
-                .addContainerGap(220, Short.MAX_VALUE))
-        );
-        kGradientPanel3Layout.setVerticalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addContainerGap(143, Short.MAX_VALUE)
-                        .addComponent(lblUsersList)
-                        .addGap(28, 28, 28))
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(lblTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblOrganizationPicker))
-                        .addGap(7, 7, 7)))
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblOrganization)
-                            .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmployee)
-                            .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRole)
-                            .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCreateUser)
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUserName))
-                        .addGap(27, 27, 27)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPassword)
-                            .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106))
-        );
+        btnDeleteUser.setBackground(new java.awt.Color(238, 156, 167));
+        btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDeleteUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteUser.setText("Delete User");
+        btnDeleteUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel3.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 238, 33));
+
+        btnUpdateUser.setBackground(new java.awt.Color(238, 156, 167));
+        btnUpdateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdateUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateUser.setText("Update User");
+        btnUpdateUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kGradientPanel3.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 238, 33));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbNetworkListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkListActionPerformed
 
-        populateEnterpriseCombo();
+//        populateEnterpriseCombo();
     }//GEN-LAST:event_cmbNetworkListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;
+    private javax.swing.JButton btnDeleteUser;
+    private javax.swing.JButton btnUpdateUser;
     private javax.swing.JComboBox cmbEnterprise;
     private javax.swing.JComboBox cmbNetworkList;
     private javax.swing.JComboBox cmbOrg;
     private javax.swing.JComboBox cmbRoles;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel3;
-    private javax.swing.JLabel lblCreateUser;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblOrganization;
     private javax.swing.JLabel lblOrganizationPicker;

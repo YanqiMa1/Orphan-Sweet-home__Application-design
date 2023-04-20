@@ -8,7 +8,7 @@ import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import ui.AdministrativeRole.AdminWorkAreaJFrame;
+
 
 /**
  *

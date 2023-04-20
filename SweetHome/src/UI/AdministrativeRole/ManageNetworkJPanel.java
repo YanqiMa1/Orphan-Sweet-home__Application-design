@@ -4,17 +4,33 @@
  */
 package UI.AdministrativeRole;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author hp
  */
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
+    EcoSystem ecosys;
+    UserAccount useraccount;
+
     /**
      * Creates new form ManageNetworkJPanel
      */
     public ManageNetworkJPanel() {
         initComponents();
+    }
+
+    public ManageNetworkJPanel(EcoSystem ecosys, UserAccount useraccount) {
+        initComponents();
+        this.ecosys = ecosys;
+        this.useraccount = useraccount;
+        refreshNetworkList();
     }
 
     /**
@@ -31,10 +47,11 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         lblNetworkList = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbNetwork = new javax.swing.JTable();
-        lblOrganizationList = new javax.swing.JLabel();
         lblEmployeeName = new javax.swing.JLabel();
         txtNetworkName = new javax.swing.JTextField();
         btnCreateNetwork = new javax.swing.JButton();
+        btnDeleteNetwork = new javax.swing.JButton();
+        btnUpdateNetwork = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -42,45 +59,34 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
         kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Network");
 
-        lblNetworkList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNetworkList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNetworkList.setForeground(new java.awt.Color(255, 255, 255));
         lblNetworkList.setText("Network List:");
 
         tbNetwork.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                "Name"
+                "Network Name"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
                 false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tbNetwork);
-
-        lblOrganizationList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblOrganizationList.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationList.setText("New Network:");
+        if (tbNetwork.getColumnModel().getColumnCount() > 0) {
+            tbNetwork.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         lblEmployeeName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEmployeeName.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,61 +99,170 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         btnCreateNetwork.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateNetwork.setText("Create Network");
         btnCreateNetwork.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCreateNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateNetworkActionPerformed(evt);
+            }
+        });
+
+        btnDeleteNetwork.setBackground(new java.awt.Color(238, 156, 167));
+        btnDeleteNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDeleteNetwork.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteNetwork.setText("Delete Network");
+        btnDeleteNetwork.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDeleteNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteNetworkActionPerformed(evt);
+            }
+        });
+
+        btnUpdateNetwork.setBackground(new java.awt.Color(238, 156, 167));
+        btnUpdateNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdateNetwork.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateNetwork.setText("Update Network");
+        btnUpdateNetwork.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdateNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateNetworkActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
         kGradientPanel3.setLayout(kGradientPanel3Layout);
         kGradientPanel3Layout.setHorizontalGroup(
             kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCreateNetwork)
+                        .addGap(210, 210, 210)
+                        .addComponent(lblTitle))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(lblNetworkList))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblOrganizationList)))
-                    .addComponent(lblNetworkList))
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitle)
-                .addGap(218, 218, 218))
+                            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCreateNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdateNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(btnDeleteNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(19, 19, 19))
         );
         kGradientPanel3Layout.setVerticalGroup(
             kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel3Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(lblTitle)
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
                 .addComponent(lblNetworkList)
-                .addGap(26, 26, 26)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel3Layout.createSequentialGroup()
-                        .addComponent(lblOrganizationList)
-                        .addGap(33, 33, 33)
+                .addGap(19, 19, 19)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
                         .addComponent(lblEmployeeName)
-                        .addGap(37, 37, 37)
+                        .addGap(23, 23, 23)
                         .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(128, Short.MAX_VALUE))
+                        .addGap(46, 46, 46)
+                        .addComponent(btnCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnDeleteNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCreateNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNetworkActionPerformed
 
+        String name = txtNetworkName.getText();
+
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Network name cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        //check if ecosystem can get network list
+        if (this.ecosys.getNetworkList().isEmpty() || this.ecosys.nameIsUnique(name)) {
+            Network newNetwork = this.ecosys.createNetwork(name);
+            txtNetworkName.setText("");
+            //update network list
+            refreshNetworkList();
+            JOptionPane.showMessageDialog(this, "New network added", "Information", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Network existed", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCreateNetworkActionPerformed
+
+    private void btnDeleteNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteNetworkActionPerformed
+        int selectedRow = tbNetwork.getSelectedRow();
+
+        Network nw = (Network) tbNetwork.getValueAt(selectedRow, 0);
+
+        if (selectedRow >= 0) {
+            this.ecosys.deleteNetwork(nw);
+            txtNetworkName.setText("");
+            refreshNetworkList();
+            JOptionPane.showMessageDialog(this, "Network deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please choose a network");
+        }
+    }//GEN-LAST:event_btnDeleteNetworkActionPerformed
+
+    private void btnUpdateNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateNetworkActionPerformed
+        String keyword = txtNetworkName.getText();
+        int selectedRow = tbNetwork.getSelectedRow();
+
+        Network nw = (Network) tbNetwork.getValueAt(selectedRow, 0);
+
+        if (selectedRow >= 0) {
+            if (!txtNetworkName.getText().isEmpty()) {
+                if (this.ecosys.nameIsUnique(keyword)) {
+                    nw.setName(keyword);
+                    txtNetworkName.setText("");
+                    refreshNetworkList();
+                    JOptionPane.showMessageDialog(this, "Newetwork updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Network existed");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Please fill the textfield");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please choose a network");
+        }
+    }//GEN-LAST:event_btnUpdateNetworkActionPerformed
+
+    private void refreshNetworkList() {
+
+        DefaultTableModel model = (DefaultTableModel) tbNetwork.getModel();
+        model.setRowCount(0);
+
+        for (Network n : this.ecosys.getNetworkList()) {
+
+            Object objects[] = new Object[1];
+            objects[0] = n;
+            //add new row
+            model.addRow(objects);
+        }
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateNetwork;
+    private javax.swing.JButton btnDeleteNetwork;
+    private javax.swing.JButton btnUpdateNetwork;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblEmployeeName;
     private javax.swing.JLabel lblNetworkList;
-    private javax.swing.JLabel lblOrganizationList;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tbNetwork;
     private javax.swing.JTextField txtNetworkName;

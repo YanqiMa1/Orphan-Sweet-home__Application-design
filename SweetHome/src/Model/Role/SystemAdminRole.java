@@ -6,8 +6,9 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import UI.AdministrativeRole.AdminWorkAreaJFrame;
 import javax.swing.JFrame;
-import ui.AdministrativeRole.AdminWorkAreaJFrame;
+
 
 
 

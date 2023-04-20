@@ -7,9 +7,10 @@ import Model.Enterprise.Enterprise;
 import Model.Organization.AdopterOrganization;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import UI.Adopter.AdopterWorkAreaJFrame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import ui.Adopter.AdopterWorkAreaJFrame;
+
 
 
 

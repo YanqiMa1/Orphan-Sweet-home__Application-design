@@ -4,7 +4,6 @@
  */
 package Model.UserAccount;
 
-
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
@@ -28,7 +27,6 @@ public class UserAccountDirectory {
         return userAccountList;
     }
 
-
     public UserAccount authenticateUser(String username, String password) {
         for (UserAccount ua : userAccountList) {
             if (ua.getUsername().equals(username) && ua.getPassword().equals(password)) {
@@ -43,13 +41,15 @@ public class UserAccountDirectory {
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
-        userAccount.setRole(role);  
+        userAccount.setRole(role);
         userAccount.setNetwork(network);
         userAccount.setEnterprise(enterprise);
         userAccount.setOrgainization(organization);
         userAccountList.add(userAccount);
         return userAccount;
     }
+
+    
 
     public boolean userNameIsUnique(String username) {
         for (UserAccount ua : userAccountList) {
@@ -59,4 +59,18 @@ public class UserAccountDirectory {
         }
         return true;
     }
+
+    public UserAccount findUserByName(String username) {
+         
+        for(UserAccount u: this.userAccountList) {
+            if(u.getUsername().equals(username)) {
+                return u;
+            }
+        }
+        
+        return null;
+    }
+    
+    
+    
 }

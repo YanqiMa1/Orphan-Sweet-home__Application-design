@@ -4,11 +4,17 @@
  */
 package UI.AdministrativeRole;
 
+import Model.EcoSystem.EcoSystem;
+import Model.UserAccount.UserAccount;
+
 /**
  *
  * @author hp
  */
 public class SysAdminDashboardJPanel extends javax.swing.JPanel {
+
+    EcoSystem ecosys;
+    UserAccount useraccount;
 
     /**
      * Creates new form SysAdminDashboardJPanel
@@ -17,6 +23,11 @@ public class SysAdminDashboardJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public SysAdminDashboardJPanel(EcoSystem ecosys, UserAccount useraccount) {
+        initComponents();
+        this.ecosys = ecosys;
+        this.useraccount = useraccount;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,49 +41,31 @@ public class SysAdminDashboardJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         jPanel_ourService = new javax.swing.JPanel();
         jPanel_adoption = new javax.swing.JPanel();
+        jPanel_adoption1 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
         kGradientPanel3.setkEndColor(new java.awt.Color(255, 221, 225));
         kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
         kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
+        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Dashboard");
+        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 93, -1, -1));
 
         jPanel_ourService.setBackground(new java.awt.Color(238, 156, 167));
         jPanel_ourService.setLayout(new java.awt.BorderLayout());
+        kGradientPanel3.add(jPanel_ourService, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 181, 241, 230));
 
         jPanel_adoption.setBackground(new java.awt.Color(238, 156, 167));
         jPanel_adoption.setLayout(new java.awt.BorderLayout());
+        kGradientPanel3.add(jPanel_adoption, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 181, 244, 230));
 
-        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
-        kGradientPanel3.setLayout(kGradientPanel3Layout);
-        kGradientPanel3Layout.setHorizontalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jPanel_ourService, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addComponent(jPanel_adoption, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitle)
-                .addGap(351, 351, 351))
-        );
-        kGradientPanel3Layout.setVerticalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lblTitle)
-                .addGap(59, 59, 59)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel_ourService, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(jPanel_adoption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(201, Short.MAX_VALUE))
-        );
+        jPanel_adoption1.setBackground(new java.awt.Color(238, 156, 167));
+        jPanel_adoption1.setLayout(new java.awt.BorderLayout());
+        kGradientPanel3.add(jPanel_adoption1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 181, 244, 230));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -80,6 +73,7 @@ public class SysAdminDashboardJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel_adoption;
+    private javax.swing.JPanel jPanel_adoption1;
     private javax.swing.JPanel jPanel_ourService;
     private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblTitle;

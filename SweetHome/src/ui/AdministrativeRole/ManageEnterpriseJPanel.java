@@ -4,17 +4,36 @@
  */
 package UI.AdministrativeRole;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author hp
  */
 public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
+    EcoSystem ecosys;
+    UserAccount useraccount;
+
     /**
      * Creates new form ManageEnterpriseJPanel
      */
     public ManageEnterpriseJPanel() {
         initComponents();
+    }
+
+    public ManageEnterpriseJPanel(EcoSystem ecosys, UserAccount useraccount) {
+        initComponents();
+        this.ecosys = ecosys;
+        this.useraccount = useraccount;
+        populateNetworkCombo();
+        populateEnterpriseCombo();
+        refreshEnterpriseList();
     }
 
     /**
@@ -31,45 +50,46 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         lblEnterpriseList = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEnterprises = new javax.swing.JTable();
-        lblAdd = new javax.swing.JLabel();
         lblSelectEnterpriseType = new javax.swing.JLabel();
-        cmbEnterprise = new javax.swing.JComboBox();
         lblEnterpriseName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         btnCreateEnterprise = new javax.swing.JButton();
         lblSelectNetwork = new javax.swing.JLabel();
         cmbNetworkList = new javax.swing.JComboBox();
+        btnUpdateEnter = new javax.swing.JButton();
+        btnDeleteEnter = new javax.swing.JButton();
+        EnterpriseCombo = new javax.swing.JComboBox();
 
         setLayout(new java.awt.BorderLayout());
 
         kGradientPanel3.setkEndColor(new java.awt.Color(255, 221, 225));
         kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
         kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
+        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Enterprise");
+        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 52, -1, -1));
 
-        lblEnterpriseList.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEnterpriseList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEnterpriseList.setForeground(new java.awt.Color(255, 255, 255));
         lblEnterpriseList.setText("Enterprise List:");
+        kGradientPanel3.add(lblEnterpriseList, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 110, -1, -1));
 
         tblEnterprises.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Type", "Name"
+                "Name", "Type", "Network"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -82,95 +102,80 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEnterprises);
 
-        lblAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdd.setForeground(new java.awt.Color(255, 255, 255));
-        lblAdd.setText("Add Enterprise:");
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 390, 333));
 
         lblSelectEnterpriseType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectEnterpriseType.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectEnterpriseType.setText("Select Enterprise Type:");
-
-        cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        kGradientPanel3.add(lblSelectEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
 
         lblEnterpriseName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEnterpriseName.setForeground(new java.awt.Color(255, 255, 255));
         lblEnterpriseName.setText("Enterprise Name:");
+        kGradientPanel3.add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, -1));
 
         txtName.setBackground(new java.awt.Color(245, 245, 255));
+        kGradientPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 157, 32));
 
         btnCreateEnterprise.setBackground(new java.awt.Color(238, 156, 167));
         btnCreateEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCreateEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateEnterprise.setText("Create Enterprise");
         btnCreateEnterprise.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCreateEnterprise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateEnterpriseActionPerformed(evt);
+            }
+        });
+        kGradientPanel3.add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 120, 33));
 
         lblSelectNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectNetwork.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectNetwork.setText("Select Network:");
+        kGradientPanel3.add(lblSelectNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, 28));
 
-        cmbNetworkList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNetworkList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbNetworkListItemStateChanged(evt);
+            }
+        });
         cmbNetworkList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbNetworkListActionPerformed(evt);
             }
         });
+        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 157, 29));
 
-        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
-        kGradientPanel3.setLayout(kGradientPanel3Layout);
-        kGradientPanel3Layout.setHorizontalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEnterpriseList))
-                        .addGap(80, 80, 80)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSelectEnterpriseType)
-                            .addComponent(lblAdd)
-                            .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEnterpriseName)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCreateEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSelectNetwork)))
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(lblTitle)))
-                .addContainerGap(139, Short.MAX_VALUE))
-        );
-        kGradientPanel3Layout.setVerticalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(lblTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(lblEnterpriseList)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSelectNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblAdd)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSelectEnterpriseType)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblEnterpriseName)
-                        .addGap(27, 27, 27)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnCreateEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(142, 142, 142))
-        );
+        btnUpdateEnter.setBackground(new java.awt.Color(238, 156, 167));
+        btnUpdateEnter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdateEnter.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateEnter.setText("Update Enterprise");
+        btnUpdateEnter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdateEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateEnterActionPerformed(evt);
+            }
+        });
+        kGradientPanel3.add(btnUpdateEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 130, 35));
+
+        btnDeleteEnter.setBackground(new java.awt.Color(238, 156, 167));
+        btnDeleteEnter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDeleteEnter.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteEnter.setText("Delete Enterprise");
+        btnDeleteEnter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDeleteEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteEnterActionPerformed(evt);
+            }
+        });
+        kGradientPanel3.add(btnDeleteEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 130, 35));
+
+        EnterpriseCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnterpriseComboActionPerformed(evt);
+            }
+        });
+        kGradientPanel3.add(EnterpriseCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 160, 30));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -179,14 +184,128 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbNetworkListActionPerformed
 
+    private void btnUpdateEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEnterActionPerformed
+        String keyword = txtName.getText();
+        int selectedRow = tblEnterprises.getSelectedRow();
+        Network nw = (Network) cmbNetworkList.getSelectedItem();
+
+        Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
+
+        if (selectedRow >= 0) {
+            if (!txtName.getText().isEmpty()) {
+                if (nw.getEnterpriseDirectory().nameIsUnique(keyword)) {
+                    ent.setName(keyword);
+                    txtName.setText("");
+                    refreshEnterpriseList();
+                    JOptionPane.showMessageDialog(this, "Enterprise updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Enterprise name existed");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Please fill the textfield");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
+        }
+    }//GEN-LAST:event_btnUpdateEnterActionPerformed
+
+    private void btnDeleteEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEnterActionPerformed
+       int selectedRow = tblEnterprises.getSelectedRow();
+       Network nw = (Network) cmbNetworkList.getSelectedItem();
+
+        Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
+
+        if (selectedRow >= 0) {
+         
+            nw.getEnterpriseDirectory().deleteEnterprise(ent);
+            txtName.setText("");
+             refreshEnterpriseList();
+            JOptionPane.showMessageDialog(this, "Enterprise deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
+        }
+    }//GEN-LAST:event_btnDeleteEnterActionPerformed
+
+    private void btnCreateEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEnterpriseActionPerformed
+        String name = txtName.getText();
+        Network nw = (Network) cmbNetworkList.getSelectedItem();
+
+        if (nw != null) {
+            if (!name.isEmpty()) {
+                if (nw.getEnterpriseDirectory().nameIsUnique(name)) {
+                    Enterprise.Type type = (Enterprise.Type) EnterpriseCombo.getSelectedItem();
+                    nw.getEnterpriseDirectory().createAndAddEnterprise(name, type);
+                    JOptionPane.showMessageDialog(this, "new Enterprise added", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    txtName.setText("");
+                    refreshEnterpriseList();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Enterprise already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Name cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Network cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnCreateEnterpriseActionPerformed
+
+    private void EnterpriseComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterpriseComboActionPerformed
+
+    }//GEN-LAST:event_EnterpriseComboActionPerformed
+
+    private void cmbNetworkListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNetworkListItemStateChanged
+        refreshEnterpriseList();
+    }//GEN-LAST:event_cmbNetworkListItemStateChanged
+    public void populateNetworkCombo() {
+        cmbNetworkList.removeAllItems();
+
+        for (Network nw : this.ecosys.getNetworkList()) {
+            cmbNetworkList.addItem(nw);
+        }
+
+    }
+
+    private void refreshEnterpriseList() {
+
+        DefaultTableModel model = (DefaultTableModel) tblEnterprises.getModel();
+        model.setRowCount(0);
+        Network selectedNetwork = (Network) cmbNetworkList.getSelectedItem();
+
+        if (selectedNetwork != null) {
+
+            for (Enterprise e : selectedNetwork.getEnterpriseDirectory().getEnterpriseList()) {
+                Object[] row = new Object[3];
+                row[0] = e;
+                row[1] = e.getType();
+                row[2] = selectedNetwork.getName();
+
+                model.addRow(row);
+            }
+        }
+
+    }
+
+    private void populateEnterpriseCombo() {
+        EnterpriseCombo.removeAllItems();
+
+        for (Enterprise.Type type : Enterprise.Type.values()) {
+            EnterpriseCombo.addItem(type);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox EnterpriseCombo;
     private javax.swing.JButton btnCreateEnterprise;
-    private javax.swing.JComboBox cmbEnterprise;
+    private javax.swing.JButton btnDeleteEnter;
+    private javax.swing.JButton btnUpdateEnter;
     private javax.swing.JComboBox cmbNetworkList;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel3;
-    private javax.swing.JLabel lblAdd;
     private javax.swing.JLabel lblEnterpriseList;
     private javax.swing.JLabel lblEnterpriseName;
     private javax.swing.JLabel lblSelectEnterpriseType;

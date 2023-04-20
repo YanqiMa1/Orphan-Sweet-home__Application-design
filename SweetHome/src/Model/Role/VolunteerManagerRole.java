@@ -12,8 +12,6 @@ import Model.UserAccount.UserAccount;
 import UI.VolunteerManagement.VolunteerManagerJFrame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import ui.AdministrativeRole.AdminWorkAreaJFrame;
-import ui.Adopter.AdopterWorkAreaJFrame;
 
 /**
  *

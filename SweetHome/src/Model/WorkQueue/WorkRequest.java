@@ -21,6 +21,7 @@ public abstract class WorkRequest {
     private Date requestDate;
     private Date resolveDate;
     private Orphan orphan;
+    private String userEmailId;
 
     public WorkRequest() {
         requestDate = new Date();
@@ -81,6 +82,15 @@ public abstract class WorkRequest {
     public void setOrphan(Orphan orphan) {
         this.orphan = orphan;
     }
+
+    public String getUserEmailId() {
+        return userEmailId;
+    }
+
+    public void setUserEmailId(String userEmailId) {
+        this.userEmailId = userEmailId;
+    }
+
     
     @Override
     public String toString() {

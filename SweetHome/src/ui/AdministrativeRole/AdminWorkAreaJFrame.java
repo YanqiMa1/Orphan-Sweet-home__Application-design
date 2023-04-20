@@ -9,36 +9,35 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import UI.Basic.LoginJFrame;
 
 /**
  *
  * @author hp
  */
 public class AdminWorkAreaJFrame extends javax.swing.JFrame {
+
     EcoSystem ecosys;
     Network network;
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
-    
+
     /**
      * Creates new form AdminWorkAreaJFrame
      */
-    
-      public AdminWorkAreaJFrame() {
+    public AdminWorkAreaJFrame() {
         initComponents();
 
     }
 
-  public AdminWorkAreaJFrame(EcoSystem ecosys,UserAccount useraccount) {
+    public AdminWorkAreaJFrame(EcoSystem ecosys, UserAccount useraccount) {
         initComponents();
-         this.setVisible(true);
-        this.ecosys=ecosys;
-        this.network=network;
-        this.enterprise=enterprise;
-        this.org=org;
-        this.useraccount=useraccount;
+        this.setVisible(true);
+        this.ecosys = ecosys;
+        this.useraccount = useraccount;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +49,6 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         kGradientPanel1 = new keeptoo.KGradientPanel();
-        lblTitle = new javax.swing.JLabel();
         btnManageEnterprise = new javax.swing.JButton();
         btnManageUsers = new javax.swing.JButton();
         btnManageOrganization = new javax.swing.JButton();
@@ -66,53 +64,81 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 221, 225));
         kGradientPanel1.setkStartColor(new java.awt.Color(238, 156, 167));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("System Admin Work Area");
-
         btnManageEnterprise.setBackground(new java.awt.Color(238, 156, 167));
         btnManageEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnManageEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageEnterpriseActionPerformed(evt);
+            }
+        });
 
         btnManageUsers.setBackground(new java.awt.Color(238, 156, 167));
         btnManageUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnManageUsers.setForeground(new java.awt.Color(255, 255, 255));
         btnManageUsers.setText("Manage Users");
         btnManageUsers.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageUsersActionPerformed(evt);
+            }
+        });
 
         btnManageOrganization.setBackground(new java.awt.Color(238, 156, 167));
         btnManageOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnManageOrganization.setForeground(new java.awt.Color(255, 255, 255));
         btnManageOrganization.setText("Manage Organizations");
         btnManageOrganization.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageOrganizationActionPerformed(evt);
+            }
+        });
 
         btnViewDashboard.setBackground(new java.awt.Color(238, 156, 167));
         btnViewDashboard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnViewDashboard.setForeground(new java.awt.Color(255, 255, 255));
         btnViewDashboard.setText("Dashboard");
         btnViewDashboard.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnViewDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDashboardActionPerformed(evt);
+            }
+        });
 
         btnManageNetwork.setBackground(new java.awt.Color(238, 156, 167));
         btnManageNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnManageNetwork.setForeground(new java.awt.Color(255, 255, 255));
         btnManageNetwork.setText("Manage Network");
         btnManageNetwork.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageNetworkActionPerformed(evt);
+            }
+        });
 
         btnLogOut.setBackground(new java.awt.Color(238, 156, 167));
         btnLogOut.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogOut.setText("<< LOG OUT");
+        btnLogOut.setText("LOG OUT");
         btnLogOut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -122,23 +148,13 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViewDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(btnLogOut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitle)
-                .addGap(254, 254, 254))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnManageEnterprise)
                     .addComponent(btnManageOrganization)
@@ -170,6 +186,31 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
+        jSplitPane1.setRightComponent(new ManageNetworkJPanel(this.ecosys, this.useraccount));
+    }//GEN-LAST:event_btnManageNetworkActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        this.setVisible(false);
+        new LoginJFrame(this.ecosys, this.useraccount);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
+        jSplitPane1.setRightComponent(new ManageEnterpriseJPanel(this.ecosys, this.useraccount));
+    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
+
+    private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
+        jSplitPane1.setRightComponent(new ManageOrganizationJPanel(this.ecosys, this.useraccount));
+    }//GEN-LAST:event_btnManageOrganizationActionPerformed
+
+    private void btnManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUsersActionPerformed
+        jSplitPane1.setRightComponent(new ManageUserAccountJPanel(this.ecosys, this.useraccount));
+    }//GEN-LAST:event_btnManageUsersActionPerformed
+
+    private void btnViewDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDashboardActionPerformed
+        jSplitPane1.setRightComponent(new SysAdminDashboardJPanel(this.ecosys, this.useraccount));
+    }//GEN-LAST:event_btnViewDashboardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +257,5 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
-    private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

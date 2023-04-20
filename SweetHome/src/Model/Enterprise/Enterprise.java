@@ -21,10 +21,10 @@ public abstract class Enterprise {
     UserAccountDirectory enterpriseUserAccounts;
     
     public enum Type {
-        Volunteer("Volunteer"),
-        MedicalCare("Medical Care"),
-        OrphanShelter("Orphan Shelter"),
-        Adoption("Adoption");
+        Volunteer("VolunteerEnterprise"),
+        MedicalCare("MedicalCareEnterprise"),
+        OrphanShelter("OrphanShelterEnterprise"),
+        Adoption("AdoptionEnterprise");
 
         private String value;
 
