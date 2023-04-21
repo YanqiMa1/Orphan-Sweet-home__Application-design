@@ -70,6 +70,10 @@ public class UserAccountDirectory {
         
         return null;
     }
+
+    public void deleteUserAccount(UserAccount u) {
+       this.userAccountList.remove(u);
+    }
     
     
     
