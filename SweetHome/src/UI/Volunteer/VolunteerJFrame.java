@@ -21,7 +21,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
     EcoSystem ecosys;
     Network network;
     VolunteerEnterprise enterprise;
-    VolunteerOrganization org;
+    VolunteerManagementOrganization org;
     UserAccount useraccount;
 
     /**
@@ -32,7 +32,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
     }
     
     public VolunteerJFrame(EcoSystem ecosys, Network network, VolunteerEnterprise enterprise, 
-            VolunteerOrganization org, UserAccount useraccount) {
+            VolunteerManagementOrganization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
         this.ecosys = ecosys;
