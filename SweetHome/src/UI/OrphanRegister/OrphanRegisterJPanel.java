@@ -12,6 +12,7 @@ import Model.Organization.Organization;
 import Model.Organization.OrphanManagementOrganization;
 import Model.Orphan.Orphan;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.OrphanManagerRequest;
 import java.awt.Image;
 import java.io.File;
 import java.util.regex.Matcher;
@@ -203,6 +204,19 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
             }
             orphan.setRace(race);
             orphan.setPhoto(photo);
+            
+            
+            // create work request
+            OrphanManagerRequest request = new OrphanManagerRequest();
+            request.setMessage("New Orphan");
+            request.setSender(userAccount);
+            request.setStatus("Waiting for Manager");
+            request.setOrphan(orphan);
+            
+            //add work request into workqueue
+            userAccount.getWorkQueue().getWorkRequestList().add(request);
+            enterprise.getWorkQueue().getWorkRequestList().add(request);
+            
             JOptionPane.showMessageDialog(null, "Successfully registered!");
         }
     }//GEN-LAST:event_btnRegisterOrphanActionPerformed

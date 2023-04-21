@@ -11,7 +11,11 @@ import Model.Enterprise.VolunteerEnterprise;
 import Model.Organization.Organization;
 import Model.Organization.VolunteerManagementOrganization;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.VolunteerRequest;
+import Model.WorkQueue.WorkRequest;
 import UI.Basic.LoginJFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,6 +45,8 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.org = org;
         this.useraccount = useraccount;
+        
+        populateTable();
     }
 
     /**
@@ -59,7 +65,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWorkRequests = new javax.swing.JTable();
-        btnComplete2 = new javax.swing.JButton();
+        btnComplete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(600, 600));
@@ -122,13 +128,13 @@ public class VolunteerJFrame extends javax.swing.JFrame {
 
         kGradientPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 780, 350));
 
-        btnComplete2.setText("Complete");
-        btnComplete2.addActionListener(new java.awt.event.ActionListener() {
+        btnComplete.setText("Complete");
+        btnComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComplete2ActionPerformed(evt);
+                btnCompleteActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(btnComplete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
+        kGradientPanel2.add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
 
         jSplitPane1.setRightComponent(kGradientPanel2);
 
@@ -137,15 +143,59 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnComplete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComplete2ActionPerformed
+    private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
 
-    }//GEN-LAST:event_btnComplete2ActionPerformed
+        int selectedRow = tblWorkRequests.getSelectedRow();
+
+        
+        if (selectedRow >= 0) {
+            
+            VolunteerRequest selectedRequest = (VolunteerRequest) tblWorkRequests.getValueAt(selectedRow, 0);
+            
+            if (selectedRequest.getStatus().equalsIgnoreCase("Completed")) {
+                
+                JOptionPane.showMessageDialog(this, "Request has already been completed.","Warning",JOptionPane.WARNING_MESSAGE);
+            } else {
+                selectedRequest.setStatus("Completed");
+                JOptionPane.showMessageDialog(this, "Request completed!", "Information",JOptionPane.INFORMATION_MESSAGE);
+                populateTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a requestx", "Warning", JOptionPane.WARNING_MESSAGE);
+        }  
+        
+    }//GEN-LAST:event_btnCompleteActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
         new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
+        private void populateTable() {
+
+        //populate table
+        DefaultTableModel model = (DefaultTableModel) tblWorkRequests.getModel();
+        model.setRowCount(0);
+        
+        for (WorkRequest request : useraccount.getWorkQueue().getWorkRequestList()){
+            if (request instanceof VolunteerRequest){
+                
+                Object[] row = new Object[7];
+                
+                row[0] = request;
+                row[1] = request.getSender();
+                row[2] = request.getSender().getEnterprise();
+                row[3] = request.getReceiver() == null ? null : request.getReceiver();
+                row[4] = ((VolunteerRequest) request).getAssignedVolunteer();
+                row[5] = request.getReceiver() == null ? null :request.getReceiver().getEnterprise();
+                row[6] = request.getStatus();
+                
+                
+                model.addRow(row);
+            }
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -182,7 +232,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnComplete2;
+    private javax.swing.JButton btnComplete;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;

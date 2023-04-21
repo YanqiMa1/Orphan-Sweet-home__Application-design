@@ -8,8 +8,12 @@ import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Role.VolunteerRole;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.VolunteerRequest;
+import Model.WorkQueue.WorkRequest;
 import UI.Basic.LoginJFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,7 +26,7 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
-
+    
     /**
      * Creates new form VolunteerManagerJFrame
      */
@@ -38,6 +42,8 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.org = org;
         this.useraccount = useraccount;
+        populateCombo();
+        populateTable();
     }
 
     /**
@@ -58,7 +64,7 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         assignBtn = new javax.swing.JButton();
-        VolunteerCB = new javax.swing.JComboBox<>();
+        volunteerComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,7 +159,7 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
         });
         kGradientPanel2.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 150, 40));
 
-        kGradientPanel2.add(VolunteerCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 450, 40));
+        kGradientPanel2.add(volunteerComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 450, 40));
 
         jSplitPane1.setRightComponent(kGradientPanel2);
 
@@ -183,6 +189,45 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
         this.setVisible(false);
         new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+        private void populateCombo() {
+
+        volunteerComboBox.removeAllItems();
+        
+        for (UserAccount ua : ecosys.getUserAccountDirectory().getUserAccountList()) {
+            
+            if (ua.getRole() instanceof VolunteerRole && ua.getEnterprise() == enterprise) {
+                
+                volunteerComboBox.addItem(ua.getUsername());
+            }
+        }
+        
+    }
+        
+    private void populateTable() {
+
+        DefaultTableModel model = (DefaultTableModel) tblWorkRequests.getModel();
+        model.setRowCount(0);
+        
+        for (WorkRequest request : network.getWorkQueue().getWorkRequestList()){
+            
+            if (request instanceof VolunteerRequest){
+                
+                Object[] row = new Object[7];
+                row[0] = request;
+                row[1] = request.getSender();
+                row[2] = request.getSender().getEnterprise();
+                row[3] = request.getReceiver() == null ? null : request.getReceiver();
+                row[4] = ((VolunteerRequest) request).getAssignedVolunteer();
+                row[5] = request.getReceiver() == null ? null :request.getReceiver().getEnterprise();
+                row[6] = request.getStatus();
+                
+                model.addRow(row);
+            }
+        }
+        
+
+    }
 
     /**
      * @param args the command line arguments
@@ -220,7 +265,6 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> VolunteerCB;
     private javax.swing.JButton assignBtn;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -230,5 +274,6 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JTable tblWorkRequests;
+    private javax.swing.JComboBox<String> volunteerComboBox;
     // End of variables declaration//GEN-END:variables
 }
