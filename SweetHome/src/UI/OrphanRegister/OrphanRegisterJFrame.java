@@ -22,8 +22,10 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
     private EcoSystem ecosys;
     private Network network;
-    private Organization org;
     private Enterprise enterprise;
+    private Organization org;
+    private OrphanManagementOrganization orpOrg;
+    private OrphanShelterEnterprise orpEnterprise;
     private UserAccount userAccount;
 
     /**
@@ -33,8 +35,7 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    public OrphanRegisterJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, 
-            Organization org, UserAccount useraccount) {
+    public OrphanRegisterJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
         this.ecosys = ecosys;
@@ -117,7 +118,11 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
     private void btnRegOrphanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegOrphanActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new OrphanRegisterJPanel());
+        jSplitPane1.setRightComponent(new OrphanRegisterJPanel(this.ecosys,
+        this.network,
+        this.enterprise,
+        this.org,
+        this.userAccount));
     }// GEN-LAST:event_btnRegOrphanActionPerformed
 
     private void btnRequestVolunteerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRequestVolunteerActionPerformed

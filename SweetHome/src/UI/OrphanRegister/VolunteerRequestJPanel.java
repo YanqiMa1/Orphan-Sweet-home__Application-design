@@ -96,10 +96,7 @@ public class VolunteerRequestJPanel extends javax.swing.JPanel {
 
         SendVolunteerRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Message", "Sender", "Volunteer Manager", "Volunteer Assigned", "Enterprise", "Status"

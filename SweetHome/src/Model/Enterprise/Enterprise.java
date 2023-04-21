@@ -5,6 +5,7 @@
 package Model.Enterprise;
 
 import Model.Organization.OrganizationDirectory;
+import Model.Orphan.OrphanDirectory;
 import Model.UserAccount.UserAccountDirectory;
 import Model.WorkQueue.WorkQueue;
 
@@ -14,11 +15,11 @@ import Model.WorkQueue.WorkQueue;
  */
 public abstract class Enterprise {
 
-    String name;
-    Type type;
-    WorkQueue workQueue;
-    OrganizationDirectory organizationDirectory;
-    UserAccountDirectory enterpriseUserAccounts;
+    private String name;
+    private final Type type;
+    private WorkQueue workQueue;
+    private OrganizationDirectory organizationDirectory;
+    private UserAccountDirectory enterpriseUserAccounts;
     
     public enum Type {
         Volunteer("VolunteerEnterprise"),

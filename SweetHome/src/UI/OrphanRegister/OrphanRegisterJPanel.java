@@ -44,12 +44,12 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    public OrphanRegisterJPanel(EcoSystem ecosys, Network network, OrphanShelterEnterprise orpEnterprise, 
+    public OrphanRegisterJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, 
             Organization org, UserAccount useraccount) {
         initComponents();
         this.ecosys=ecosys;
         this.network=network;
-        this.orpEnterprise=orpEnterprise;
+        this.enterprise=enterprise;
         this.org=org;
         this.userAccount=useraccount;
         
@@ -65,15 +65,14 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jSpinner1 = new javax.swing.JSpinner();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnRegisterOrphan = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         fieldOrphanName = new javax.swing.JTextField();
         lblMessage5 = new javax.swing.JLabel();
-        fieldAge = new javax.swing.JTextField();
         lblMessage6 = new javax.swing.JLabel();
         lblMessage7 = new javax.swing.JLabel();
-        fieldRace = new javax.swing.JTextField();
         lblMessage8 = new javax.swing.JLabel();
         lblMessage12 = new javax.swing.JLabel();
         btnUploadPhoto = new javax.swing.JButton();
@@ -81,6 +80,8 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         maleRadioBtn = new javax.swing.JRadioButton();
         rbtnFemale = new javax.swing.JRadioButton();
         jLabelImage = new javax.swing.JLabel();
+        raceComboBox = new javax.swing.JComboBox<>();
+        ageComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 204, 255));
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -107,7 +108,6 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         lblMessage5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage5.setText("Name:");
         kGradientPanel1.add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
-        kGradientPanel1.add(fieldAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 217, -1));
 
         lblMessage6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage6.setText("Age:");
@@ -116,18 +116,6 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         lblMessage7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage7.setText("Sex:");
         kGradientPanel1.add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
-
-        fieldRace.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldRaceActionPerformed(evt);
-            }
-        });
-        fieldRace.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                fieldRaceKeyPressed(evt);
-            }
-        });
-        kGradientPanel1.add(fieldRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 217, -1));
 
         lblMessage8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMessage8.setText("Race:");
@@ -166,6 +154,12 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         kGradientPanel1.add(rbtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
         kGradientPanel1.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 200, 200));
 
+        raceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unknown", "American Indian or Alaska Native", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White" }));
+        kGradientPanel1.add(raceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 220, -1));
+
+        ageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18" }));
+        kGradientPanel1.add(ageComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 220, -1));
+
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -173,9 +167,9 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
 
         String name = fieldOrphanName.getText();
 
-        String age = fieldAge.getText();
+        String age = ageComboBox.getSelectedItem().toString();
 
-        String race = fieldRace.getText();
+        String race = raceComboBox.getSelectedItem().toString();
         String photo = fieldPhoto.getText();
 
         Pattern special = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
@@ -184,19 +178,12 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
 //        Pattern emailVailidation = Pattern.compile("^[A-Za-z0-9+_.-][@][A-Za-z0-9.-]+$");
 
         Matcher matcherName = special.matcher(name);
-        Matcher matcherRace = special.matcher(race);
-        Matcher matcherRaceNumber = number.matcher(race);
         Matcher matcherNameNumber = number.matcher(name);
-        Matcher matcherAge = special.matcher(age);
 
         boolean nameContainsSymbols = matcherName.find();
-        boolean raceContainsSymbols = matcherRace.find();
-        boolean ageContainsSymbols = matcherAge.find();
-
         boolean nameContainsNumber = matcherNameNumber.find();
-        boolean raceContainsNumber = matcherRaceNumber.find();
 
-        if (name.isEmpty() || age.isEmpty() || race.isEmpty() || photo.isEmpty()) {
+        if (name.isEmpty() || age.isEmpty() || photo.isEmpty()) {
             JOptionPane.showMessageDialog(null, "please fill all field");
             this.validate = true;
         } else if (nameContainsSymbols) {
@@ -205,21 +192,9 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         } else if (nameContainsNumber) {
             JOptionPane.showMessageDialog(null, "Name Contains invalid Number");
             this.validate = true;
-        } else if (raceContainsSymbols) {
-            JOptionPane.showMessageDialog(null, "Race Contains invalid Symbols");
-            this.validate = true;
-        } else if (raceContainsNumber) {
-            JOptionPane.showMessageDialog(null, "Race Contains invalid Number");
-            this.validate = true;
-        } else if (ageContainsSymbols) {
-            JOptionPane.showMessageDialog(null, "age Contains invalid Symbols");
-            this.validate = true;
-        } else if (Integer.valueOf(age) < 0 || Integer.valueOf(age) > 18) {
-            JOptionPane.showMessageDialog(null, "age must be in the range of 0-18");
-            this.validate = true;
         } else {
             this.validate = false;
-            Orphan orphan = this.orpEnterprise.getOrphanDirectory().createOrphan(name);
+            Orphan orphan = ((OrphanShelterEnterprise) enterprise).getOrphanDirectory().createOrphan(name);
             orphan.setAge(Integer.valueOf(age));
             if (maleRadioBtn.isSelected()) {
                 orphan.setSex("male");
@@ -228,16 +203,9 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
             }
             orphan.setRace(race);
             orphan.setPhoto(photo);
+            JOptionPane.showMessageDialog(null, "Successfully registered!");
         }
     }//GEN-LAST:event_btnRegisterOrphanActionPerformed
-
-    private void fieldRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldRaceActionPerformed
-
-    }//GEN-LAST:event_fieldRaceActionPerformed
-
-    private void fieldRaceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldRaceKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldRaceKeyPressed
 
     private void btnUploadPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadPhotoActionPerformed
 
@@ -268,14 +236,14 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ageComboBox;
     private javax.swing.JButton btnRegisterOrphan;
     private javax.swing.JButton btnUploadPhoto;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField fieldAge;
     private javax.swing.JTextField fieldOrphanName;
     private javax.swing.JTextField fieldPhoto;
-    private javax.swing.JTextField fieldRace;
     private javax.swing.JLabel jLabelImage;
+    private javax.swing.JSpinner jSpinner1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblMessage12;
     private javax.swing.JLabel lblMessage5;
@@ -284,6 +252,7 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMessage8;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JRadioButton maleRadioBtn;
+    private javax.swing.JComboBox<String> raceComboBox;
     private javax.swing.JRadioButton rbtnFemale;
     // End of variables declaration//GEN-END:variables
 }

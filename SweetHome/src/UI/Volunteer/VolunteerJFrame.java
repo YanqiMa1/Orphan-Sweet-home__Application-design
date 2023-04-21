@@ -11,6 +11,7 @@ import Model.Enterprise.VolunteerEnterprise;
 import Model.Organization.Organization;
 import Model.Organization.VolunteerManagementOrganization;
 import Model.UserAccount.UserAccount;
+import UI.Basic.LoginJFrame;
 
 /**
  *
@@ -142,8 +143,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
-        //        MainJFrame mainJFrame = new MainJFrame();
-        //        mainJFrame.setVisible(true);
+        new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**
