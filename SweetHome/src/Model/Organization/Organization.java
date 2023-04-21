@@ -19,14 +19,14 @@ public abstract class Organization {
     static int idCounter;
 
     public enum Type {
-        OrphanRegister("Orphan Register Organization"), 
+        
         OrphanManagement("Orphan Management Organization"), 
+        Authority("Authority Organization"), 
         Doctor("Doctor Organization"),
         Pharmacy("Pharmacy Organization"),
-        Adopter("Adopter Organization"), 
-        Authority("Authority Organization"), 
-        VolunteerManagement("Volunteer Management Organization"), 
-        Volunteer("Volunteer Organization");
+        AdopterManagement("Adopter Management Organization"),        
+        VolunteerManagement("Volunteer Management Organization"),;
+        
         
         private final String value;
         

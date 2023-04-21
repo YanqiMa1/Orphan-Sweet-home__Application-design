@@ -8,7 +8,6 @@ import Model.Enterprise.MedicalCareEnterprise;
 import Model.Enterprise.OrphanShelterEnterprise;
 import Model.Organization.DoctorOrganization;
 import Model.Organization.Organization;
-import Model.Organization.OrphanRegisterOrganization;
 import Model.UserAccount.UserAccount;
 import UI.Doctor.DoctorWorkAreaJFrame;
 import UI.OrphanManagement.OrphanManagerJFrame;

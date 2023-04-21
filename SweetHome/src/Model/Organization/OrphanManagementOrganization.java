@@ -5,6 +5,7 @@
 package Model.Organization;
 
 import Model.Role.OrphanManagementRole;
+import Model.Role.OrphanRegisterRole;
 import Model.Role.Role;
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class OrphanManagementOrganization extends Organization{
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new OrphanManagementRole());
+        roles.add(new OrphanRegisterRole());
         return roles;
     }
      

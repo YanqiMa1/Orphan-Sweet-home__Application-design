@@ -5,7 +5,13 @@
 package UI.AdministrativeRole;
 
 import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.Role.Role;
 import Model.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,6 +33,12 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         initComponents();
         this.ecosys = ecosys;
         this.useraccount = useraccount;
+        
+        populateNetworkCombo();
+        populateEnterpriseCombo();
+        populateOrgCombo();
+        populateRoleCombo();
+        populateUserAccountsTable();
     }
 
     /**
@@ -69,12 +81,12 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Users");
-        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 81, 189, -1));
+        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 189, -1));
 
         lblUsersList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("Users List:");
-        kGradientPanel3.add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 138, -1, -1));
+        kGradientPanel3.add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,82 +113,198 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblUsers);
 
-        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 191, 411, 340));
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 411, 340));
 
         lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganization.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganization.setText("Enterprise:");
-        kGradientPanel3.add(lblOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
+        kGradientPanel3.add(lblOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
 
-        kGradientPanel3.add(cmbEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 125, -1));
+        kGradientPanel3.add(cmbEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 160, -1));
 
         lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployee.setText("Organization:");
-        kGradientPanel3.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, -1));
+        kGradientPanel3.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
-        kGradientPanel3.add(cmbOrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 126, 20));
+        kGradientPanel3.add(cmbOrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 160, 20));
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("Role:");
-        kGradientPanel3.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
+        kGradientPanel3.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, -1, -1));
 
-        kGradientPanel3.add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 126, -1));
+        kGradientPanel3.add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 160, -1));
 
         lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setText("User Name:");
-        kGradientPanel3.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
-        kGradientPanel3.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 130, -1));
+        kGradientPanel3.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
+        kGradientPanel3.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 160, -1));
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password:");
-        kGradientPanel3.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
-        kGradientPanel3.add(pwdUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 131, -1));
+        kGradientPanel3.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
+        kGradientPanel3.add(pwdUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 160, -1));
 
         btnCreateUser.setBackground(new java.awt.Color(238, 156, 167));
         btnCreateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCreateUser.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateUser.setText("Create User");
         btnCreateUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kGradientPanel3.add(btnCreateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 238, 33));
+        btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateUserActionPerformed(evt);
+            }
+        });
+        kGradientPanel3.add(btnCreateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 238, 33));
 
         lblOrganizationPicker.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationPicker.setText("NetWork");
-        kGradientPanel3.add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
+        kGradientPanel3.add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
-        cmbNetworkList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbNetworkListActionPerformed(evt);
-            }
-        });
-        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 125, -1));
+        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 160, -1));
 
         btnDeleteUser.setBackground(new java.awt.Color(238, 156, 167));
         btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDeleteUser.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteUser.setText("Delete User");
         btnDeleteUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kGradientPanel3.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 238, 33));
+        kGradientPanel3.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 238, 33));
 
         btnUpdateUser.setBackground(new java.awt.Color(238, 156, 167));
         btnUpdateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnUpdateUser.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateUser.setText("Update User");
         btnUpdateUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kGradientPanel3.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 238, 33));
+        kGradientPanel3.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 238, 33));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbNetworkListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkListActionPerformed
+    private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
+        
+        
+        try{
+            
+            String userName = txtUserName.getText();
+            String password = String.valueOf(pwdUser.getPassword());
 
-//        populateEnterpriseCombo();
-    }//GEN-LAST:event_cmbNetworkListActionPerformed
+            Network network = (Network) cmbNetworkList.getSelectedItem();
 
+
+            String selectedEntOption = (String) cmbEnterprise.getSelectedItem();
+            String enterpriseName = selectedEntOption.split("\\s\\|\\s")[1];            
+            Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
+
+            String selectedOrgOption = cmbOrg.getSelectedItem().toString();
+            String orgName = selectedOrgOption.split("\\s\\|\\s")[1];
+            Organization organization = enterprise.getOrganizationDirectory().getOrganizationByName(orgName);
+            
+
+            if((!userName.isEmpty()) && (!password.isEmpty())){
+                if(this.ecosys.getUserAccountDirectory().userNameIsUnique(userName)){
+                    Role role = (Role) cmbRoles.getSelectedItem();
+                    this.ecosys.getUserAccountDirectory().createUserAccount(userName, password, role, network, enterprise, organization);
+                    JOptionPane.showMessageDialog(this, "User Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    txtUserName.setText("");
+                    pwdUser.setText("");
+                    populateUserAccountsTable();
+                } else {                            
+                    JOptionPane.showMessageDialog(this, "Username already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                } 
+            } else {
+                JOptionPane.showMessageDialog(this, "Username & Password cannot be empty","Warning",JOptionPane.WARNING_MESSAGE);
+            }
+        
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Network / Enterprise / Organization cannot be empty","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnCreateUserActionPerformed
+  public void populateUserAccountsTable() {
+
+        DefaultTableModel model = (DefaultTableModel) tblUsers.getModel();
+        model.setRowCount(0);
+
+
+        for (UserAccount ua : this.ecosys.getUserAccountDirectory().getUserAccountList()){
+                Object row[] = new Object[5];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                row[2] = ua.getOrgainization();
+                row[3] = ua.getEnterprise();
+                row[4] = ua.getNetwork();
+                model.addRow(row);
+            }
+        }
+  
+    private void populateNetworkCombo() {
+    
+        cmbNetworkList.removeAllItems();
+
+        if (!this.ecosys.getNetworkList().isEmpty()){
+            for (Network n : this.ecosys.getNetworkList()){
+                cmbNetworkList.addItem(n);
+            }
+        }
+    }
+
+    private void populateEnterpriseCombo() {
+        
+        cmbEnterprise.removeAllItems();
+        
+        Network network = (Network) cmbNetworkList.getSelectedItem();
+        
+        if (network != null ){
+            for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()){
+                cmbEnterprise.addItem(e.getType() + " | " + e);
+            }
+        }
+    }
+
+    private void populateOrgCombo() {
+        
+        cmbOrg.removeAllItems();
+        
+        Network network = (Network) cmbNetworkList.getSelectedItem();
+                
+        if (cmbEnterprise.getSelectedItem() != null) {
+            String selectedOption = (String) cmbEnterprise.getSelectedItem();
+            String enterpriseName = selectedOption.split("\\s\\|\\s")[1];            
+            Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
+            
+            for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()){
+                cmbOrg.addItem(o.getType() + " | " + o);
+            }
+        }
+    }  
+    
+       private void populateRoleCombo() {
+
+        cmbRoles.removeAllItems();
+        
+        Network network = (Network) cmbNetworkList.getSelectedItem();
+        
+        if (cmbEnterprise.getSelectedItem() != null) {
+            String selectedEntOption = (String) cmbEnterprise.getSelectedItem();
+            String enterpriseName = selectedEntOption.split("\\s\\|\\s")[1];            
+            Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
+        
+            if (cmbOrg.getSelectedItem()!= null) {
+                String selectedOrgOption = cmbOrg.getSelectedItem().toString();
+                String orgName = selectedOrgOption.split("\\|\\s")[1];
+                Organization organization = enterprise.getOrganizationDirectory().getOrganizationByName(orgName);
+
+                for (Role role : organization.getSupportedRole()) {
+                    cmbRoles.addItem(role);
+                }
+                
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateUser;

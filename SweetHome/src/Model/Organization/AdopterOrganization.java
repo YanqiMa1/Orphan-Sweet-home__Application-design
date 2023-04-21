@@ -14,13 +14,14 @@ import java.util.ArrayList;
  */
 public class AdopterOrganization extends Organization{
     public AdopterOrganization(String nameAdopter) {
-        super(nameAdopter, Organization.Type.Adopter);
+        super(nameAdopter, Organization.Type.AdopterManagement);
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> supportRoles = new ArrayList<>();
         supportRoles.add(new AdopterRole());
+      
         return supportRoles;
     }
     
