@@ -112,7 +112,7 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
-        new LoginJFrame(this.ecosys, this.useraccount);
+        new LoginJFrame(this.ecosys, this.userAccount);
     }// GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnRegOrphanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegOrphanActionPerformed
