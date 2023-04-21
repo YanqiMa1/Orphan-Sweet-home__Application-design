@@ -9,7 +9,7 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Enterprise.VolunteerEnterprise;
 import Model.Organization.Organization;
-import Model.Organization.VolunteerOrganization;
+import Model.Organization.VolunteerManagementOrganization;
 import Model.UserAccount.UserAccount;
 
 /**
