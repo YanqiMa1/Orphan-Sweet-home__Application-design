@@ -9,7 +9,7 @@ import Model.Enterprise.Enterprise;
 import Model.Enterprise.OrphanShelterEnterprise;
 import Model.Organization.AuthorityOrganization;
 import Model.Organization.Organization;
-import Model.Organization.OrphanRegisterOrganization;
+
 import Model.UserAccount.UserAccount;
 import UI.OrphanManagement.OrphanManagerJFrame;
 import javax.swing.JFrame;

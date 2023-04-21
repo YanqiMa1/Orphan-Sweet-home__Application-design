@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model.Organization;
+import Model.Enterprise.Enterprise;
 import Model.Organization.Organization.Type;
 import java.util.ArrayList;
 
@@ -25,13 +26,7 @@ public class OrganizationDirectory {
     public Organization createOrganization(String name, Type type) {
         Organization organization = null;
 
-        if (type.getValue().equals(Type.OrphanRegister.getValue())) {
-            organization = new OrphanRegisterOrganization(name);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Volunteer.getValue())) {
-            organization = new VolunteerOrganization(name);
-            organizationList.add(organization);
-        } else if (type.getValue().equals(Type.Adopter.getValue())) {
+     if (type.getValue().equals(Type.AdopterManagement.getValue())) {
             organization = new AdopterOrganization(name);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Doctor.getValue())) {
@@ -76,6 +71,10 @@ public class OrganizationDirectory {
             }
         }
         return true;
+    }
+    
+        public void deleteOrganization(Organization or) {
+        organizationList.remove(or);
     }
 
 }

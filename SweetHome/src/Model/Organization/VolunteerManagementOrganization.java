@@ -6,6 +6,7 @@ package Model.Organization;
 
 import Model.Role.Role;
 import Model.Role.VolunteerManagerRole;
+import Model.Role.VolunteerRole;
 import java.util.ArrayList;
 
 /**
@@ -25,6 +26,7 @@ public class VolunteerManagementOrganization extends Organization{
         ArrayList<Role> roles = new ArrayList<>();
         
         roles.add(new VolunteerManagerRole());
+        roles.add(new VolunteerRole());
         return roles;
     }
     

@@ -5,6 +5,7 @@
 package Model.EcoSystem;
 
 import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
 import Model.Role.SystemAdminRole;
 import Model.UserAccount.UserAccount;
 
@@ -52,10 +53,45 @@ public class ConfigureABusiness {
         Enterprise cam2 = newNetwork4.getEnterpriseDirectory().createAndAddEnterprise("Cam_MedicalCareCenter", Enterprise.Type.MedicalCare);
         Enterprise cam3 = newNetwork4.getEnterpriseDirectory().createAndAddEnterprise("Cam_VolunteerCenter", Enterprise.Type.Volunteer);
         Enterprise cam4 = newNetwork4.getEnterpriseDirectory().createAndAddEnterprise("Cam_Adoption", Enterprise.Type.Adoption);
-       
+
         //create some default organization
+        //boston
+        boston1.getOrganizationDirectory().createOrganization("Bos_orphanManagement", Organization.Type.OrphanManagement);
+
+        boston2.getOrganizationDirectory().createOrganization("Bos_doctor", Organization.Type.Doctor);
+        boston2.getOrganizationDirectory().createOrganization("Bos_pharmacy", Organization.Type.Pharmacy);
+
+        boston3.getOrganizationDirectory().createOrganization("Bos_volunteerManagement", Organization.Type.VolunteerManagement);
+
+        boston4.getOrganizationDirectory().createOrganization("Bos_Adoption", Organization.Type.AdopterManagement);
+        boston4.getOrganizationDirectory().createOrganization("Bos_athority", Organization.Type.Authority);
+
+        //Malden
+        mal1.getOrganizationDirectory().createOrganization("Mal_orphanManagement", Organization.Type.OrphanManagement);
+
+        mal2.getOrganizationDirectory().createOrganization("Mal_doctor", Organization.Type.Doctor);
+        mal2.getOrganizationDirectory().createOrganization("Mal_pharmacy", Organization.Type.Pharmacy);
+
+        mal3.getOrganizationDirectory().createOrganization("Mal_volunteerManagement", Organization.Type.VolunteerManagement);
+
+        mal4.getOrganizationDirectory().createOrganization("Mal_Adoption", Organization.Type.AdopterManagement);
+        mal4.getOrganizationDirectory().createOrganization("Mal_athority", Organization.Type.Authority);
+
+        //cambridge
+        cam1.getOrganizationDirectory().createOrganization("Cam_orphanManagement", Organization.Type.OrphanManagement);
+
+        cam2.getOrganizationDirectory().createOrganization("Cam_doctor", Organization.Type.Doctor);
+        cam2.getOrganizationDirectory().createOrganization("Cam_pharmacy", Organization.Type.Pharmacy);
+
+        cam3.getOrganizationDirectory().createOrganization("Cam_volunteerManagement", Organization.Type.VolunteerManagement);
+
+        cam4.getOrganizationDirectory().createOrganization("Cam_Adoption", Organization.Type.AdopterManagement);
+        cam4.getOrganizationDirectory().createOrganization("Cam_athority", Organization.Type.Authority);
         
         
+        //create default user role(except adopters)
+        
+
         return ecoSystem;
     }
 
