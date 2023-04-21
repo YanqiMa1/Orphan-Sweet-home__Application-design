@@ -199,19 +199,19 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         if (name.isEmpty() || age.isEmpty() || race.isEmpty() || photo.isEmpty()) {
             JOptionPane.showMessageDialog(null, "please fill all field");
             this.validate = true;
-        } else if (!nameContainsSymbols) {
+        } else if (nameContainsSymbols) {
             JOptionPane.showMessageDialog(null, "Name Contains invalid Symbols");
             this.validate = true;
-        } else if (!nameContainsNumber) {
+        } else if (nameContainsNumber) {
             JOptionPane.showMessageDialog(null, "Name Contains invalid Number");
             this.validate = true;
-        } else if (!raceContainsSymbols) {
+        } else if (raceContainsSymbols) {
             JOptionPane.showMessageDialog(null, "Race Contains invalid Symbols");
             this.validate = true;
-        } else if (!raceContainsNumber) {
+        } else if (raceContainsNumber) {
             JOptionPane.showMessageDialog(null, "Race Contains invalid Number");
             this.validate = true;
-        } else if (!ageContainsSymbols) {
+        } else if (ageContainsSymbols) {
             JOptionPane.showMessageDialog(null, "age Contains invalid Symbols");
             this.validate = true;
         } else if (Integer.valueOf(age) < 0 || Integer.valueOf(age) > 18) {
