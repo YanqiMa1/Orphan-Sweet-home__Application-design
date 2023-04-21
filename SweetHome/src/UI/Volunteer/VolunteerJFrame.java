@@ -7,7 +7,9 @@ package UI.Volunteer;
 import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
+import Model.Enterprise.VolunteerEnterprise;
 import Model.Organization.Organization;
+import Model.Organization.VolunteerOrganization;
 import Model.UserAccount.UserAccount;
 
 /**
@@ -18,8 +20,8 @@ public class VolunteerJFrame extends javax.swing.JFrame {
 
     EcoSystem ecosys;
     Network network;
-    Enterprise enterprise;
-    Organization org;
+    VolunteerEnterprise enterprise;
+    VolunteerOrganization org;
     UserAccount useraccount;
 
     /**
@@ -29,7 +31,8 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    public VolunteerJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+    public VolunteerJFrame(EcoSystem ecosys, Network network, VolunteerEnterprise enterprise, 
+            VolunteerOrganization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
         this.ecosys = ecosys;

@@ -4,7 +4,12 @@
  */
 package UI.OrphanRegister;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
 import Model.Enterprise.OrphanShelterEnterprise;
+import Model.Organization.Organization;
+import Model.Organization.OrphanManagementOrganization;
 import Model.Orphan.Orphan;
 import Model.UserAccount.UserAccount;
 import java.awt.Image;
@@ -25,6 +30,9 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form OrpanRegisterJPanel
      */
+    private EcoSystem ecosys;
+    private Network network;
+    private OrphanManagementOrganization org;
     private OrphanShelterEnterprise enterprise;
     private UserAccount userAccount;
     private ImageIcon animalImage;
@@ -33,6 +41,17 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
 
     public OrphanRegisterJPanel() {
         initComponents();
+    }
+    
+    OrphanRegisterJPanel(EcoSystem ecosys, Network network, OrphanShelterEnterprise enterprise, 
+            OrphanManagementOrganization org, UserAccount useraccount) {
+        initComponents();
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.userAccount=useraccount;
+        
     }
 
     /**
@@ -159,9 +178,9 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         String photo = fieldPhoto.getText();
 
         Pattern special = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
-        Pattern phone = Pattern.compile("[^a-z]", Pattern.CASE_INSENSITIVE);
+//        Pattern phone = Pattern.compile("[^a-z]", Pattern.CASE_INSENSITIVE);
         Pattern number = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
-        Pattern emailVailidation = Pattern.compile("^[A-Za-z0-9+_.-][@][A-Za-z0-9.-]+$");
+//        Pattern emailVailidation = Pattern.compile("^[A-Za-z0-9+_.-][@][A-Za-z0-9.-]+$");
 
         Matcher matcherName = special.matcher(name);
         Matcher matcherRace = special.matcher(race);
@@ -200,11 +219,14 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         } else {
             this.validate = false;
             Orphan orphan = this.enterprise.getOrphanDirectory().createOrphan(name);
+            orphan.setAge(Integer.valueOf(age));
             if (maleRadioBtn.isSelected()) {
                 orphan.setSex("male");
             } else {
                 orphan.setSex("female");
             }
+            orphan.setRace(race);
+            orphan.setPhoto(photo);
         }
     }//GEN-LAST:event_btnRegisterOrphanActionPerformed
 

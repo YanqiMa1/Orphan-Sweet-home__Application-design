@@ -4,6 +4,12 @@
  */
 package UI.OrphanRegister;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.OrphanShelterEnterprise;
+import Model.Organization.Organization;
+import Model.Organization.OrphanManagementOrganization;
+import Model.UserAccount.UserAccount;
 import UI.Basic.LoginJFrame;
 
 /**
@@ -12,11 +18,28 @@ import UI.Basic.LoginJFrame;
  */
 public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
+    private EcoSystem ecosys;
+    private Network network;
+    private OrphanManagementOrganization org;
+    private OrphanShelterEnterprise enterprise;
+    private UserAccount userAccount;
     /**
      * Creates new form OrphanRegisterJFrame
      */
     public OrphanRegisterJFrame() {
         initComponents();
+    }
+    
+    OrphanRegisterJFrame(EcoSystem ecosys, Network network, OrphanShelterEnterprise enterprise, 
+            OrphanManagementOrganization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.userAccount=useraccount;
+        
     }
 
     /**
