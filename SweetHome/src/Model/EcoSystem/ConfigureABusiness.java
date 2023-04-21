@@ -104,6 +104,7 @@ public class ConfigureABusiness {
         UserAccount ub2 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_OR", "Bos_OR", new OrphanRegisterRole(), newNetwork2, boston1, b1);
         //AdopterManagementOrganization(Adopter)
         UserAccount ub3 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_AD", "Bos_AD", new AdopterRole(), newNetwork2, boston4, b5);
+        ub3.setEmailId("ub3@sweethome.com");
         //AuthorityOrg(Authrity)
         UserAccount ub4 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_AU", "Bos_AU", new AuthorityRole(), newNetwork2, boston4, b6);
         //DoctorOrg(Doector)
@@ -120,7 +121,8 @@ public class ConfigureABusiness {
         UserAccount um2 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_OR", "Mal_OR", new OrphanRegisterRole(), newNetwork3, mal1, m1);
         //AdopterManagementOrganization(Adopter)
         UserAccount um3 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_AD", "Mal_AD", new AdopterRole(), newNetwork3, mal4, m5);
-        //AuthorityOrg(Authrity)
+        um3.setEmailId("um3@sweethome.com");
+//AuthorityOrg(Authrity)
         UserAccount um4 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_AU", "Mal_AU", new AuthorityRole(), newNetwork3, mal4, m6);
         //DoctorOrg(Doector)
         UserAccount um5 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_DOC", "Mal_DOC", new DoctorRole(), newNetwork3, mal2, m2);
@@ -136,7 +138,8 @@ public class ConfigureABusiness {
         UserAccount uc2 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_OR", "Cam_OR", new OrphanRegisterRole(), newNetwork4, cam1, c1);
         //AdopterManagementOrganization(Adopter)
         UserAccount uc3 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_AD", "Cam_AD", new AdopterRole(), newNetwork4, cam4, c5);
-        //AuthorityOrg(Authrity)
+        uc3.setEmailId("uc3@sweethome.com");
+//AuthorityOrg(Authrity)
         UserAccount uc4 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_AU", "Cam_AU", new AuthorityRole(), newNetwork4, cam4, c6);
         //DoctorOrg(Doector)
         UserAccount uc5 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_DOC", "Cam_DOC", new DoctorRole(), newNetwork4, cam2, c2);
@@ -145,7 +148,7 @@ public class ConfigureABusiness {
         //volunteerOrg(volunteerManagemer&volunteer)
         UserAccount uc7 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_V", "Cam_V", new VolunteerRole(), newNetwork4, cam3, c4);
         UserAccount uc8 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_VM", "Cam_VM", new VolunteerManagerRole(), newNetwork4, cam3, c4);
-      
+
         return ecoSystem;
     }
 

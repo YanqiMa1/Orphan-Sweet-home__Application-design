@@ -342,9 +342,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                         if (organizationType.getValue().equals("Orphan Management Organization")) {
                             cmbOrganizations.addItem(organizationType);
                         }
-                        if (organizationType.getValue().equals("Authority Organization")) {
-                            cmbOrganizations.addItem(organizationType);
-                        }
+                        
                     }
                     break;
                 case "MedicalCareEnterprise":
@@ -362,6 +360,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                     cmbOrganizations.removeAllItems();
                     for (Organization.Type organizationType : Organization.Type.values()) {
                         if (organizationType.getValue().equals("Adopter Management Organization")) {
+                            cmbOrganizations.addItem(organizationType);
+                        }
+                        if (organizationType.getValue().equals("Authority Organization")) {
                             cmbOrganizations.addItem(organizationType);
                         }
                      

@@ -8,6 +8,7 @@ import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Role.AdopterRole;
 import Model.Role.Role;
 import Model.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
@@ -76,17 +77,14 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         kGradientPanel3.setkEndColor(new java.awt.Color(255, 221, 225));
         kGradientPanel3.setkStartColor(new java.awt.Color(238, 156, 167));
         kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
-        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Manage Users");
-        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 189, -1));
+        lblTitle.setText("Manage Default Users");
 
         lblUsersList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("Users List:");
-        kGradientPanel3.add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,7 +95,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true
@@ -113,24 +111,19 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblUsers);
 
-        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 411, 340));
-
         lblOrganization.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganization.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganization.setText("Enterprise:");
-        kGradientPanel3.add(lblOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
 
         cmbEnterprise.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEnterpriseItemStateChanged(evt);
             }
         });
-        kGradientPanel3.add(cmbEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 160, -1));
 
         lblEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployee.setText("Organization:");
-        kGradientPanel3.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
         cmbOrg.setPreferredSize(new java.awt.Dimension(72, 40));
         cmbOrg.addItemListener(new java.awt.event.ItemListener() {
@@ -138,30 +131,24 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 cmbOrgItemStateChanged(evt);
             }
         });
-        kGradientPanel3.add(cmbOrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 160, 20));
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("Role:");
-        kGradientPanel3.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, -1, -1));
 
         cmbRoles.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbRolesItemStateChanged(evt);
             }
         });
-        kGradientPanel3.add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 160, -1));
 
         lblUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setText("User Name:");
-        kGradientPanel3.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
-        kGradientPanel3.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 160, -1));
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password:");
-        kGradientPanel3.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
 
         btnCreateUser.setBackground(new java.awt.Color(238, 156, 167));
         btnCreateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -173,19 +160,16 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 btnCreateUserActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnCreateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 238, 33));
 
         lblOrganizationPicker.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationPicker.setText("NetWork");
-        kGradientPanel3.add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         cmbNetworkList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbNetworkListItemStateChanged(evt);
             }
         });
-        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 160, -1));
 
         btnDeleteUser.setBackground(new java.awt.Color(238, 156, 167));
         btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -197,7 +181,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 btnDeleteUserActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 238, 33));
 
         btnUpdateUser.setBackground(new java.awt.Color(238, 156, 167));
         btnUpdateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -209,8 +192,97 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 btnUpdateUserActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 238, 33));
-        kGradientPanel3.add(pwdUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 160, -1));
+
+        pwdUser.setPreferredSize(new java.awt.Dimension(64, 28));
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblUsersList)
+                .addGap(354, 354, 354)
+                .addComponent(lblOrganizationPicker)
+                .addGap(50, 50, 50)
+                .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(lblOrganization)
+                        .addGap(41, 41, 41)
+                        .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(lblEmployee)
+                        .addGap(21, 21, 21)
+                        .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(lblRole)
+                        .addGap(77, 77, 77)
+                        .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(lblUserName)
+                        .addGap(35, 35, 35)
+                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addComponent(lblPassword)
+                        .addGap(44, 44, 44)
+                        .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblTitle)
+                .addGap(28, 28, 28)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUsersList)
+                    .addComponent(lblOrganizationPicker)
+                    .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOrganization)
+                            .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEmployee)
+                            .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRole)
+                            .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUserName)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPassword)
+                            .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -235,11 +307,18 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             if ((!userName.isEmpty()) && (!password.isEmpty())) {
                 if (this.ecosys.getUserAccountDirectory().userNameIsUnique(userName)) {
                     Role role = (Role) cmbRoles.getSelectedItem();
-                    this.ecosys.getUserAccountDirectory().createUserAccount(userName, password, role, network, enterprise, organization);
-                    JOptionPane.showMessageDialog(this, "User Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                    txtUserName.setText("");
-                    pwdUser.setText("");
-                    populateUserAccountsTable();
+                    
+
+                    if (role.equals(null)) {
+                        JOptionPane.showMessageDialog(this, "The role is not avalible", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        this.ecosys.getUserAccountDirectory().createUserAccount(userName, password, role, network, enterprise, organization);
+                        JOptionPane.showMessageDialog(this, "User Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        txtUserName.setText("");
+                        pwdUser.setText("");
+                        populateUserAccountsTable();
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Username already existed", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
@@ -278,7 +357,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private void btnUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserActionPerformed
         try {
             String keywordName = txtUserName.getText();
-            String keyPass =pwdUser.getText();
+            String keyPass = pwdUser.getText();
 
             int selectedRow = tblUsers.getSelectedRow();
             Network network = (Network) cmbNetworkList.getSelectedItem();
@@ -354,15 +433,19 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) tblUsers.getModel();
         model.setRowCount(0);
+        Network selectedNetwork = (Network) cmbNetworkList.getSelectedItem();
 
         for (UserAccount ua : this.ecosys.getUserAccountDirectory().getUserAccountList()) {
-            Object row[] = new Object[5];
-            row[0] = ua;
-            row[1] = ua.getRole();
-            row[2] = ua.getOrgainization();
-            row[3] = ua.getEnterprise();
-            row[4] = ua.getNetwork();
-            model.addRow(row);
+            if ((ua.getNetwork().equals(selectedNetwork)) && (!ua.getRole().type.equals(Role.RoleType.Adopter))) {
+                Object row[] = new Object[5];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                row[2] = ua.getOrgainization();
+                row[3] = ua.getEnterprise();
+                row[4] = ua.getNetwork();
+                model.addRow(row);
+            }
+
         }
     }
 
@@ -402,7 +485,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
 
             for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+
                 cmbOrg.addItem(o.getType() + " | " + o);
+
             }
         }
     }
@@ -424,7 +509,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 Organization organization = enterprise.getOrganizationDirectory().getOrganizationByName(orgName);
 
                 for (Role role : organization.getSupportedRole()) {
-                    cmbRoles.addItem(role);
+                    if (!role.type.equals(Role.RoleType.Adopter)) {
+
+                        cmbRoles.addItem(role);
+                    }
+
                 }
 
             }

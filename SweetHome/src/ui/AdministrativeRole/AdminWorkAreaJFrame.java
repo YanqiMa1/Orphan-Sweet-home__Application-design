@@ -55,6 +55,7 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         btnViewDashboard = new javax.swing.JButton();
         btnManageNetwork = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
+        btnManageadopters = new javax.swing.JButton();
         kGradientPanel2 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,7 +79,7 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         btnManageUsers.setBackground(new java.awt.Color(238, 156, 167));
         btnManageUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnManageUsers.setForeground(new java.awt.Color(255, 255, 255));
-        btnManageUsers.setText("Manage Users");
+        btnManageUsers.setText("Manage Default Users");
         btnManageUsers.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,38 +131,59 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnManageadopters.setBackground(new java.awt.Color(238, 156, 167));
+        btnManageadopters.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageadopters.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageadopters.setText("Manage Adopter Users");
+        btnManageadopters.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageadopters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageadoptersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnViewDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnManageOrganization)))
                 .addGap(18, 18, 18)
-                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnViewDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnManageadopters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(95, 95, 95))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManageEnterprise)
-                    .addComponent(btnManageOrganization)
-                    .addComponent(btnManageUsers)
-                    .addComponent(btnViewDashboard)
-                    .addComponent(btnManageNetwork))
-                .addGap(21, 21, 21))
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnManageNetwork)
+                            .addComponent(btnManageadopters)
+                            .addComponent(btnManageOrganization))
+                        .addGap(12, 12, 12)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnManageEnterprise)
+                            .addComponent(btnManageUsers)
+                            .addComponent(btnViewDashboard))
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
         );
 
         jSplitPane1.setTopComponent(kGradientPanel1);
@@ -212,6 +234,10 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(new SysAdminDashboardJPanel(this.ecosys, this.useraccount));
     }//GEN-LAST:event_btnViewDashboardActionPerformed
 
+    private void btnManageadoptersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageadoptersActionPerformed
+         jSplitPane1.setRightComponent(new ManageAdopterJPanel(this.ecosys, this.useraccount));
+    }//GEN-LAST:event_btnManageadoptersActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -253,6 +279,7 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnManageNetwork;
     private javax.swing.JButton btnManageOrganization;
     private javax.swing.JButton btnManageUsers;
+    private javax.swing.JButton btnManageadopters;
     private javax.swing.JButton btnViewDashboard;
     private javax.swing.JSplitPane jSplitPane1;
     private keeptoo.KGradientPanel kGradientPanel1;

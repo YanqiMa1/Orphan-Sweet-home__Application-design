@@ -36,6 +36,10 @@ public class RegisterJFrame extends javax.swing.JFrame {
         initComponents();
         this.sys=sys;
         this.useraccount=useraccount;
+        
+        populateNetworkCombo();
+        populateEnterpriseCombo();
+        populateOrgCombo();
     }
 
     /**
@@ -60,9 +64,9 @@ public class RegisterJFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        EnterpriseCB = new javax.swing.JComboBox<>();
-        NetworkCB = new javax.swing.JComboBox<>();
-        OrganizationCB = new javax.swing.JComboBox<>();
+        EnterpriseCB = new javax.swing.JComboBox();
+        NetworkCB = new javax.swing.JComboBox();
+        OrganizationCB = new javax.swing.JComboBox();
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -236,46 +240,59 @@ public class RegisterJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-        String newUsername = userNameFID.getText();
+     try {
+            String newUsername = userNameFID.getText();
         String newPassword = PasswordFID.getText();
         String newEmailId = EmailFID.getText();
         Network selectedNetw = (Network)NetworkCB.getSelectedItem();
-        Enterprise selectedEnter = (AdoptionEnterprise)EnterpriseCB.getSelectedItem();
-        Organization selectedOrgan = (AdopterOrganization)OrganizationCB.getSelectedItem();
-       
-        EmailValidator emailValidator = new EmailValidator();
 
-        if (selectedNetw != null && selectedEnter != null && selectedOrgan != null
-                && !newUsername.isEmpty() && !newPassword.isEmpty() && !newEmailId.isEmpty()) {     //null validation
+            String selectedOption = (String) EnterpriseCB.getSelectedItem();
+            String enterpriseName = selectedOption.split("\\s\\|\\s")[1];
+            Enterprise enterprise = selectedNetw.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
 
-            if (emailValidator.validate(EmailFID.getText().trim())) {
+            String selectedOrgOption = OrganizationCB.getSelectedItem().toString();
+            String orgName = selectedOrgOption.split("\\s\\|\\s")[1];
+            Organization organization = enterprise.getOrganizationDirectory().getOrganizationByName(orgName);
 
+            EmailValidator emailValidator = new EmailValidator();
 
-                if (this.sys.getUserAccountDirectory().userNameIsUnique(newUsername) ) {
-                    UserAccount newUserAccount = this.sys.getUserAccountDirectory().createUserAccount(newUsername, newPassword, new AdopterRole(), selectedNetw, selectedEnter, selectedOrgan);
-                    newUserAccount.setEmailId(newEmailId);
-                    JOptionPane.showMessageDialog(this, "User Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                    userNameFID.setText("");
-                    PasswordFID.setText("");
-                    EmailFID.setText("");
+            if (selectedNetw != null && selectedOption != null && selectedOrgOption != null
+                    && !newUsername.isEmpty() && !newPassword.isEmpty() && !newEmailId.isEmpty()) {     //null validation
 
-                    AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
-                    request.setMessage("New User");
-                    request.setSender(newUserAccount);
-                    request.setStatus("Pending Review");
+                if (emailValidator.validate(EmailFID.getText().trim())) {
 
-                    selectedEnter.getWorkQueue().getWorkRequestList().add(request);
-                    newUserAccount.getWorkQueue().getWorkRequestList().add(request);
+                    if (this.sys.getUserAccountDirectory().userNameIsUnique(newUsername)) {
+                        UserAccount newUserAccount = this.sys.getUserAccountDirectory().createUserAccount(newUsername, newPassword, new AdopterRole(), selectedNetw, enterprise, organization);
+                        newUserAccount.setEmailId(newEmailId);
+                        JOptionPane.showMessageDialog(this, "Adopter user Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        userNameFID.setText("");
+                        PasswordFID.setText("");
+                        EmailFID.setText("");
 
+                        AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
+                        request.setMessage("New User");
+                        request.setSender(newUserAccount);
+                        request.setStatus("Pending Review");
+
+                        enterprise.getWorkQueue().getWorkRequestList().add(request);
+                        newUserAccount.getWorkQueue().getWorkRequestList().add(request);
+                       
+                    } else {
+                        JOptionPane.showMessageDialog(this, " User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(this, "User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "All fields cannot be blank", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "All fields cannot be blank", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Network / Enterprise / organization cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+
         }
+     
+        
 
 
         
@@ -285,15 +302,61 @@ public class RegisterJFrame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void populateNetworkCombo() {
+
+        NetworkCB.removeAllItems();
+
+        if (!this.sys.getNetworkList().isEmpty()) {
+            for (Network n : this.sys.getNetworkList()) {
+                NetworkCB.addItem(n);
+            }
+        }
+    }
+
+    private void populateEnterpriseCombo() {
+
+        EnterpriseCB.removeAllItems();
+
+        Network network = (Network) NetworkCB.getSelectedItem();
+
+        if (network != null) {
+            for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if(e.getType().equals(Enterprise.Type.Adoption)){
+                      EnterpriseCB.addItem(e.getType() + " | " + e);
+                }
+               
+            }
+        }
+    }
+
+    private void populateOrgCombo() {
+
+        OrganizationCB.removeAllItems();
+
+        Network network = (Network)  NetworkCB.getSelectedItem();
+
+        if (EnterpriseCB.getSelectedItem() != null) {
+            String selectedOption = (String) EnterpriseCB.getSelectedItem();
+            String enterpriseName = selectedOption.split("\\s\\|\\s")[1];
+            Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
+
+            for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                if(o.getType().equals(Organization.Type.AdopterManagement)){
+                    OrganizationCB.addItem(o.getType() + " | " + o);
+                }
+               
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EmailFID;
-    private javax.swing.JComboBox<String> EnterpriseCB;
-    private javax.swing.JComboBox<String> NetworkCB;
-    private javax.swing.JComboBox<String> OrganizationCB;
+    private javax.swing.JComboBox EnterpriseCB;
+    private javax.swing.JComboBox NetworkCB;
+    private javax.swing.JComboBox OrganizationCB;
     private javax.swing.JTextField PasswordFID;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel jLabel2;
