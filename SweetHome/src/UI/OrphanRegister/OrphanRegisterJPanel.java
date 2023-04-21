@@ -37,18 +37,19 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private ImageIcon animalImage;
     private File imageFile;
+    private OrphanShelterEnterprise orpEnterprise;
     private Boolean validate = false;
 
     public OrphanRegisterJPanel() {
         initComponents();
     }
     
-    OrphanRegisterJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, 
+    public OrphanRegisterJPanel(EcoSystem ecosys, Network network, OrphanShelterEnterprise orpEnterprise, 
             Organization org, UserAccount useraccount) {
         initComponents();
         this.ecosys=ecosys;
         this.network=network;
-        this.enterprise=enterprise;
+        this.orpEnterprise=orpEnterprise;
         this.org=org;
         this.userAccount=useraccount;
         
@@ -218,7 +219,7 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
             this.validate = true;
         } else {
             this.validate = false;
-            Orphan orphan = this.enterprise.getOrphanDirectory().createOrphan(name);
+            Orphan orphan = this.orpEnterprise.getOrphanDirectory().createOrphan(name);
             orphan.setAge(Integer.valueOf(age));
             if (maleRadioBtn.isSelected()) {
                 orphan.setSex("male");

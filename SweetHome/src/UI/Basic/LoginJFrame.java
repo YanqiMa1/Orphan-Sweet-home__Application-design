@@ -202,6 +202,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                     this.setVisible(false);
                     UsernameFID.setText("");
                     passwordFID.setText("");
+                    break;
                 }
             }
         }

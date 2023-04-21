@@ -33,7 +33,7 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    OrphanRegisterJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, 
+    public OrphanRegisterJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, 
             Organization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
