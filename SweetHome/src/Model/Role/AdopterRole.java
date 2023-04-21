@@ -25,6 +25,7 @@ public class AdopterRole extends Role {
         this.type = RoleType.Adopter;
     }
 
+    
 
     @Override
     public JFrame createWorkArea(EcoSystem ecosys, Network network,Enterprise enterprise, Organization org, UserAccount useraccount) {
