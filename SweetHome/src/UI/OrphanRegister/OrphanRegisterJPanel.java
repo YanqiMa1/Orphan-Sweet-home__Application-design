@@ -32,8 +32,8 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
      */
     private EcoSystem ecosys;
     private Network network;
-    private OrphanManagementOrganization org;
-    private OrphanShelterEnterprise enterprise;
+    private Organization org;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     private ImageIcon animalImage;
     private File imageFile;
@@ -43,8 +43,8 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    OrphanRegisterJPanel(EcoSystem ecosys, Network network, OrphanShelterEnterprise enterprise, 
-            OrphanManagementOrganization org, UserAccount useraccount) {
+    OrphanRegisterJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, 
+            Organization org, UserAccount useraccount) {
         initComponents();
         this.ecosys=ecosys;
         this.network=network;
