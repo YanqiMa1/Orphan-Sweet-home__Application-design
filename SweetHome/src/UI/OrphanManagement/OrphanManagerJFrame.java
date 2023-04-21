@@ -16,27 +16,30 @@ import UI.Basic.LoginJFrame;
  * @author alilovepeach
  */
 public class OrphanManagerJFrame extends javax.swing.JFrame {
+
     EcoSystem ecosys;
     Network network;
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
+
     /**
      * Creates new form OrphanManagerJFrame
      */
-    
+
     public OrphanManagerJFrame() {
         initComponents();
 
     }
+
     public OrphanManagerJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
-        this.ecosys=ecosys;
-        this.network=network;
-        this.enterprise=enterprise;
-        this.org=org;
-        this.useraccount=useraccount;
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
     }
 
     /**
@@ -153,8 +156,7 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
-        LoginJFrame loginJFrame = new LoginJFrame();
-        loginJFrame.setVisible(true);
+        new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**

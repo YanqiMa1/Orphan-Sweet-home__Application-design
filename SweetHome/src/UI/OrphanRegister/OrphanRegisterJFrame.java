@@ -4,6 +4,11 @@
  */
 package UI.OrphanRegister;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
 import UI.Basic.LoginJFrame;
 
 /**
@@ -12,11 +17,27 @@ import UI.Basic.LoginJFrame;
  */
 public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
+
     /**
      * Creates new form OrphanRegisterJFrame
      */
     public OrphanRegisterJFrame() {
         initComponents();
+    }
+
+    public OrphanRegisterJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
     }
 
     /**
@@ -85,8 +106,7 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.setVisible(false);
-        LoginJFrame loginJFrame = new LoginJFrame();
-        loginJFrame.setVisible(true);
+        new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnRegOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegOrphanActionPerformed

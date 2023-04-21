@@ -6,7 +6,16 @@ package Model.EcoSystem;
 
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Role.AdopterRole;
+import Model.Role.AuthorityRole;
+import Model.Role.DoctorRole;
+import Model.Role.OrphanManagementRole;
+import Model.Role.OrphanRegisterRole;
+import Model.Role.PharmacistRole;
+import Model.Role.Role;
 import Model.Role.SystemAdminRole;
+import Model.Role.VolunteerManagerRole;
+import Model.Role.VolunteerRole;
 import Model.UserAccount.UserAccount;
 
 /**
@@ -56,42 +65,87 @@ public class ConfigureABusiness {
 
         //create some default organization
         //boston
-        boston1.getOrganizationDirectory().createOrganization("Bos_orphanManagement", Organization.Type.OrphanManagement);
+        Organization b1 = boston1.getOrganizationDirectory().createOrganization("Bos_orphanManagement", Organization.Type.OrphanManagement);
 
-        boston2.getOrganizationDirectory().createOrganization("Bos_doctor", Organization.Type.Doctor);
-        boston2.getOrganizationDirectory().createOrganization("Bos_pharmacy", Organization.Type.Pharmacy);
+        Organization b2 = boston2.getOrganizationDirectory().createOrganization("Bos_doctor", Organization.Type.Doctor);
+        Organization b3 = boston2.getOrganizationDirectory().createOrganization("Bos_pharmacy", Organization.Type.Pharmacy);
 
-        boston3.getOrganizationDirectory().createOrganization("Bos_volunteerManagement", Organization.Type.VolunteerManagement);
+        Organization b4 = boston3.getOrganizationDirectory().createOrganization("Bos_volunteerManagement", Organization.Type.VolunteerManagement);
 
-        boston4.getOrganizationDirectory().createOrganization("Bos_Adoption", Organization.Type.AdopterManagement);
-        boston4.getOrganizationDirectory().createOrganization("Bos_athority", Organization.Type.Authority);
+        Organization b5 = boston4.getOrganizationDirectory().createOrganization("Bos_Adoption", Organization.Type.AdopterManagement);
+        Organization b6 = boston4.getOrganizationDirectory().createOrganization("Bos_athority", Organization.Type.Authority);
 
         //Malden
-        mal1.getOrganizationDirectory().createOrganization("Mal_orphanManagement", Organization.Type.OrphanManagement);
+        Organization m1 = mal1.getOrganizationDirectory().createOrganization("Mal_orphanManagement", Organization.Type.OrphanManagement);
 
-        mal2.getOrganizationDirectory().createOrganization("Mal_doctor", Organization.Type.Doctor);
-        mal2.getOrganizationDirectory().createOrganization("Mal_pharmacy", Organization.Type.Pharmacy);
+        Organization m2 = mal2.getOrganizationDirectory().createOrganization("Mal_doctor", Organization.Type.Doctor);
+        Organization m3 = mal2.getOrganizationDirectory().createOrganization("Mal_pharmacy", Organization.Type.Pharmacy);
 
-        mal3.getOrganizationDirectory().createOrganization("Mal_volunteerManagement", Organization.Type.VolunteerManagement);
+        Organization m4 = mal3.getOrganizationDirectory().createOrganization("Mal_volunteerManagement", Organization.Type.VolunteerManagement);
 
-        mal4.getOrganizationDirectory().createOrganization("Mal_Adoption", Organization.Type.AdopterManagement);
-        mal4.getOrganizationDirectory().createOrganization("Mal_athority", Organization.Type.Authority);
+        Organization m5 = mal4.getOrganizationDirectory().createOrganization("Mal_Adoption", Organization.Type.AdopterManagement);
+        Organization m6 = mal4.getOrganizationDirectory().createOrganization("Mal_athority", Organization.Type.Authority);
 
         //cambridge
-        cam1.getOrganizationDirectory().createOrganization("Cam_orphanManagement", Organization.Type.OrphanManagement);
+        Organization c1 = cam1.getOrganizationDirectory().createOrganization("Cam_orphanManagement", Organization.Type.OrphanManagement);
 
-        cam2.getOrganizationDirectory().createOrganization("Cam_doctor", Organization.Type.Doctor);
-        cam2.getOrganizationDirectory().createOrganization("Cam_pharmacy", Organization.Type.Pharmacy);
+        Organization c2 = cam2.getOrganizationDirectory().createOrganization("Cam_doctor", Organization.Type.Doctor);
+        Organization c3 = cam2.getOrganizationDirectory().createOrganization("Cam_pharmacy", Organization.Type.Pharmacy);
 
-        cam3.getOrganizationDirectory().createOrganization("Cam_volunteerManagement", Organization.Type.VolunteerManagement);
+        Organization c4 = cam3.getOrganizationDirectory().createOrganization("Cam_volunteerManagement", Organization.Type.VolunteerManagement);
 
-        cam4.getOrganizationDirectory().createOrganization("Cam_Adoption", Organization.Type.AdopterManagement);
-        cam4.getOrganizationDirectory().createOrganization("Cam_athority", Organization.Type.Authority);
-        
-        
+        Organization c5 = cam4.getOrganizationDirectory().createOrganization("Cam_Adoption", Organization.Type.AdopterManagement);
+        Organization c6 = cam4.getOrganizationDirectory().createOrganization("Cam_athority", Organization.Type.Authority);
+
         //create default user role(except adopters)
-        
+        //for boston
+        //orphanManagementOrganization(orphanManagement & orphanRegister)
+        UserAccount ub1 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_OM", "Bos_OM", new OrphanManagementRole(), newNetwork2, boston1, b1);
+        UserAccount ub2 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_OR", "Bos_OR", new OrphanRegisterRole(), newNetwork2, boston1, b1);
+        //AdopterManagementOrganization(Adopter)
+        UserAccount ub3 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_AD", "Bos_AD", new AdopterRole(), newNetwork2, boston4, b5);
+        //AuthorityOrg(Authrity)
+        UserAccount ub4 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_AU", "Bos_AU", new AuthorityRole(), newNetwork2, boston4, b6);
+        //DoctorOrg(Doector)
+        UserAccount ub5 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_DOC", "Bos_DOC", new DoctorRole(), newNetwork2, boston2, b2);
+        //PharmacyOrg(Pharmacy)
+        UserAccount ub6 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_Phar", "Bos_Phar", new PharmacistRole(), newNetwork2, boston2, b3);
+        //volunteerOrg(volunteerManagemer&volunteer)
+        UserAccount ub7 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_V", "Bos_V", new VolunteerRole(), newNetwork2, boston3, b4);
+        UserAccount ub8 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_VM", "Bos_VM", new VolunteerManagerRole(), newNetwork2, boston3, b4);
 
+        //for malden
+        //orphanManagementOrganization(orphanManagement & orphanRegister)
+        UserAccount um1 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_OM", "Mal_OM", new OrphanManagementRole(), newNetwork3, mal1, m1);
+        UserAccount um2 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_OR", "Mal_OR", new OrphanRegisterRole(), newNetwork3, mal1, m1);
+        //AdopterManagementOrganization(Adopter)
+        UserAccount um3 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_AD", "Mal_AD", new AdopterRole(), newNetwork3, mal4, m5);
+        //AuthorityOrg(Authrity)
+        UserAccount um4 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_AU", "Mal_AU", new AuthorityRole(), newNetwork3, mal4, m6);
+        //DoctorOrg(Doector)
+        UserAccount um5 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_DOC", "Mal_DOC", new DoctorRole(), newNetwork3, mal2, m2);
+        //PharmacyOrg(Pharmacy)
+        UserAccount um6 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_Phar", "Mal_Phar", new PharmacistRole(), newNetwork3, mal2, m3);
+        //volunteerOrg(volunteerManagemer&volunteer)
+        UserAccount um7 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_V", "Mal_V", new VolunteerRole(), newNetwork3, mal3, m4);
+        UserAccount um8 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_VM", "Mal_VM", new VolunteerManagerRole(), newNetwork3, mal3, m4);
+
+        //for cambridge
+        //orphanManagementOrganization(orphanManagement & orphanRegister)
+        UserAccount uc1 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_OM", "Cam_OM", new OrphanManagementRole(), newNetwork4, cam1, c1);
+        UserAccount uc2 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_OR", "Cam_OR", new OrphanRegisterRole(), newNetwork4, cam1, c1);
+        //AdopterManagementOrganization(Adopter)
+        UserAccount uc3 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_AD", "Cam_AD", new AdopterRole(), newNetwork4, cam4, c5);
+        //AuthorityOrg(Authrity)
+        UserAccount uc4 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_AU", "Cam_AU", new AuthorityRole(), newNetwork4, cam4, c6);
+        //DoctorOrg(Doector)
+        UserAccount uc5 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_DOC", "Cam_DOC", new DoctorRole(), newNetwork4, cam2, c2);
+        //PharmacyOrg(Pharmacy)
+        UserAccount uc6 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_Phar", "Cam_Phar", new PharmacistRole(), newNetwork4, cam2, c3);
+        //volunteerOrg(volunteerManagemer&volunteer)
+        UserAccount uc7 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_V", "Cam_V", new VolunteerRole(), newNetwork4, cam3, c4);
+        UserAccount uc8 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_VM", "Cam_VM", new VolunteerManagerRole(), newNetwork4, cam3, c4);
+      
         return ecoSystem;
     }
 

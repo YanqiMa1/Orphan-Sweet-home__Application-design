@@ -9,10 +9,9 @@ import Model.Enterprise.OrphanShelterEnterprise;
 import Model.Organization.Organization;
 import Model.Organization.OrphanManagementOrganization;
 import Model.UserAccount.UserAccount;
-import UI.OrphanManagement.OrphanManagerJFrame;
 import UI.OrphanRegister.OrphanRegisterJFrame;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 
 /**
@@ -27,7 +26,7 @@ public class OrphanRegisterRole extends Role {
 
     @Override
     public JFrame createWorkArea(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
-        return new OrphanManagerJFrame(ecosys, network, (OrphanShelterEnterprise) enterprise, (OrphanManagementOrganization) org, useraccount);
+        return new OrphanRegisterJFrame(ecosys, network, (OrphanShelterEnterprise) enterprise, (OrphanManagementOrganization) org, useraccount);
     }
 
 }
