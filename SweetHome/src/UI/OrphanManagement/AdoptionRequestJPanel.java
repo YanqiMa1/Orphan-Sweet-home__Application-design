@@ -8,28 +8,37 @@ import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Orphan.Orphan;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.AdoptionRequest;
+import Model.WorkQueue.WorkRequest;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author alilovepeach
  */
 public class AdoptionRequestJPanel extends javax.swing.JPanel {
+
     EcoSystem ecosys;
     Network network;
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
+    Orphan orphan;
+
     /**
      * Creates new form AdoptionRequestJPanel
      */
     public AdoptionRequestJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
-        this.ecosys=ecosys;
-        this.network=network;
-        this.enterprise=enterprise;
-        this.org=org;
-        this.useraccount=useraccount;
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
+
+        populateRequestTable();
     }
 
     /**
@@ -63,17 +72,14 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
 
         tblAnimalAdoptionWorkQueue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Message", "Applicant", "Applicant Name", "Organization", "Status"
+                "Message", "Applicant", "Applicant Email", "Organization", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -118,6 +124,24 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnRejectAdoptionRequestActionPerformed
 
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) tblAnimalAdoptionWorkQueue.getModel();
+
+        model.setRowCount(0);
+        for (WorkRequest request : network.getWorkQueue().getWorkRequestList()) {
+            if (request instanceof AdoptionRequest && request.getOrphan() == orphan) {
+                Object[] row = new Object[6];
+                row[0] = request;
+                row[1] = request.getSender();
+                row[2] = request.getSender().getEmailId();
+//                row[3] = request.
+                row[4] = request.getSender().getOrgainization();
+                row[5] = request.getStatus();
+
+                model.addRow(row);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApproveAdoptionRequest;

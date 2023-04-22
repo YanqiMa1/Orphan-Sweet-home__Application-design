@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI.OrphanManagement;
 
@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author alilovepeach
  */
-public class ViewOrphanJPanel extends javax.swing.JPanel {
+public class ViewOrphanJFrame extends javax.swing.JFrame {
     EcoSystem ecosys;
     Network network;
     Enterprise enterprise;
@@ -30,11 +30,14 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
     Organization org;
     UserAccount useraccount;
     /**
-     * Creates new form ViewOrphanJPanel
+     * Creates new form ViewOrphanJFrame
      */
-    public ViewOrphanJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount, Orphan orphan) {
+    public ViewOrphanJFrame() {
         initComponents();
-        this.setVisible(true);
+    }
+    
+    public ViewOrphanJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount, Orphan orphan) {
+        initComponents();
         this.ecosys=ecosys;
         this.network=network;
         this.enterprise=enterprise;
@@ -77,11 +80,7 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         txtSendMedicalCareMessage = new javax.swing.JTextField();
         btnClose = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 204));
-        setPreferredSize(new java.awt.Dimension(800, 520));
-        setRequestFocusEnabled(false);
-        setSize(new java.awt.Dimension(800, 520));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(101, 78, 163));
         kGradientPanel1.setkStartColor(new java.awt.Color(234, 175, 200));
@@ -92,15 +91,15 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 160, 20));
 
         txtOrphanName.setEnabled(false);
-        kGradientPanel1.add(txtOrphanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 140, 20));
+        kGradientPanel1.add(txtOrphanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 140, 30));
 
         lblMessage5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage5.setText("Name:");
-        kGradientPanel1.add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 50, 20));
+        kGradientPanel1.add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 50, 20));
 
         txtAge.setEnabled(false);
-        kGradientPanel1.add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 140, 20));
+        kGradientPanel1.add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 140, 30));
 
         lblMessage6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -108,20 +107,20 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         kGradientPanel1.add(lblMessage6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 50, 20));
 
         txtSex.setEnabled(false);
-        kGradientPanel1.add(txtSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 140, 20));
+        kGradientPanel1.add(txtSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 140, 30));
 
         lblMessage7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage7.setText("Sex:");
-        kGradientPanel1.add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 50, 20));
+        kGradientPanel1.add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 50, 20));
 
         txtRace.setEnabled(false);
-        kGradientPanel1.add(txtRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 140, 20));
+        kGradientPanel1.add(txtRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 140, 30));
 
         lblMessage8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage8.setText("Race:");
-        kGradientPanel1.add(lblMessage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 50, 20));
+        kGradientPanel1.add(lblMessage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 50, 20));
 
         txtDoctorMessage.setEnabled(false);
         kGradientPanel1.add(txtDoctorMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 200, 40));
@@ -195,7 +194,9 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         });
         kGradientPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 80, -1));
 
-        add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
+        getContentPane().add(kGradientPanel1, java.awt.BorderLayout.CENTER);
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMedicalCareRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicalCareRequestActionPerformed
@@ -210,14 +211,14 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         request.setSender(useraccount);
         request.setStatus("Pending for Doctor");
         request.setOrphan(orphan);
-        
+
         network.getWorkQueue().getWorkRequestList().add(request);
         orphan.getWorkQueue().getWorkRequestList().add(request);
-        
+
         JOptionPane.showMessageDialog(this, "Medical Request sent.", "Information",JOptionPane.INFORMATION_MESSAGE);
         populateTable();
         txtSendMedicalCareMessage.setText("");
-        
+
     }//GEN-LAST:event_btnMedicalCareRequestActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -225,7 +226,7 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         this.setVisible(false);
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    private void showOrphanDetails() {
+        private void showOrphanDetails() {
 
         txtOrphanName.setText(orphan.getName());
         txtAge.setText(String.valueOf(orphan.getAge()));
@@ -279,7 +280,41 @@ public class ViewOrphanJPanel extends javax.swing.JPanel {
         }
                 
     }
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ViewOrphanJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ViewOrphanJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ViewOrphanJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ViewOrphanJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ViewOrphanJFrame().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnMedicalCareRequest;

@@ -9,6 +9,9 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.PharmacistWorkRequest;
+import Model.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,7 +56,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWorkRequests = new javax.swing.JTable();
         ProcessBtn = new javax.swing.JButton();
-        AassignBtn = new javax.swing.JButton();
+        AssignBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,7 +86,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(logoutBtn)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
@@ -128,14 +131,24 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         ProcessBtn.setForeground(new java.awt.Color(255, 255, 255));
         ProcessBtn.setText("Process");
         ProcessBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ProcessBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcessBtnActionPerformed(evt);
+            }
+        });
         kGradientPanel1.add(ProcessBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 160, 40));
 
-        AassignBtn.setBackground(new java.awt.Color(116, 235, 213));
-        AassignBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        AassignBtn.setForeground(new java.awt.Color(255, 255, 255));
-        AassignBtn.setText("Assign to me");
-        AassignBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kGradientPanel1.add(AassignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 160, 40));
+        AssignBtn.setBackground(new java.awt.Color(116, 235, 213));
+        AssignBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        AssignBtn.setForeground(new java.awt.Color(255, 255, 255));
+        AssignBtn.setText("Assign to me");
+        AssignBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AssignBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AssignBtnActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(AssignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 160, 40));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -158,6 +171,14 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AssignBtnActionPerformed
+
+    private void ProcessBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProcessBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +216,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AassignBtn;
+    private javax.swing.JButton AssignBtn;
     private javax.swing.JButton ProcessBtn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

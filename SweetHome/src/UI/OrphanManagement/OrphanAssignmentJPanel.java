@@ -9,6 +9,11 @@ import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.OrphanManagerRequest;
+import Model.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,7 +24,7 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
     Network network;
     Enterprise enterprise;
     Organization org;
-    UserAccount useraccount;
+    UserAccount userAccount;
     /**
      * Creates new form OrphanAssignment
      */
@@ -30,7 +35,9 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         this.network=network;
         this.enterprise=enterprise;
         this.org=org;
-        this.useraccount=useraccount;
+        this.userAccount=useraccount;
+        
+        populateAssignOrphanToMeRequestTable();
     }
 
     /**
@@ -115,12 +122,77 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
 
     private void btnAssignOrphanToMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignOrphanToMeActionPerformed
 
+        int selectedRow = tblOrphanManagerWorkArea.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            WorkRequest request = (WorkRequest) tblOrphanManagerWorkArea.getValueAt(selectedRow, 0);
+            if (request.getStatus().equalsIgnoreCase("Adopted")) {
+                JOptionPane.showMessageDialog(this, "This orphan has been adopted.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+                if (request.getReceiver() != null) {
+                    JOptionPane.showMessageDialog(this, "This orphan already has a manager. Please select another one.", "Warning", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    request.setReceiver(userAccount);
+                    request.getOrphan().setManager(userAccount);
+                    request.setStatus("Managed");
+                    userAccount.getWorkQueue().getWorkRequestList().add(request);
+                    populateAssignOrphanToMeRequestTable();
+                    JOptionPane.showMessageDialog(this, "Orphan assigned to you.","Information",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row.", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_btnAssignOrphanToMeActionPerformed
 
     private void btnViewDetialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetialActionPerformed
 
+        
+        int selectedRow = tblOrphanManagerWorkArea.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row first","Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        WorkRequest wr = (WorkRequest) tblOrphanManagerWorkArea.getValueAt(selectedRow, 0);
+        if (wr.getReceiver() != userAccount) {
+            JOptionPane.showMessageDialog(this, "This orphan is not assigned to you.","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        
+        if (wr.getOrphan().getAdoptor() != null){
+            JOptionPane.showMessageDialog(this, "This orphan has been adopted.","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        
+        OrphanManagerRequest request = (OrphanManagerRequest) wr;
+
+//        ViewOrphanJPanel voj = new ViewOrphanJPanel(this.ecosys, this.network, this.enterprise, this.org, this.userAccount, request.getOrphan());
+        ViewOrphanJFrame voj = new ViewOrphanJFrame(this.ecosys, this.network, this.enterprise, this.org, this.userAccount, request.getOrphan());
+
+        voj.setVisible(true);
     }//GEN-LAST:event_btnViewDetialActionPerformed
 
+        public void populateAssignOrphanToMeRequestTable(){
+        DefaultTableModel model = (DefaultTableModel) tblOrphanManagerWorkArea.getModel();
+        
+        model.setRowCount(0);
+        
+        for (WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()){
+            if (request instanceof OrphanManagerRequest){
+                Object[] row = new Object[6];
+                row[0] = request;
+                row[1] = request.getOrphan().getId();
+                row[2] = request.getOrphan();
+                row[3] = request.getSender();
+                row[4] = request.getReceiver() == null ? null : request.getReceiver();
+                row[5] = request.getStatus();
+
+                model.addRow(row);
+            }            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignOrphanToMe;
