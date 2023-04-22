@@ -1,15 +1,27 @@
+package UI.Adopter;
+
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.UserAccount.UserAccount;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.Adopter;
+
 
 /**
  *
  * @author hp
  */
 public class AdoptionRequestJPanel extends javax.swing.JPanel {
-
+ EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
     /**
      * Creates new form AdopterWorkAreaJPanel
      */
@@ -17,6 +29,17 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    
+    public AdoptionRequestJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
+        initComponents();
+        this.setVisible(true);
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
