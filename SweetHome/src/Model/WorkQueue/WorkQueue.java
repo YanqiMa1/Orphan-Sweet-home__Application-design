@@ -21,4 +21,13 @@ public class WorkQueue {
     public ArrayList<WorkRequest> getWorkRequestList() {
         return workRequestList;
     }
+    
+    public WorkRequest findWorkRequestByMessage(String me){
+        for(WorkRequest wr : this.workRequestList){
+            if(wr.getMessage().equalsIgnoreCase(me)){
+                return wr;
+            }
+        }
+        return null;
+    } 
 }

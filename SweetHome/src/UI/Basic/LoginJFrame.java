@@ -198,7 +198,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                     UserAccount user = this.sys.getUserAccountDirectory().authenticateUser(username, password);
                     this.useraccount = user;
                     foundUser = true;
-                    user.getRole().createWorkArea(this.sys, this.useraccount.getNetwork(), this.useraccount.getEnterprise(), this.useraccount.getOrgainization(), useraccount);
+                    user.getRole().createWorkArea(this.sys, this.useraccount.getNetwork(), this.useraccount.getEnterprise(), this.useraccount.getOrgainization(), user);
                     this.setVisible(false);
                     UsernameFID.setText("");
                     passwordFID.setText("");
