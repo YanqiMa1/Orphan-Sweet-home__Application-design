@@ -83,7 +83,6 @@ public class VolunteerRequestJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 255));
         setMinimumSize(new java.awt.Dimension(800, 520));
         setPreferredSize(new java.awt.Dimension(800, 520));
-        setSize(new java.awt.Dimension(800, 520));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         kGradientPanel1.setkEndColor(new java.awt.Color(101, 78, 163));
