@@ -17,6 +17,7 @@ import Model.Role.SystemAdminRole;
 import Model.Role.VolunteerManagerRole;
 import Model.Role.VolunteerRole;
 import Model.UserAccount.UserAccount;
+import Model.WorkQueue.AdopterAuthorizationRequest;
 
 /**
  *
@@ -105,6 +106,14 @@ public class ConfigureABusiness {
         //AdopterManagementOrganization(Adopter)
         UserAccount ub3 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_AD", "Bos_AD", new AdopterRole(), newNetwork2, boston4, b5);
         ub3.setEmailId("ub3@sweethome.com");
+        
+        AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
+        request.setMessage("New User");
+        request.setSender(ub3);
+        request.setStatus("No Application YET");
+
+        boston4.getWorkQueue().getWorkRequestList().add(request);
+        ub3.getWorkQueue().getWorkRequestList().add(request);
         //AuthorityOrg(Authrity)
         UserAccount ub4 = ecoSystem.getUserAccountDirectory().createUserAccount("Bos_AU", "Bos_AU", new AuthorityRole(), newNetwork2, boston4, b6);
         //DoctorOrg(Doector)
@@ -122,8 +131,16 @@ public class ConfigureABusiness {
         //AdopterManagementOrganization(Adopter)
         UserAccount um3 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_AD", "Mal_AD", new AdopterRole(), newNetwork3, mal4, m5);
         um3.setEmailId("um3@sweethome.com");
+        AdopterAuthorizationRequest request2 = new AdopterAuthorizationRequest();
+        request2.setMessage("New User");
+        request2.setSender(um3);
+        request2.setStatus("No Application YET");
+
+        mal4.getWorkQueue().getWorkRequestList().add(request2);
+        um3.getWorkQueue().getWorkRequestList().add(request2);
 //AuthorityOrg(Authrity)
         UserAccount um4 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_AU", "Mal_AU", new AuthorityRole(), newNetwork3, mal4, m6);
+
         //DoctorOrg(Doector)
         UserAccount um5 = ecoSystem.getUserAccountDirectory().createUserAccount("Mal_DOC", "Mal_DOC", new DoctorRole(), newNetwork3, mal2, m2);
         //PharmacyOrg(Pharmacy)
@@ -139,6 +156,13 @@ public class ConfigureABusiness {
         //AdopterManagementOrganization(Adopter)
         UserAccount uc3 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_AD", "Cam_AD", new AdopterRole(), newNetwork4, cam4, c5);
         uc3.setEmailId("uc3@sweethome.com");
+        AdopterAuthorizationRequest request3 = new AdopterAuthorizationRequest();
+        request3.setMessage("New User");
+        request3.setSender(uc3);
+        request3.setStatus("No Application YET");
+
+        cam4.getWorkQueue().getWorkRequestList().add(request3);
+        uc3.getWorkQueue().getWorkRequestList().add(request3);
 //AuthorityOrg(Authrity)
         UserAccount uc4 = ecoSystem.getUserAccountDirectory().createUserAccount("Cam_AU", "Cam_AU", new AuthorityRole(), newNetwork4, cam4, c6);
         //DoctorOrg(Doector)

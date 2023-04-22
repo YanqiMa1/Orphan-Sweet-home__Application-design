@@ -6,9 +6,12 @@ package UI.Adopter;
 
 import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
+import Model.Enterprise.AdoptionEnterprise;
 import Model.Enterprise.Enterprise;
+import Model.Organization.AdopterOrganization;
 import Model.Organization.Organization;
 import Model.UserAccount.UserAccount;
+import UI.AdministrativeRole.ManageAdopterJPanel;
 import UI.AdministrativeRole.ManageEnterpriseJPanel;
 import UI.Basic.LoginJFrame;
 
@@ -146,7 +149,7 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
-        jSplitPane1.setRightComponent(new AdoptionRequestJPanel(this.ecosys, this.network,this.enterprise,this.org,this.useraccount));
+      jSplitPane1.setRightComponent(new AdoptionRequestJPanel(this.ecosys, this.network,(AdoptionEnterprise)this.enterprise,(AdopterOrganization)this.org,this.useraccount));
     }//GEN-LAST:event_btnManageOrganizationActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed

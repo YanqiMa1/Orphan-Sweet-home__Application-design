@@ -272,7 +272,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
                         AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
                         request.setMessage("New User");
                         request.setSender(newUserAccount);
-                        request.setStatus("Pending Review");
+                        request.setStatus("No Application YET");
 
                         enterprise.getWorkQueue().getWorkRequestList().add(request);
                         newUserAccount.getWorkQueue().getWorkRequestList().add(request);
