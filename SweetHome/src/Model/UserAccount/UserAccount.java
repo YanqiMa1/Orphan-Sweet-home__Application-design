@@ -24,6 +24,7 @@ public class UserAccount {
     private Enterprise enterprise;
     private Organization orgainization;
     private WorkQueue workQueue;
+    private float income;
 
     public UserAccount() {
         workQueue = new WorkQueue();
@@ -85,7 +86,14 @@ public class UserAccount {
         this.orgainization = orgainization;
     }
 
-    
+    public float getIncome() {
+        return income;
+    }
+
+    public void setIncome(float income) {
+        this.income = income;
+    }
+
     
     public WorkQueue getWorkQueue() {
         return workQueue;

@@ -15,6 +15,7 @@ import Model.Role.AdopterRole;
 import Model.UserAccount.UserAccount;
 import Model.WorkQueue.AdopterAuthorizationRequest;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,9 +35,9 @@ public class RegisterJFrame extends javax.swing.JFrame {
 
     public RegisterJFrame(EcoSystem sys, UserAccount useraccount) {
         initComponents();
-        this.sys=sys;
-        this.useraccount=useraccount;
-        
+        this.sys = sys;
+        this.useraccount = useraccount;
+
         populateNetworkCombo();
         populateEnterpriseCombo();
         populateOrgCombo();
@@ -68,6 +69,8 @@ public class RegisterJFrame extends javax.swing.JFrame {
         NetworkCB = new javax.swing.JComboBox();
         OrganizationCB = new javax.swing.JComboBox();
         backBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        IncomeFID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +142,14 @@ public class RegisterJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(238, 156, 167));
+        jLabel10.setText("Annual Income ($)");
+
+        IncomeFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        IncomeFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(238, 156, 167)));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -146,37 +157,41 @@ public class RegisterJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
+                .addGap(104, 104, 104))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PasswordFID, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                            .addComponent(userNameFID)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EmailFID)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EnterpriseCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NetworkCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(OrganizationCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(IncomeFID)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PasswordFID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(userNameFID, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmailFID, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EnterpriseCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NetworkCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(OrganizationCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userNameFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +203,11 @@ public class RegisterJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EmailFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(IncomeFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(NetworkCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,11 +259,12 @@ public class RegisterJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-     try {
+        try {
             String newUsername = userNameFID.getText();
-        String newPassword = PasswordFID.getText();
-        String newEmailId = EmailFID.getText();
-        Network selectedNetw = (Network)NetworkCB.getSelectedItem();
+            String newPassword = PasswordFID.getText();
+            String newEmailId = EmailFID.getText();
+            String newIncome = IncomeFID.getText();
+            Network selectedNetw = (Network) NetworkCB.getSelectedItem();
 
             String selectedOption = (String) EnterpriseCB.getSelectedItem();
             String enterpriseName = selectedOption.split("\\s\\|\\s")[1];
@@ -257,29 +277,35 @@ public class RegisterJFrame extends javax.swing.JFrame {
             EmailValidator emailValidator = new EmailValidator();
 
             if (selectedNetw != null && selectedOption != null && selectedOrgOption != null
-                    && !newUsername.isEmpty() && !newPassword.isEmpty() && !newEmailId.isEmpty()) {     //null validation
+                    && !newUsername.isEmpty() && !newPassword.isEmpty() && !newEmailId.isEmpty() && !newIncome.isEmpty()) {     //null validation
 
                 if (emailValidator.validate(EmailFID.getText().trim())) {
+                    if (isValidIncome(IncomeFID)) {
+                        if (this.sys.getUserAccountDirectory().userNameIsUnique(newUsername)) {
+                            UserAccount newUserAccount = this.sys.getUserAccountDirectory().createUserAccount(newUsername, newPassword, new AdopterRole(), selectedNetw, enterprise, organization);
+                            newUserAccount.setEmailId(newEmailId);
+                            newUserAccount.setIncome(Float.valueOf(IncomeFID.getText()));
+                            JOptionPane.showMessageDialog(this, "Adopter user Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
+                            userNameFID.setText("");
+                            PasswordFID.setText("");
+                            EmailFID.setText("");
+                            IncomeFID.setText("");
 
-                    if (this.sys.getUserAccountDirectory().userNameIsUnique(newUsername)) {
-                        UserAccount newUserAccount = this.sys.getUserAccountDirectory().createUserAccount(newUsername, newPassword, new AdopterRole(), selectedNetw, enterprise, organization);
-                        newUserAccount.setEmailId(newEmailId);
-                        JOptionPane.showMessageDialog(this, "Adopter user Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        userNameFID.setText("");
-                        PasswordFID.setText("");
-                        EmailFID.setText("");
+                            AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
+                            request.setMessage("New User");
+                            request.setSender(newUserAccount);
+                            request.setStatus("Pending");
 
-                        AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
-                        request.setMessage("New User");
-                        request.setSender(newUserAccount);
-                        request.setStatus("No Application YET");
+                            enterprise.getWorkQueue().getWorkRequestList().add(request);
+                            newUserAccount.getWorkQueue().getWorkRequestList().add(request);
 
-                        enterprise.getWorkQueue().getWorkRequestList().add(request);
-                        newUserAccount.getWorkQueue().getWorkRequestList().add(request);
-                       
+                        } else {
+                            JOptionPane.showMessageDialog(this, " User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(this, " User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "income should bigger than 0!", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
@@ -291,11 +317,8 @@ public class RegisterJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Network / Enterprise / organization cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
 
         }
-     
-        
 
 
-        
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -321,10 +344,10 @@ public class RegisterJFrame extends javax.swing.JFrame {
 
         if (network != null) {
             for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-                if(e.getType().equals(Enterprise.Type.Adoption)){
-                      EnterpriseCB.addItem(e.getType() + " | " + e);
+                if (e.getType().equals(Enterprise.Type.Adoption)) {
+                    EnterpriseCB.addItem(e.getType() + " | " + e);
                 }
-               
+
             }
         }
     }
@@ -333,7 +356,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
 
         OrganizationCB.removeAllItems();
 
-        Network network = (Network)  NetworkCB.getSelectedItem();
+        Network network = (Network) NetworkCB.getSelectedItem();
 
         if (EnterpriseCB.getSelectedItem() != null) {
             String selectedOption = (String) EnterpriseCB.getSelectedItem();
@@ -341,11 +364,28 @@ public class RegisterJFrame extends javax.swing.JFrame {
             Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
 
             for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                if(o.getType().equals(Organization.Type.AdopterManagement)){
+                if (o.getType().equals(Organization.Type.AdopterManagement)) {
                     OrganizationCB.addItem(o.getType() + " | " + o);
                 }
-               
+
             }
+        }
+    }
+
+    public static boolean isValidIncome(JTextField textField) {
+        String input = textField.getText();
+        try {
+            float number = Float.parseFloat(input);
+            if (number >= 0) {
+                // Input is valid, between 1 and 10
+                return true;
+            } else {
+                // Input is not between 1 and 10
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            // Input is not a valid double
+            return false;
         }
     }
     /**
@@ -355,10 +395,12 @@ public class RegisterJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EmailFID;
     private javax.swing.JComboBox EnterpriseCB;
+    private javax.swing.JTextField IncomeFID;
     private javax.swing.JComboBox NetworkCB;
     private javax.swing.JComboBox OrganizationCB;
     private javax.swing.JTextField PasswordFID;
     private javax.swing.JButton backBtn;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
