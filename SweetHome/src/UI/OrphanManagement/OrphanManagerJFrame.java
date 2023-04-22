@@ -55,7 +55,6 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnAssignOrphan = new javax.swing.JButton();
-        btnViewOrphan = new javax.swing.JButton();
         btnViewAdoptionReq = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
         kGradientPanel2 = new keeptoo.KGradientPanel();
@@ -72,7 +71,6 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setSize(new java.awt.Dimension(200, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -90,15 +88,7 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
                 btnAssignOrphanActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnAssignOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 190, 40));
-
-        btnViewOrphan.setText("View On Going Orphan");
-        btnViewOrphan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewOrphanActionPerformed(evt);
-            }
-        });
-        kGradientPanel1.add(btnViewOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 190, 40));
+        kGradientPanel1.add(btnAssignOrphan, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 190, 40));
 
         btnViewAdoptionReq.setText("View Adoption Request");
         btnViewAdoptionReq.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +96,7 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
                 btnViewAdoptionReqActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnViewAdoptionReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 190, 40));
+        kGradientPanel1.add(btnViewAdoptionReq, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 190, 40));
 
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -137,17 +127,13 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
         getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignOrphanActionPerformed
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new OrphanAssignmentJPanel(this.ecosys, this.network, this.enterprise, this.org, this.useraccount));
     }//GEN-LAST:event_btnAssignOrphanActionPerformed
-
-    private void btnViewOrphanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrphanActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ViewOrphanJPanel(this.ecosys, this.network, this.enterprise, this.org, this.useraccount));
-    }//GEN-LAST:event_btnViewOrphanActionPerformed
 
     private void btnViewAdoptionReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAdoptionReqActionPerformed
         // TODO add your handling code here:
@@ -198,7 +184,6 @@ public class OrphanManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAssignOrphan;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnViewAdoptionReq;
-    private javax.swing.JButton btnViewOrphan;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
