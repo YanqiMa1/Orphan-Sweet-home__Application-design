@@ -160,10 +160,12 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         WorkRequest wr = (WorkRequest) tblOrphanManagerWorkArea.getValueAt(selectedRow, 0);
         if (wr.getReceiver() != userAccount) {
             JOptionPane.showMessageDialog(this, "This orphan is not assigned to you.","Warning",JOptionPane.WARNING_MESSAGE);
+            return;
         }
         
         if (wr.getOrphan().getAdoptor() != null){
             JOptionPane.showMessageDialog(this, "This orphan has been adopted.","Warning",JOptionPane.WARNING_MESSAGE);
+            return;
         }
         
         OrphanManagerRequest request = (OrphanManagerRequest) wr;

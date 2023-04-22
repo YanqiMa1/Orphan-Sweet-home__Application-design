@@ -8,10 +8,14 @@ import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Orphan.Orphan;
+import Model.Orphan.OrphanDirectory;
 import Model.UserAccount.UserAccount;
 import Model.WorkQueue.PharmacistWorkRequest;
 import Model.WorkQueue.WorkRequest;
+import UI.Basic.LoginJFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +27,8 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
+    Orphan orphan;
+    OrphanDirectory orphanDirectory;
     /**
      * Creates new form PharmacistWorkAreaJFrame
      */
@@ -34,10 +40,21 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.ecosys=ecosys;
-        this.network=network;
         this.enterprise=enterprise;
         this.org=org;
         this.useraccount=useraccount;
+        for (Network net : ecosys.getNetworkList()) {
+            
+            for (Enterprise e : net.getEnterpriseDirectory().getEnterpriseList()) {
+                
+                if (e.equals(enterprise)) {
+                    
+                    network = net;
+                }
+            }
+        }
+        
+        populateTable();
     }
 
     /**
@@ -71,6 +88,11 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBtn.setText("LOG OUT");
         logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,13 +194,127 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void populateTable() {
+      DefaultTableModel model = (DefaultTableModel) tblWorkRequests.getModel();
+      
+      model.setRowCount(0);
+        
+        for (WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()) {
+            
+            if (request instanceof PharmacistWorkRequest) {
+                
+                Object[] row = new Object[model.getColumnCount()];
+                
+                row[0] = request;
+                row[1] = request.getOrphan().getId();
+                row[2] = request.getOrphan().getName();
+                row[3] = request.getSender();
+                row[4] = request.getReceiver() == null ? null : request.getReceiver();
+                row[5] = request.getStatus();
+                
+                String result = ((PharmacistWorkRequest) request).getResult();
+                
+                row[6] = result == null ? "Waiting" : result;
+                model.addRow(row);
+            }
+        }
+    }
+    
     private void AssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtnActionPerformed
         // TODO add your handling code here:
+        
+       int selectedRow = tblWorkRequests.getSelectedRow();
+       //if row is selected
+        if (selectedRow >= 0) {
+            
+            WorkRequest request = (WorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
+            
+            //if the status of the  selected row is processed
+            if (request.getStatus().equalsIgnoreCase("Processed")) {
+                
+                JOptionPane.showMessageDialog(this, "Request has already been processed.",
+                        "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+                
+                //if the status of the selected row is completed
+            } else if (request.getStatus().equalsIgnoreCase("Completed")) {
+                
+                JOptionPane.showMessageDialog(this, "Request has already completed.", 
+                        "Thank you!", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                
+            } else {
+                
+                //change the status of the request
+                
+                request.setReceiver(useraccount);
+                
+                request.setStatus("Processed");
+                
+                populateTable();
+            }
+
+            //if no row is selected
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning",JOptionPane.WARNING_MESSAGE);
+            
+            return;
+        }
+
     }//GEN-LAST:event_AssignBtnActionPerformed
 
     private void ProcessBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessBtnActionPerformed
         // TODO add your handling code here:
+        
+        int selectedRow = tblWorkRequests.getSelectedRow();
+   
+        //if no row is selected
+        if (selectedRow < 0) {
+            
+            JOptionPane.showMessageDialog(this, "You should select a row from the table please",
+                    "Warning",JOptionPane.WARNING_MESSAGE);
+            
+            return;
+        }
+        
+        PharmacistWorkRequest request = (PharmacistWorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
+        
+        
+         if (request.getReceiver() != useraccount) {
+             
+             
+             //if the request is not assigned to you
+            JOptionPane.showMessageDialog(this, "This request is not assigned to you.",
+                    "Warning",JOptionPane.WARNING_MESSAGE);
+            
+            
+            return;
+        }
+         
+        PharmacistWorkRequest btwr = (PharmacistWorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
+        
+        //if the request you chose have completed
+        if (btwr.getStatus().equalsIgnoreCase("Completed")) {
+            
+            JOptionPane.showMessageDialog(this, "Request already completed,please choose another.",
+                    "Warning",JOptionPane.WARNING_MESSAGE);
+            
+            return;
+        }
+
+
+        PharmacistProcessRequestJFrame pprj = new PharmacistProcessRequestJFrame(this.ecosys, this.enterprise, this.org, this.useraccount, request, orphan, orphanDirectory);
+
+        pprj.setVisible(true);
+
     }//GEN-LAST:event_ProcessBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new LoginJFrame(this.ecosys, this.useraccount);
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
