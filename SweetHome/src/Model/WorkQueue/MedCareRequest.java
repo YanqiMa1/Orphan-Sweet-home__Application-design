@@ -12,11 +12,11 @@ public class MedCareRequest extends WorkRequest {
 
     private String doctorResult;
 
-    public String getVetResult() {
+    public String getDoctorResult() {
         return doctorResult;
     }
 
-    public void setVetResult(String vetResult) {
+    public void setDoctorResult(String doctorResult) {
         this.doctorResult = doctorResult;
     }
 

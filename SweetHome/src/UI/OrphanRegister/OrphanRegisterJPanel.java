@@ -36,7 +36,7 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
     private Organization org;
     private Enterprise enterprise;
     private UserAccount userAccount;
-    private ImageIcon animalImage;
+    private ImageIcon orphanImage;
     private File imageFile;
     private OrphanShelterEnterprise orpEnterprise;
     private Boolean validate = false;

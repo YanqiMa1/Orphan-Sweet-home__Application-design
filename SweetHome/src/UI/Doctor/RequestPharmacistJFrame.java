@@ -13,6 +13,7 @@ import Model.UserAccount.UserAccount;
 import Model.WorkQueue.MedCareRequest;
 import Model.WorkQueue.PharmacistWorkRequest;
 import Model.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -80,7 +81,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
                 
                 
                 if (phrequest instanceof MedCareRequest) {
-                    String result = ((MedCareRequest) phrequest).getVetResult();
+                    String result = ((MedCareRequest) phrequest).getDoctorResult();
                     row[4] = result == null ? "Waiting" : result;
 
                 } else if (phrequest instanceof PharmacistWorkRequest) {
@@ -109,7 +110,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         requestlBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        MessFID = new javax.swing.JTextField();
+        messFID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -178,9 +179,9 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         jLabel11.setText("Message");
         kGradientPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 160, -1));
 
-        MessFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        MessFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(MessFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 460, 40));
+        messFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        messFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(messFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 460, 40));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -206,6 +207,38 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
 
     private void requestlBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestlBtnActionPerformed
         // TODO add your handling code here:
+        
+        String message = messFID.getText();
+        
+        //if message is emty
+        
+        if (message.equals("") || message.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "You should send something please.", 
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        //send the request
+        
+        PharmacistWorkRequest request = new PharmacistWorkRequest();
+        
+        request.setSender(useraccount);
+        request.setOrphan(orphan);
+        request.setStatus("Pending");
+        request.setMessage(message);
+       
+
+        orphan.getWorkQueue().getWorkRequestList().add(request);
+        
+        enterprise.getWorkQueue().getWorkRequestList().add(request);
+
+        JOptionPane.showMessageDialog(this, "Pharmaceutical Therapy Request has been sent, you may now closw this window", 
+                "Information", JOptionPane.INFORMATION_MESSAGE);
+        
+        populatePtTable();
+        
+        //clear
+        messFID.setText("");
     }//GEN-LAST:event_requestlBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -249,12 +282,12 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MessFID;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JTextField messFID;
     private javax.swing.JButton requestlBtn;
     private javax.swing.JTable tblWorkRequests;
     // End of variables declaration//GEN-END:variables

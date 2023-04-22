@@ -8,6 +8,7 @@ import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
 import Model.Organization.Organization;
+import Model.Orphan.Orphan;
 import Model.UserAccount.UserAccount;
 import Model.WorkQueue.MedCareRequest;
 import Model.WorkQueue.WorkRequest;
@@ -80,7 +81,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
                 row[5] = request.getStatus();
                 
                 
-                String result = ((MedCareRequest) request).getVetResult();
+                String result = ((MedCareRequest) request).getDoctorResult();
                 
                 
                 row[6] = result == null ? "Waiting" : result;
@@ -311,7 +312,8 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
             return;
         }
 
-//        ViewOrphanDetailJFrame vodj = new ViewOrphanDetailJFrame();
+        Orphan or = wr.getOrphan();
+        ViewOrphanDetailJFrame vodj = new ViewOrphanDetailJFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount, or, request);
         
         vodj.setVisible(true);
     }//GEN-LAST:event_viewdetailBtnActionPerformed

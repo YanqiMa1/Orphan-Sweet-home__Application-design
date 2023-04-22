@@ -4,17 +4,61 @@
  */
 package UI.Doctor;
 
+import Model.EcoSystem.EcoSystem;
+import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
+import Model.Organization.Organization;
+import Model.Orphan.Orphan;
+import Model.UserAccount.UserAccount;
+import Model.WorkQueue.MedCareRequest;
+import Model.WorkQueue.WorkRequest;
+import java.awt.Image;
+import java.nio.file.Paths;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alilovepeach
  */
 public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
-
+    EcoSystem ecosys;
+    Network network;
+    Enterprise enterprise;
+    Organization org;
+    UserAccount useraccount;
+    Orphan orphan;
+    MedCareRequest request;
     /**
      * Creates new form ViewOrphanDetailJFrame
      */
-    public ViewOrphanDetailJFrame() {
+    public ViewOrphanDetailJFrame(){
         initComponents();
+    }
+    
+    public ViewOrphanDetailJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount, Orphan orphan, MedCareRequest request) {
+        initComponents();
+        this.ecosys=ecosys;
+        this.network=network;
+        this.enterprise=enterprise;
+        this.org=org;
+        this.useraccount=useraccount;
+        this.request= request;
+        this.orphan=request.getOrphan();
+        
+        
+        for (Network net : ecosys.getNetworkList()) {
+            
+            for (Enterprise ent : net.getEnterpriseDirectory().getEnterpriseList()) {
+                
+                if (ent.equals(enterprise)) {
+                    
+                    network = net;
+                }
+            }
+        }
+
+        displayOrphanDetails();
     }
 
     /**
@@ -29,23 +73,25 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         kGradientPanel2 = new keeptoo.KGradientPanel();
         submitRBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
-        Icon = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        NameFID = new javax.swing.JTextField();
+        fieldName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        ShelterFID = new javax.swing.JTextField();
+        fieldShelter = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        SexFID = new javax.swing.JTextField();
+        fieldSex = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        weightFID = new javax.swing.JTextField();
+        fieldRace = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        doctorFID = new javax.swing.JTextField();
-        pharmacyFeedbackFID = new javax.swing.JTextField();
+        fieldDoc = new javax.swing.JTextField();
+        fieldPhar = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         DoctorMessFID = new javax.swing.JTextField();
         requestBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        fieldAge = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,56 +123,56 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
             }
         });
         kGradientPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 160, 30));
-        kGradientPanel2.add(Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 200, 190));
+        kGradientPanel2.add(lblIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 200, 190));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Name");
         kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, -1));
 
-        NameFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        NameFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(NameFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 210, -1));
+        fieldName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 210, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Orphan Shelter");
-        kGradientPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 160, -1));
+        kGradientPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 160, -1));
 
-        ShelterFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ShelterFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(ShelterFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, -1));
+        fieldShelter.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldShelter.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 210, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Sex");
-        kGradientPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 160, -1));
+        kGradientPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 160, -1));
 
-        SexFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        SexFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(SexFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 210, -1));
+        fieldSex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldSex.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 210, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Race");
         kGradientPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 160, -1));
 
-        weightFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        weightFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(weightFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 210, -1));
+        fieldRace.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldRace.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 210, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Doctor");
         kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 160, -1));
 
-        doctorFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        doctorFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(doctorFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 210, -1));
+        fieldDoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldDoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 210, -1));
 
-        pharmacyFeedbackFID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pharmacyFeedbackFID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
-        kGradientPanel2.add(pharmacyFeedbackFID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 210, -1));
+        fieldPhar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldPhar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldPhar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 210, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -152,13 +198,22 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
                 requestBtnActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(requestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 194, 40));
+        kGradientPanel2.add(requestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 194, 40));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Orphan Detail");
         kGradientPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("Age");
+        kGradientPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 160, -1));
+
+        fieldAge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldAge.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
+        kGradientPanel2.add(fieldAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,16 +231,84 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
 
     private void submitRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRBtnActionPerformed
         // TODO add your handling code here:
+        
+        //if message is empty
+        if (DoctorMessFID.getText().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(this, "Please send message.", 
+                    "Information", JOptionPane.WARNING_MESSAGE);
+            
+        } else {
+            
+            orphan.setDoctorMessage(DoctorMessFID.getText());
+            
+            request.setStatus("Completed");
+            
+            request.setDoctorResult(DoctorMessFID.getText());
+            
+            fieldDoc.setText(DoctorMessFID.getText());
+            
+            JOptionPane.showMessageDialog(this, "Doctor Request has been completed!",
+                    
+                    "Thank you!", JOptionPane.INFORMATION_MESSAGE);
+           
+            this.setVisible(false);
+            
+        }
+
     }//GEN-LAST:event_submitRBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_requestBtnActionPerformed
 
+    private void displayOrphanDetails() {    
+        fieldSex.setText(orphan.getSex());
+        fieldName.setText(orphan.getName());
+        fieldAge.setText(String.valueOf(orphan.getAge()));
+        fieldRace.setText(orphan.getRace());
+        fieldPhar.setText(orphan.getPharmacyMessage());
+
+        if (orphan.getPhoto()!=null){
+            
+            String path = Paths.get(orphan.getPhoto()).toAbsolutePath().toString();
+            
+            ImageIcon icon = seticon(path, null);
+            
+            lblIcon.setIcon(icon);
+        }
+    }
+    
+    public ImageIcon seticon(String m, byte[] image){
+        
+        ImageIcon i = null;
+        
+        if (m != null) {
+    
+            i = new ImageIcon(m);
+            
+        } else {
+            
+            i = new ImageIcon(image);
+            
+        }
+
+        Image img1 = i.getImage();
+        
+        Image img2 = img1.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        
+        ImageIcon img = new ImageIcon(img2);
+        
+        
+        return img;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -223,14 +346,17 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DoctorMessFID;
-    private javax.swing.JLabel Icon;
-    private javax.swing.JTextField NameFID;
-    private javax.swing.JTextField SexFID;
-    private javax.swing.JTextField ShelterFID;
     private javax.swing.JButton backBtn;
-    private javax.swing.JTextField doctorFID;
+    private javax.swing.JTextField fieldAge;
+    private javax.swing.JTextField fieldDoc;
+    private javax.swing.JTextField fieldName;
+    private javax.swing.JTextField fieldPhar;
+    private javax.swing.JTextField fieldRace;
+    private javax.swing.JTextField fieldSex;
+    private javax.swing.JTextField fieldShelter;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -238,9 +364,8 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private keeptoo.KGradientPanel kGradientPanel2;
-    private javax.swing.JTextField pharmacyFeedbackFID;
+    private javax.swing.JLabel lblIcon;
     private javax.swing.JButton requestBtn;
     private javax.swing.JButton submitRBtn;
-    private javax.swing.JTextField weightFID;
     // End of variables declaration//GEN-END:variables
 }
