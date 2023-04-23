@@ -130,13 +130,12 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (WorkRequest request : network.getWorkQueue().getWorkRequestList()) {
             if (request instanceof AdoptionRequest && request.getOrphan() == orphan) {
-                Object[] row = new Object[6];
+                Object[] row = new Object[5];
                 row[0] = request;
                 row[1] = request.getSender();
                 row[2] = request.getSender().getEmailId();
-//                row[3] = request.
-                row[4] = request.getSender().getOrgainization();
-                row[5] = request.getStatus();
+                row[3] = request.getSender().getOrgainization();
+                row[4] = request.getStatus();
 
                 model.addRow(row);
             }
