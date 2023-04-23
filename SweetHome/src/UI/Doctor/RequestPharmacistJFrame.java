@@ -114,7 +114,6 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         messFID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -192,18 +191,6 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         jLabel2.setText("Request Pharmaceutical Therapy");
         kGradientPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 40));
 
-        btnRefresh.setBackground(new java.awt.Color(195, 55, 100));
-        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
-        btnRefresh.setText("Refresh");
-        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
-            }
-        });
-        kGradientPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 160, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,11 +249,6 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        // TODO add your handling code here:
-        populatePtTable();
-    }//GEN-LAST:event_btnRefreshActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -304,7 +286,6 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

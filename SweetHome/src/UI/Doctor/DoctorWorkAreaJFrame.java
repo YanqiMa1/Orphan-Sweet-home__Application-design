@@ -180,7 +180,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
                 btnRefreshActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 194, 30));
+        kGradientPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(674, 50, 100, 30));
 
         jSplitPane1.setRightComponent(kGradientPanel2);
 
