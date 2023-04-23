@@ -206,7 +206,7 @@ public class DonateFrame extends javax.swing.JFrame {
         try {
 
             float donationamount = Float.parseFloat(input);
-            if (donationamount >= 0) {
+            if (donationamount > 0) {
                 // Input is valid,
                 return true;
             } else {

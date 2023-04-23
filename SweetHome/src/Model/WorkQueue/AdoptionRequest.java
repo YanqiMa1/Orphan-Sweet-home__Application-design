@@ -4,6 +4,7 @@
  */
 package Model.WorkQueue;
 
+import Model.Orphan.Orphan;
 import Model.UserAccount.UserAccount;
 /**
  *
@@ -11,7 +12,9 @@ import Model.UserAccount.UserAccount;
  */
 public class AdoptionRequest extends WorkRequest {
     private UserAccount adoptor;
+//    private Orphan selectedOrphan;
 
+    
     public UserAccount getAdoptor() {
         return adoptor;
     }
@@ -19,5 +22,15 @@ public class AdoptionRequest extends WorkRequest {
     public void setAdoptor(UserAccount adoptor) {
         this.adoptor = adoptor;
     }
+
+//    public Orphan getSelectedOrphan() {
+//        return selectedOrphan;
+//    }
+//
+//    public void setSelectedOrphan(Orphan selectedOrphan) {
+//        this.selectedOrphan = selectedOrphan;
+//    }
+    
+    
     
 }
