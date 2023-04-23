@@ -130,6 +130,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         jLabel5.setText("Name");
         kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, -1));
 
+        fieldName.setEditable(false);
         fieldName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 210, -1));
@@ -139,6 +140,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         jLabel6.setText("Orphan Shelter");
         kGradientPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 160, -1));
 
+        fieldShelter.setEditable(false);
         fieldShelter.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldShelter.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 210, -1));
@@ -148,6 +150,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         jLabel7.setText("Sex");
         kGradientPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 160, -1));
 
+        fieldSex.setEditable(false);
         fieldSex.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldSex.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 210, -1));
@@ -157,19 +160,22 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         jLabel8.setText("Race");
         kGradientPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 160, -1));
 
+        fieldRace.setEditable(false);
         fieldRace.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldRace.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 210, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Doctor");
+        jLabel9.setText("Doctor Message");
         kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 160, -1));
 
+        fieldDoc.setEditable(false);
         fieldDoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldDoc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 210, -1));
 
+        fieldPhar.setEditable(false);
         fieldPhar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldPhar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldPhar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 210, -1));
@@ -211,6 +217,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         jLabel12.setText("Age");
         kGradientPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 160, -1));
 
+        fieldAge.setEditable(false);
         fieldAge.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fieldAge.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(225, 238, 195)));
         kGradientPanel2.add(fieldAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 210, -1));
@@ -239,6 +246,9 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please send message.", 
                     "Information", JOptionPane.WARNING_MESSAGE);
             
+        } else if (fieldPhar.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Pharmaceutical Request is incompleted.", 
+                    "Information", JOptionPane.WARNING_MESSAGE);
         } else {
             
             orphan.setDoctorMessage(DoctorMessFID.getText());

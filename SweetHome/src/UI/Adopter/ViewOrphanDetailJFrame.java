@@ -74,7 +74,6 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         SexField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         kGradientPanel3.setkEndColor(new java.awt.Color(247, 183, 51));
         kGradientPanel3.setkStartColor(new java.awt.Color(252, 74, 26));
@@ -137,6 +136,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
             }
         });
 
+        SexField.setEditable(false);
         SexField.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);

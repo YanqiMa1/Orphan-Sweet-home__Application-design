@@ -128,13 +128,17 @@ public class VolunteerJFrame extends javax.swing.JFrame {
 
         kGradientPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 780, 350));
 
+        btnComplete.setBackground(new java.awt.Color(234, 175, 200));
+        btnComplete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnComplete.setForeground(new java.awt.Color(255, 255, 255));
         btnComplete.setText("Complete");
+        btnComplete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
+        kGradientPanel2.add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 150, 40));
 
         jSplitPane1.setRightComponent(kGradientPanel2);
 
@@ -144,7 +148,13 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        this.setVisible(false);
+        new LoginJFrame(this.ecosys, this.useraccount);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
     private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
+        // TODO add your handling code here:
 
         int selectedRow = tblWorkRequests.getSelectedRow();
 
@@ -166,11 +176,6 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         }  
         
     }//GEN-LAST:event_btnCompleteActionPerformed
-
-    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        this.setVisible(false);
-        new LoginJFrame(this.ecosys, this.useraccount);
-    }//GEN-LAST:event_btnLogOutActionPerformed
 
         private void populateTable() {
 

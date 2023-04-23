@@ -96,7 +96,7 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
 
         kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 780, 350));
 
-        btnAssignOrphanToMe.setText("Assign to me");
+        btnAssignOrphanToMe.setText("Receive the Orphan");
         btnAssignOrphanToMe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignOrphanToMeActionPerformed(evt);

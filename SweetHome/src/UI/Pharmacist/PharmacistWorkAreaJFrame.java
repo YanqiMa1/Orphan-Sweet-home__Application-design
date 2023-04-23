@@ -164,7 +164,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         AssignBtn.setBackground(new java.awt.Color(116, 235, 213));
         AssignBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AssignBtn.setForeground(new java.awt.Color(255, 255, 255));
-        AssignBtn.setText("Assign to me");
+        AssignBtn.setText("Receive the request");
         AssignBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AssignBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

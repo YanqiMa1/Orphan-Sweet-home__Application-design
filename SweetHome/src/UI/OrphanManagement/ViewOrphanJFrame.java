@@ -65,11 +65,8 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
         lblMessage6 = new javax.swing.JLabel();
         txtSex = new javax.swing.JTextField();
         lblMessage7 = new javax.swing.JLabel();
-        txtRace = new javax.swing.JTextField();
         lblMessage8 = new javax.swing.JLabel();
-        txtDoctorMessage = new javax.swing.JTextField();
         lblMessage10 = new javax.swing.JLabel();
-        txtPharmacyMessage = new javax.swing.JTextField();
         lblMessage11 = new javax.swing.JLabel();
         btnMedicalCareRequest = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -79,11 +76,18 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
         lblMedicalCareMessage = new javax.swing.JLabel();
         txtSendMedicalCareMessage = new javax.swing.JTextField();
         btnClose = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtPharmacyMessage = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDoctorMessage = new javax.swing.JTextArea();
+        txtRace = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(101, 78, 163));
         kGradientPanel1.setkStartColor(new java.awt.Color(234, 175, 200));
+        kGradientPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
+        kGradientPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -91,7 +95,7 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
         kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 160, 20));
 
         txtOrphanName.setEnabled(false);
-        kGradientPanel1.add(txtOrphanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 140, 30));
+        kGradientPanel1.add(txtOrphanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 150, 30));
 
         lblMessage5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -99,7 +103,7 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
         kGradientPanel1.add(lblMessage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 50, 20));
 
         txtAge.setEnabled(false);
-        kGradientPanel1.add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 140, 30));
+        kGradientPanel1.add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 150, 30));
 
         lblMessage6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -107,36 +111,27 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
         kGradientPanel1.add(lblMessage6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 50, 20));
 
         txtSex.setEnabled(false);
-        kGradientPanel1.add(txtSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 140, 30));
+        kGradientPanel1.add(txtSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 150, 30));
 
         lblMessage7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage7.setText("Sex:");
         kGradientPanel1.add(lblMessage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 50, 20));
 
-        txtRace.setEnabled(false);
-        kGradientPanel1.add(txtRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 140, 30));
-
         lblMessage8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage8.setText("Race:");
-        kGradientPanel1.add(lblMessage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 50, 20));
-
-        txtDoctorMessage.setEnabled(false);
-        kGradientPanel1.add(txtDoctorMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 200, 40));
+        kGradientPanel1.add(lblMessage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 50, 20));
 
         lblMessage10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage10.setText("Doctor Feedback:");
-        kGradientPanel1.add(lblMessage10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 120, 20));
-
-        txtPharmacyMessage.setEnabled(false);
-        kGradientPanel1.add(txtPharmacyMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 200, 40));
+        kGradientPanel1.add(lblMessage10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 120, 20));
 
         lblMessage11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMessage11.setText("Pharmacy Feedback:");
-        kGradientPanel1.add(lblMessage11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, 20));
+        kGradientPanel1.add(lblMessage11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, 20));
 
         btnMedicalCareRequest.setText("Request Medical Care");
         btnMedicalCareRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +139,7 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
                 btnMedicalCareRequestActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnMedicalCareRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, 160, 40));
+        kGradientPanel1.add(btnMedicalCareRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, 160, 40));
 
         tblOrphanManagerWorkArea.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,17 +169,17 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblOrphanManagerWorkArea);
 
-        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 770, 110));
+        kGradientPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 770, 110));
 
         lblMessage13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMessage13.setText("Medical Care Status:");
-        kGradientPanel1.add(lblMessage13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 120, 30));
+        kGradientPanel1.add(lblMessage13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 30));
         kGradientPanel1.add(lblPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 200));
 
         lblMedicalCareMessage.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblMedicalCareMessage.setText("Message:");
-        kGradientPanel1.add(lblMedicalCareMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 70, 40));
-        kGradientPanel1.add(txtSendMedicalCareMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 360, 40));
+        kGradientPanel1.add(lblMedicalCareMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 70, 40));
+        kGradientPanel1.add(txtSendMedicalCareMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 360, 40));
 
         btnClose.setText("Close");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +188,23 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
             }
         });
         kGradientPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 80, -1));
+
+        txtPharmacyMessage.setEditable(false);
+        txtPharmacyMessage.setColumns(20);
+        txtPharmacyMessage.setRows(5);
+        jScrollPane2.setViewportView(txtPharmacyMessage);
+
+        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+
+        txtDoctorMessage.setEditable(false);
+        txtDoctorMessage.setColumns(20);
+        txtDoctorMessage.setRows(5);
+        jScrollPane3.setViewportView(txtDoctorMessage);
+
+        kGradientPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, -1));
+
+        txtRace.setText("Race");
+        kGradientPanel1.add(txtRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, -1, -1));
 
         getContentPane().add(kGradientPanel1, java.awt.BorderLayout.CENTER);
 
@@ -320,6 +332,8 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnMedicalCareRequest;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblMedicalCareMessage;
     private javax.swing.JLabel lblMessage10;
@@ -333,10 +347,10 @@ public class ViewOrphanJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblOrphanManagerWorkArea;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtDoctorMessage;
+    private javax.swing.JTextArea txtDoctorMessage;
     private javax.swing.JTextField txtOrphanName;
-    private javax.swing.JTextField txtPharmacyMessage;
-    private javax.swing.JTextField txtRace;
+    private javax.swing.JTextArea txtPharmacyMessage;
+    private javax.swing.JLabel txtRace;
     private javax.swing.JTextField txtSendMedicalCareMessage;
     private javax.swing.JTextField txtSex;
     // End of variables declaration//GEN-END:variables
