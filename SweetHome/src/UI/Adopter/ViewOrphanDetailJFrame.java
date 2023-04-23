@@ -43,6 +43,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         this.org = org;
         this.useraccount = useraccount;
         this.o = orphan;
+        SexField.setEnabled(false);
         populateAllDetails();
     }
 
@@ -170,7 +171,6 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
                             .addGroup(kGradientPanel3Layout.createSequentialGroup()
                                 .addComponent(lblMessage11)
                                 .addGap(12, 12, 12)))
-                        .addGap(18, 18, 18)
                         .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(parFeedbackField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kGradientPanel3Layout.createSequentialGroup()
@@ -240,6 +240,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

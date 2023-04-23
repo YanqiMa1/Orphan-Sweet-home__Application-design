@@ -59,7 +59,6 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnManageOrganization = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
 
@@ -93,17 +92,6 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnEdit.setBackground(new java.awt.Color(252, 74, 26));
-        btnEdit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("Edit My Account");
-        btnEdit.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -111,11 +99,9 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
+                .addGap(155, 155, 155)
                 .addComponent(btnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,8 +109,7 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogOut)
-                    .addComponent(btnManageOrganization)
-                    .addComponent(btnEdit))
+                    .addComponent(btnManageOrganization))
                 .addGap(19, 19, 19))
         );
 
@@ -161,6 +146,7 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrganizationActionPerformed
@@ -171,10 +157,6 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
         this.setVisible(false);
         new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_btnLogOutActionPerformed
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +194,6 @@ public class AdopterWorkAreaJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnManageOrganization;
     private javax.swing.JSplitPane jSplitPane1;

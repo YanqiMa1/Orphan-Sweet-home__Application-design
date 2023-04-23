@@ -119,32 +119,32 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblOrganizations);
 
-        kGradientPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 390, 370));
+        kGradientPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 490, 370));
 
         lblOrganizationPicker1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganizationPicker1.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationPicker1.setText("Select Enterprise:");
-        kGradientPanel.add(lblOrganizationPicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
+        kGradientPanel.add(lblOrganizationPicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
 
         cmbEnterprise.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEnterpriseItemStateChanged(evt);
             }
         });
-        kGradientPanel.add(cmbEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 167, -1));
+        kGradientPanel.add(cmbEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 190, -1));
 
         lblSelectOrgType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectOrgType.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectOrgType.setText("Select Organization Type:");
-        kGradientPanel.add(lblSelectOrgType, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, -1, -1));
+        kGradientPanel.add(lblSelectOrgType, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
 
-        kGradientPanel.add(cmbOrganizations, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 167, -1));
+        kGradientPanel.add(cmbOrganizations, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 190, -1));
 
         lblOrganizationName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganizationName.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationName.setText("Organization Name:");
-        kGradientPanel.add(lblOrganizationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
-        kGradientPanel.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 169, 26));
+        kGradientPanel.add(lblOrganizationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
+        kGradientPanel.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 190, 26));
 
         btnCreate.setBackground(new java.awt.Color(238, 156, 167));
         btnCreate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -156,19 +156,19 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        kGradientPanel.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 170, 30));
+        kGradientPanel.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 170, 30));
 
         lblOrganizationPicker2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrganizationPicker2.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationPicker2.setText("Select Nework:");
-        kGradientPanel.add(lblOrganizationPicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, 22));
+        kGradientPanel.add(lblOrganizationPicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, 22));
 
         cmbNetwork.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbNetworkItemStateChanged(evt);
             }
         });
-        kGradientPanel.add(cmbNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 167, -1));
+        kGradientPanel.add(cmbNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 190, -1));
 
         btnUpdate.setBackground(new java.awt.Color(238, 156, 167));
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -180,7 +180,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        kGradientPanel.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, 170, 30));
+        kGradientPanel.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 170, 30));
 
         btnDelete.setBackground(new java.awt.Color(238, 156, 167));
         btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -192,7 +192,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        kGradientPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 170, 30));
+        kGradientPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, 170, 30));
 
         add(kGradientPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -231,7 +231,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Network / Enterprise cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please choose an Organization.", "Warning", JOptionPane.WARNING_MESSAGE);
 
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -258,7 +258,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please choose an Organization");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Network / Enterprise cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please choose an Organization.", "Warning", JOptionPane.WARNING_MESSAGE);
 
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

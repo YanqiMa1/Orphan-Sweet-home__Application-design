@@ -303,7 +303,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(this, " User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "income should bigger than 0!", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Please type income with correct format!", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
 
                 } else {

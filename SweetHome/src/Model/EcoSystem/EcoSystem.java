@@ -18,10 +18,12 @@ public class EcoSystem {
     ArrayList<Network> networkList;
     UserAccountDirectory userAccountDirectory;
     UserAccount systemAdmin;
+  
 
     public EcoSystem() {
         this.networkList = new ArrayList<Network>();
         this.userAccountDirectory = new UserAccountDirectory();
+       
 
     }
 
@@ -69,7 +71,10 @@ public class EcoSystem {
         }
         return null;
     }
+    
+  
 
+    
     public void deleteNetwork(Network nw) {
        
             networkList.remove(nw);

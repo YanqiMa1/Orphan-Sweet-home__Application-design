@@ -50,14 +50,16 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
 
         String getStatus = this.useraccount.getWorkQueue().findWorkRequestByMessage("New User").getStatus();
+
         if (getStatus.equalsIgnoreCase("Pending")) {
-            statusLabel.setText("Your adopter status is under reviewing......you are not allowed to find details about Orphans");
+            statusLabel.setText("Your adopter status is waiting for precess......you are not allowed to find details about Orphans");
             lblOrphanSelection.setVisible(false);
             tbOrphanList.setVisible(false);
             btnViewDetails.setVisible(false);
             btnSendRequest.setVisible(false);
             lblAdoptionRequest.setVisible(false);
             tbAdoptionRequests.setVisible(false);
+
         } else if (getStatus.equalsIgnoreCase("Accepted")) {
             statusLabel.setText("Your adoptive identity has been accepted, now you can make adoption request~");
             lblOrphanSelection.setVisible(true);
@@ -66,9 +68,10 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
             btnSendRequest.setVisible(true);
             lblAdoptionRequest.setVisible(true);
             tbAdoptionRequests.setVisible(true);
-            //show orphan details and adoper applications
+//            show orphan details and adoper applications
             populateOrphanTable();
             populateRequestTable();
+
         } else if (getStatus.equalsIgnoreCase("Processed")) {
             statusLabel.setText("Your adopter status is under reviewing by Authority: " + this.useraccount.getWorkQueue().findWorkRequestByMessage("New User").getReceiver());
             lblOrphanSelection.setVisible(false);
@@ -77,6 +80,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
             btnSendRequest.setVisible(false);
             lblAdoptionRequest.setVisible(false);
             tbAdoptionRequests.setVisible(false);
+
         } else if (getStatus.equalsIgnoreCase("Rejected")) {
             statusLabel.setText("Sorry,You don't meet the standards of an adopter......");
             lblOrphanSelection.setVisible(false);
@@ -85,6 +89,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
             btnSendRequest.setVisible(false);
             lblAdoptionRequest.setVisible(false);
             tbAdoptionRequests.setVisible(false);
+
         }
 
     }
@@ -292,7 +297,9 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
-        // TODO add your handling code here:
+        DonateFrame newJFrame = new DonateFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount);
+        newJFrame.setLocationRelativeTo(null);
+        newJFrame.setVisible(true);
     }//GEN-LAST:event_btnDonateActionPerformed
 
     private void btnSendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendRequestActionPerformed
@@ -327,14 +334,17 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSendRequestActionPerformed
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
-        //        try {
-
+        try {
             int selectedRow = tbOrphanList.getSelectedRow();
             Orphan or = (Orphan) tbOrphanList.getValueAt(selectedRow, 0);
 
             ViewOrphanDetailJFrame newJFrame = new ViewOrphanDetailJFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount, or);
             newJFrame.setLocationRelativeTo(null);
             newJFrame.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please choose first", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
 
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 

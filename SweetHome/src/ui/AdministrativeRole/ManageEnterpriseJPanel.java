@@ -102,20 +102,20 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEnterprises);
 
-        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 390, 333));
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 440, 360));
 
         lblSelectEnterpriseType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectEnterpriseType.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectEnterpriseType.setText("Select Enterprise Type:");
-        kGradientPanel3.add(lblSelectEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
+        kGradientPanel3.add(lblSelectEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
 
         lblEnterpriseName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEnterpriseName.setForeground(new java.awt.Color(255, 255, 255));
         lblEnterpriseName.setText("Enterprise Name:");
-        kGradientPanel3.add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, -1, -1));
+        kGradientPanel3.add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, -1, -1));
 
         txtName.setBackground(new java.awt.Color(245, 245, 255));
-        kGradientPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 157, 32));
+        kGradientPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 200, 32));
 
         btnCreateEnterprise.setBackground(new java.awt.Color(238, 156, 167));
         btnCreateEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -127,12 +127,12 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnCreateEnterpriseActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 120, 33));
+        kGradientPanel3.add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 130, 33));
 
         lblSelectNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectNetwork.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectNetwork.setText("Select Network:");
-        kGradientPanel3.add(lblSelectNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, 28));
+        kGradientPanel3.add(lblSelectNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 28));
 
         cmbNetworkList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -144,7 +144,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 cmbNetworkListActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 157, 29));
+        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 200, 29));
 
         btnUpdateEnter.setBackground(new java.awt.Color(238, 156, 167));
         btnUpdateEnter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -156,7 +156,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnUpdateEnterActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnUpdateEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 130, 35));
+        kGradientPanel3.add(btnUpdateEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, 130, 35));
 
         btnDeleteEnter.setBackground(new java.awt.Color(238, 156, 167));
         btnDeleteEnter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -168,14 +168,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnDeleteEnterActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnDeleteEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 130, 35));
+        kGradientPanel3.add(btnDeleteEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, 130, 35));
 
         EnterpriseCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnterpriseComboActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(EnterpriseCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 160, 30));
+        kGradientPanel3.add(EnterpriseCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 200, 30));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -185,48 +185,58 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbNetworkListActionPerformed
 
     private void btnUpdateEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEnterActionPerformed
-        String keyword = txtName.getText();
-        int selectedRow = tblEnterprises.getSelectedRow();
-        Network nw = (Network) cmbNetworkList.getSelectedItem();
+        try {
+            String keyword = txtName.getText();
+            int selectedRow = tblEnterprises.getSelectedRow();
+            Network nw = (Network) cmbNetworkList.getSelectedItem();
 
-        Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
+            Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
 
-        if (selectedRow >= 0) {
-            if (!txtName.getText().isEmpty()) {
-                if (nw.getEnterpriseDirectory().nameIsUnique(keyword)) {
-                    ent.setName(keyword);
-                    txtName.setText("");
-                    refreshEnterpriseList();
-                    JOptionPane.showMessageDialog(this, "Enterprise updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+            if (selectedRow >= 0) {
+                if (!txtName.getText().isEmpty()) {
+                    if (nw.getEnterpriseDirectory().nameIsUnique(keyword)) {
+                        ent.setName(keyword);
+                        txtName.setText("");
+                        refreshEnterpriseList();
+                        JOptionPane.showMessageDialog(this, "Enterprise updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Enterprise name existed");
+                    }
+
                 } else {
-                    JOptionPane.showMessageDialog(null, "Enterprise name existed");
+                    JOptionPane.showMessageDialog(null, "Please fill the textfield");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Please fill the textfield");
+                JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please choose a network");
         }
+
     }//GEN-LAST:event_btnUpdateEnterActionPerformed
 
     private void btnDeleteEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEnterActionPerformed
-       int selectedRow = tblEnterprises.getSelectedRow();
-       Network nw = (Network) cmbNetworkList.getSelectedItem();
+        try {
+            int selectedRow = tblEnterprises.getSelectedRow();
+            Network nw = (Network) cmbNetworkList.getSelectedItem();
 
-        Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
+            Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
 
-        if (selectedRow >= 0) {
-         
-            nw.getEnterpriseDirectory().deleteEnterprise(ent);
-            txtName.setText("");
-             refreshEnterpriseList();
-            JOptionPane.showMessageDialog(this, "Enterprise deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
+            if (selectedRow >= 0) {
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
+                nw.getEnterpriseDirectory().deleteEnterprise(ent);
+                txtName.setText("");
+                refreshEnterpriseList();
+                JOptionPane.showMessageDialog(this, "Enterprise deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please choose a network");
         }
+
     }//GEN-LAST:event_btnDeleteEnterActionPerformed
 
     private void btnCreateEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEnterpriseActionPerformed
