@@ -215,12 +215,13 @@
         <Component class="javax.swing.JComboBox" name="raceComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="6">
                 <StringItem index="0" value="Unknown"/>
                 <StringItem index="1" value="American Indian or Alaska Native"/>
                 <StringItem index="2" value="Black or African American"/>
                 <StringItem index="3" value="Native Hawaiian or Other Pacific Islander"/>
-                <StringItem index="4" value="White"/>
+                <StringItem index="4" value="Asian"/>
+                <StringItem index="5" value="White"/>
               </StringArray>
             </Property>
           </Properties>

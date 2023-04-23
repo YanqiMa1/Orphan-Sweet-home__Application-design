@@ -128,7 +128,11 @@ public class OrphanRegisterJFrame extends javax.swing.JFrame {
 
     private void btnRequestVolunteerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRequestVolunteerActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new VolunteerRequestJPanel());
+        jSplitPane1.setRightComponent(new VolunteerRequestJPanel(this.ecosys,
+        this.network,
+        this.enterprise,
+        this.org,
+        this.userAccount));
     }// GEN-LAST:event_btnRequestVolunteerActionPerformed
 
     /**

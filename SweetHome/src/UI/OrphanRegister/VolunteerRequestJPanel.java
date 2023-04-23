@@ -6,7 +6,9 @@ package UI.OrphanRegister;
 
 import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
+import Model.Enterprise.Enterprise;
 import Model.Enterprise.OrphanShelterEnterprise;
+import Model.Organization.Organization;
 import Model.Organization.OrphanManagementOrganization;
 import Model.UserAccount.UserAccount;
 import Model.WorkQueue.VolunteerRequest;
@@ -22,8 +24,8 @@ public class VolunteerRequestJPanel extends javax.swing.JPanel {
 
     private EcoSystem ecosys;
     private Network network;
-    private OrphanManagementOrganization org;
-    private OrphanShelterEnterprise enterprise;
+    private Organization org;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     /**
      * Creates new form OrphanVolunteerRequest
@@ -32,8 +34,8 @@ public class VolunteerRequestJPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    VolunteerRequestJPanel(EcoSystem ecosys, Network network, OrphanShelterEnterprise enterprise, 
-            OrphanManagementOrganization org, UserAccount useraccount) {
+    VolunteerRequestJPanel(EcoSystem ecosys, Network network, Enterprise enterprise, 
+            Organization org, UserAccount useraccount) {
         initComponents();
         this.ecosys=ecosys;
         this.network=network;
@@ -118,7 +120,7 @@ public class VolunteerRequestJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(SendVolunteerRequestJTable);
 
-        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 570, 250));
+        kGradientPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 760, 250));
 
         btnReqVolunteer.setText("Request");
         btnReqVolunteer.addActionListener(new java.awt.event.ActionListener() {

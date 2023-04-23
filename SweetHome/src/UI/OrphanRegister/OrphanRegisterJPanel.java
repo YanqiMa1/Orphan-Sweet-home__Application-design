@@ -155,7 +155,7 @@ public class OrphanRegisterJPanel extends javax.swing.JPanel {
         kGradientPanel1.add(rbtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
         kGradientPanel1.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 200, 200));
 
-        raceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unknown", "American Indian or Alaska Native", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White" }));
+        raceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unknown", "American Indian or Alaska Native", "Black or African American", "Native Hawaiian or Other Pacific Islander", "Asian", "White" }));
         kGradientPanel1.add(raceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 220, -1));
 
         ageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18" }));

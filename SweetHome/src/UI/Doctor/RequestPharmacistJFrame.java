@@ -28,6 +28,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
     Organization org;
     UserAccount useraccount;
     Orphan orphan;
+    MedCareRequest request;
     /**
      * Creates new form RequestPharmacistJFrame
      */
@@ -35,7 +36,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    public RequestPharmacistJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount, Orphan orphan) {
+    public RequestPharmacistJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount, Orphan orphan, MedCareRequest request) {
         initComponents();
         this.setVisible(true);
         this.ecosys=ecosys;
@@ -44,6 +45,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         this.org=org;
         this.useraccount=useraccount;
         this.orphan=orphan;
+        this.request=request;
         
         
         for (Network net : ecosys.getNetworkList()) {
@@ -112,6 +114,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         messFID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,14 +168,14 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         backBtn.setBackground(new java.awt.Color(195, 55, 100));
         backBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
-        backBtn.setText("<<Back");
+        backBtn.setText("Close");
         backBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 160, -1));
+        kGradientPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -187,7 +190,19 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Request Pharmaceutical Therapy");
-        kGradientPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 93, -1, 40));
+        kGradientPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 40));
+
+        btnRefresh.setBackground(new java.awt.Color(195, 55, 100));
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,6 +218,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestlBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestlBtnActionPerformed
@@ -213,7 +229,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         //if message is emty
         
         if (message.equals("") || message.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "You should send something please.", 
+            JOptionPane.showMessageDialog(this, "Please fill in message.", 
                     "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -232,7 +248,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         
         enterprise.getWorkQueue().getWorkRequestList().add(request);
 
-        JOptionPane.showMessageDialog(this, "Pharmaceutical Therapy Request has been sent, you may now closw this window", 
+        JOptionPane.showMessageDialog(this, "Pharmaceutical Therapy Request has been sent, you may now close this window", 
                 "Information", JOptionPane.INFORMATION_MESSAGE);
         
         populatePtTable();
@@ -245,6 +261,11 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populatePtTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,6 +304,7 @@ public class RequestPharmacistJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

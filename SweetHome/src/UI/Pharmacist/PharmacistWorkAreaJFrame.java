@@ -75,6 +75,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         ProcessBtn = new javax.swing.JButton();
         AssignBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,13 +171,25 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
                 AssignBtnActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(AssignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 160, 40));
+        kGradientPanel1.add(AssignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 160, 40));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Request Pharmaceutical Therapy");
         kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        btnRefresh.setBackground(new java.awt.Color(116, 235, 213));
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 160, 20));
 
         jSplitPane1.setRightComponent(kGradientPanel1);
 
@@ -188,10 +201,11 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateTable() {
@@ -316,6 +330,11 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -354,6 +373,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignBtn;
     private javax.swing.JButton ProcessBtn;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -115,7 +115,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         backBtn.setBackground(new java.awt.Color(195, 55, 100));
         backBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
-        backBtn.setText("<<Back");
+        backBtn.setText("Close");
         backBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +123,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
             }
         });
         kGradientPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 160, 30));
-        kGradientPanel2.add(lblIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 200, 190));
+        kGradientPanel2.add(lblIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 200, 190));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -198,7 +198,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
                 requestBtnActionPerformed(evt);
             }
         });
-        kGradientPanel2.add(requestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 194, 40));
+        kGradientPanel2.add(requestBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 210, 30));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -227,6 +227,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRBtnActionPerformed
@@ -248,11 +249,9 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
             
             fieldDoc.setText(DoctorMessFID.getText());
             
-            JOptionPane.showMessageDialog(this, "Doctor Request has been completed!",
+            JOptionPane.showMessageDialog(this, "Doctor Request has been completed! You may now close this window",
                     
                     "Thank you!", JOptionPane.INFORMATION_MESSAGE);
-           
-            this.setVisible(false);
             
         }
 
@@ -265,6 +264,8 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
 
     private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
         // TODO add your handling code here:
+        RequestPharmacistJFrame rpjf = new RequestPharmacistJFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount, this.orphan, this.request);
+        rpjf.setVisible(true);
     }//GEN-LAST:event_requestBtnActionPerformed
 
     private void displayOrphanDetails() {    
@@ -272,6 +273,7 @@ public class ViewOrphanDetailJFrame extends javax.swing.JFrame {
         fieldName.setText(orphan.getName());
         fieldAge.setText(String.valueOf(orphan.getAge()));
         fieldRace.setText(orphan.getRace());
+        fieldShelter.setText(orphan.getEnterprise().getName());
         fieldPhar.setText(orphan.getPharmacyMessage());
 
         if (orphan.getPhoto()!=null){

@@ -115,7 +115,7 @@ public class PharmacistProcessRequestJFrame extends javax.swing.JFrame {
         BackBtn1.setBackground(new java.awt.Color(172, 182, 229));
         BackBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BackBtn1.setForeground(new java.awt.Color(255, 255, 255));
-        BackBtn1.setText("<<BACK");
+        BackBtn1.setText("Close");
         BackBtn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BackBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

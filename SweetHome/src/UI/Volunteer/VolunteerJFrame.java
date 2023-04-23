@@ -106,7 +106,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Message", "Sender", "Animal Shelter", "Volunteer Manager", "Volunteer Assigned", "Enterprise", "Status"
+                "Message", "Sender", "Orphan Shelter", "Volunteer Manager", "Volunteer Assigned", "Enterprise", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -141,6 +141,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed

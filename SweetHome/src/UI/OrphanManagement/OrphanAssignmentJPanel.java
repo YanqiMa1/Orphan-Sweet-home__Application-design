@@ -55,6 +55,7 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         btnAssignOrphanToMe = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         btnViewDetial = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setMinimumSize(new java.awt.Dimension(800, 520));
@@ -102,7 +103,7 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
                 btnAssignOrphanToMeActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(btnAssignOrphanToMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, 40));
+        kGradientPanel1.add(btnAssignOrphanToMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, -1, 40));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -116,6 +117,14 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
             }
         });
         kGradientPanel1.add(btnViewDetial, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 110, 40));
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 130, 30));
 
         add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
     }// </editor-fold>//GEN-END:initComponents
@@ -176,6 +185,11 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         voj.setVisible(true);
     }//GEN-LAST:event_btnViewDetialActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateAssignOrphanToMeRequestTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
         public void populateAssignOrphanToMeRequestTable(){
         DefaultTableModel model = (DefaultTableModel) tblOrphanManagerWorkArea.getModel();
         
@@ -198,6 +212,7 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignOrphanToMe;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnViewDetial;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;

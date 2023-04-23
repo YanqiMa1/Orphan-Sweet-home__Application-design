@@ -103,6 +103,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         tblWorkRequests = new javax.swing.JTable();
         AssignBtn = new javax.swing.JButton();
         viewdetailBtn = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         logoutBtn = new javax.swing.JButton();
 
@@ -169,6 +170,18 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         });
         kGradientPanel2.add(viewdetailBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 194, 30));
 
+        btnRefresh.setBackground(new java.awt.Color(195, 55, 100));
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 194, 30));
+
         jSplitPane1.setRightComponent(kGradientPanel2);
 
         jPanel1.setBackground(new java.awt.Color(240, 80, 83));
@@ -216,6 +229,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtnActionPerformed
@@ -313,6 +327,11 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
         new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateRequestTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +369,7 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AssignBtn;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;

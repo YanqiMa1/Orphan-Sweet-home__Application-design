@@ -13,6 +13,7 @@ import Model.UserAccount.UserAccount;
 import Model.WorkQueue.VolunteerRequest;
 import Model.WorkQueue.WorkRequest;
 import UI.Basic.LoginJFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -64,7 +65,7 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         assignBtn = new javax.swing.JButton();
-        volunteerComboBox = new javax.swing.JComboBox<>();
+        volunteerComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,18 +164,7 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setRightComponent(kGradientPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -182,6 +172,58 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
 
     private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
         // TODO add your handling code here:
+        
+        UserAccount selectedVolunteer = (UserAccount) volunteerComboBox.getSelectedItem();
+        
+        int selectedRow = tblWorkRequests.getSelectedRow();
+        
+        //if no row selected
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        VolunteerRequest selectedRequest = (VolunteerRequest) tblWorkRequests.getValueAt(selectedRow, 0);
+        
+        //if the selectedrequest has been completed
+        
+        if (selectedRequest.getStatus().equals("Completed")) {
+            JOptionPane.showMessageDialog(this, "This Request already completed. Please select another one.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        
+        //if selected request has assigned a volunteer
+        
+        if (selectedRequest.getStatus().equals("Assigned")) {
+            JOptionPane.showMessageDialog(this, "This request has assigned a volunteer. Please select another request.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        for (WorkRequest request : network.getWorkQueue().getWorkRequestList()){
+            
+            if (request instanceof VolunteerRequest) {
+                
+                VolunteerRequest vr = (VolunteerRequest)request;
+                
+                if (vr.getAssignedVolunteer() == selectedVolunteer 
+                        
+                && !request.getStatus().equals("Completed")){
+                    
+                JOptionPane.showMessageDialog(this, "This volunteer is busy, Please select another one.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+                }
+            }
+        }
+
+        selectedVolunteer.getWorkQueue().getWorkRequestList().add(selectedRequest);
+        selectedRequest.setReceiver(useraccount);
+        selectedRequest.setStatus("Assigned");
+        selectedRequest.setAssignedVolunteer(selectedVolunteer);
+        
+        JOptionPane.showMessageDialog(this, "Volunteer Assigned","Information",JOptionPane.INFORMATION_MESSAGE);
+        populateTable();
+                         
     }//GEN-LAST:event_assignBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
@@ -198,7 +240,7 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
             
             if (ua.getRole() instanceof VolunteerRole && ua.getEnterprise() == enterprise) {
                 
-                volunteerComboBox.addItem(ua.getUsername());
+                volunteerComboBox.addItem(ua);
             }
         }
         
@@ -274,6 +316,6 @@ public class VolunteerManagerJFrame extends javax.swing.JFrame {
     private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JTable tblWorkRequests;
-    private javax.swing.JComboBox<String> volunteerComboBox;
+    private javax.swing.JComboBox volunteerComboBox;
     // End of variables declaration//GEN-END:variables
 }
