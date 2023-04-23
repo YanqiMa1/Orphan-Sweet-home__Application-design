@@ -111,7 +111,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                                 list.add(beg);
                             }
                         }
-                        if (list.isEmpty()) {
+                        if (!list.isEmpty()) {
                             //create new row
                             Object[] table = new Object[5];
 
