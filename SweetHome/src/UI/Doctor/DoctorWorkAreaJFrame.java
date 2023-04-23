@@ -21,11 +21,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Ma2017
  */
 public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
+
     EcoSystem ecosys;
     Network network;
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
+
     /**
      * Creates new form DoctorWorkAreaJFrame
      */
@@ -36,40 +38,37 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
     public DoctorWorkAreaJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
-        this.ecosys=ecosys;
-        this.network=network;
-        this.enterprise=enterprise;
-        this.org=org;
-        this.useraccount=useraccount;
-        
-        
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
+
         for (Network net : ecosys.getNetworkList()) {
-            
+
             for (Enterprise ent : net.getEnterpriseDirectory().getEnterpriseList()) {
-                
+
                 if (ent.equals(enterprise)) {
-                    
+
                     network = net;
                 }
             }
         }
 
-        
         populateRequestTable();
     }
 
     public void populateRequestTable() {
-        
+
         //populate request table
-        
         DefaultTableModel model = (DefaultTableModel) tblWorkRequests.getModel();
-        
+
         model.setRowCount(0);
-        
+
         for (WorkRequest request : network.getWorkQueue().getWorkRequestList()) {
-            
+
             if (request instanceof MedCareRequest) {
-                
+
                 Object[] row = new Object[model.getColumnCount()];
 
                 row[0] = request;
@@ -77,19 +76,18 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
                 row[2] = request.getOrphan().getName();
                 row[3] = request.getSender();
                 row[4] = request.getReceiver() == null ? null : request.getReceiver();
-               
+
                 row[5] = request.getStatus();
-                
-                
+
                 String result = ((MedCareRequest) request).getDoctorResult();
-                
-                
+
                 row[6] = result == null ? "Waiting" : result;
-                
+
                 model.addRow(row);
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -222,51 +220,46 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
 
     private void AssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtnActionPerformed
         // TODO add your handling code here:
-        
+
         int selectedRow = tblWorkRequests.getSelectedRow();
-        
+
         //if select a row
         if (selectedRow >= 0) {
-            
+
             WorkRequest request = (WorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
-            
+
             if (request.getStatus().equalsIgnoreCase("Processed")) {
-                
-                JOptionPane.showMessageDialog(this, "Request has already been processed.","Warning",
-                        
+
+                JOptionPane.showMessageDialog(this, "Request has already been processed.", "Warning",
                         JOptionPane.WARNING_MESSAGE);
-                
+
                 return;
-                
+
                 //if the request has been completed
-                
             } else if (request.getStatus().equalsIgnoreCase("Completed")) {
-                
-                JOptionPane.showMessageDialog(this, "Request has already been completed.", "Thank you!", 
-                        
+
+                JOptionPane.showMessageDialog(this, "Request has already been completed.", "Thank you!",
                         JOptionPane.INFORMATION_MESSAGE);
-                
+
                 return;
-                
+
             } else {
-                
+
                 request.setReceiver(useraccount);
-                
+
                 request.setStatus("Processed");
-                
+
                 populateRequestTable();
-                
-      
+
             }
 
             //if no request selected
         } else {
-            JOptionPane.showMessageDialog(this, "Please select a request.","Warning",
-                    
+            JOptionPane.showMessageDialog(this, "Please select a request.", "Warning",
                     JOptionPane.WARNING_MESSAGE);
-            
+
             return;
-            
+
         }
 
 
@@ -274,55 +267,50 @@ public class DoctorWorkAreaJFrame extends javax.swing.JFrame {
 
     private void viewdetailBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewdetailBtnActionPerformed
         // TODO add your handling code here:
-        
+
         int selectedRow = tblWorkRequests.getSelectedRow();
 
         //if no row selected
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(this, "You should select a row first","Warning",
-                    
+            JOptionPane.showMessageDialog(this, "You should select a row first", "Warning",
                     JOptionPane.WARNING_MESSAGE);
-            
+
             return;
-            
+
         }
-        
+
         WorkRequest wr = (WorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
-        
-         if (wr.getReceiver() != useraccount) {
-             //if the request has been assigned
-             
-            JOptionPane.showMessageDialog(this, "This request is not assigned to you.","Warning",
-                    
+
+        if (wr.getReceiver() != useraccount) {
+            //if the request has been assigned
+
+            JOptionPane.showMessageDialog(this, "This request is not assigned to you.", "Warning",
                     JOptionPane.WARNING_MESSAGE);
-            
+
             return;
-           
+
         }
         MedCareRequest request = (MedCareRequest) tblWorkRequests.getValueAt(selectedRow, 0);
-        
+
         if (request.getStatus().equalsIgnoreCase("Completed")) {
-            
+
             //if the selected request is completed
-            
-            JOptionPane.showMessageDialog(this, "Request has already been completed.","Warning",
-                    
+            JOptionPane.showMessageDialog(this, "Request has already been completed.", "Warning",
                     JOptionPane.WARNING_MESSAGE);
-            
+
             return;
         }
 
         Orphan or = wr.getOrphan();
         ViewOrphanDetailJFrame vodj = new ViewOrphanDetailJFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount, or, request);
-        
+
         vodj.setVisible(true);
     }//GEN-LAST:event_viewdetailBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        LoginJFrame loginJFrame = new LoginJFrame();
-        loginJFrame.setVisible(true);
+        new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
