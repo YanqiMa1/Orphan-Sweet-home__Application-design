@@ -51,15 +51,15 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
 
         String getStatus = this.useraccount.getWorkQueue().findWorkRequestByMessage("New User").getStatus();
         if (getStatus.equalsIgnoreCase("Pending")) {
-            statusLabel.setText("Your adopter status is under review......you are not allowed to find details about Orphans");
+            statusLabel.setText("Your adopter status is under reviewing......you are not allowed to find details about Orphans");
             lblOrphanSelection.setVisible(false);
-           tbOrphanList.setVisible(false);
+            tbOrphanList.setVisible(false);
             btnViewDetails.setVisible(false);
             btnSendRequest.setVisible(false);
             lblAdoptionRequest.setVisible(false);
             tbAdoptionRequests.setVisible(false);
-        } else {
-            statusLabel.setText("Your adoptive identity has been approved");
+        } else if (getStatus.equalsIgnoreCase("Accepted")) {
+            statusLabel.setText("Your adoptive identity has been accepted, now you can make adoption request~");
             lblOrphanSelection.setVisible(true);
             tbOrphanList.setVisible(true);
             btnViewDetails.setVisible(true);
@@ -69,6 +69,22 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
             //show orphan details and adoper applications
             populateOrphanTable();
             populateRequestTable();
+        } else if (getStatus.equalsIgnoreCase("Processed")) {
+            statusLabel.setText("Your adopter status is under reviewing by Authority: " + this.useraccount.getWorkQueue().findWorkRequestByMessage("New User").getReceiver());
+            lblOrphanSelection.setVisible(false);
+            tbOrphanList.setVisible(false);
+            btnViewDetails.setVisible(false);
+            btnSendRequest.setVisible(false);
+            lblAdoptionRequest.setVisible(false);
+            tbAdoptionRequests.setVisible(false);
+        } else if (getStatus.equalsIgnoreCase("Rejected")) {
+            statusLabel.setText("Sorry,You don't meet the standards of an adopter......");
+            lblOrphanSelection.setVisible(false);
+            tbOrphanList.setVisible(false);
+            btnViewDetails.setVisible(false);
+            btnSendRequest.setVisible(false);
+            lblAdoptionRequest.setVisible(false);
+            tbAdoptionRequests.setVisible(false);
         }
 
     }
@@ -158,18 +174,17 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         kGradientPanel3.setkEndColor(new java.awt.Color(247, 183, 51));
         kGradientPanel3.setkStartColor(new java.awt.Color(252, 74, 26));
         kGradientPanel3.setPreferredSize(new java.awt.Dimension(800, 520));
+        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblOrphanSelection.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrphanSelection.setForeground(new java.awt.Color(255, 255, 255));
         lblOrphanSelection.setText("Orphans who are waiting for a sweet home");
+        kGradientPanel3.add(lblOrphanSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 175, 365, -1));
 
         tbOrphanList.setBackground(new java.awt.Color(204, 204, 204));
         tbOrphanList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Name", "Sex", "Age", "Manager", "OrphanShelterEnterprise"
@@ -197,6 +212,8 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbOrphanList);
 
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 790, 137));
+
         btnViewDetails.setBackground(new java.awt.Color(252, 74, 26));
         btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnViewDetails.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,6 +224,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                 btnViewDetailsActionPerformed(evt);
             }
         });
+        kGradientPanel3.add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 133, 200, -1));
 
         btnSendRequest.setBackground(new java.awt.Color(252, 74, 26));
         btnSendRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -218,18 +236,17 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                 btnSendRequestActionPerformed(evt);
             }
         });
+        kGradientPanel3.add(btnSendRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 133, 200, -1));
 
         lblAdoptionRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAdoptionRequest.setForeground(new java.awt.Color(255, 255, 255));
         lblAdoptionRequest.setText("Your Adoption Application");
+        kGradientPanel3.add(lblAdoptionRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 367, 224, -1));
 
         tbAdoptionRequests.setBackground(new java.awt.Color(204, 204, 204));
         tbAdoptionRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Manager", "Enterprise", "Status"
@@ -252,9 +269,12 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tbAdoptionRequests);
 
-        statusLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kGradientPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 790, 147));
+
+        statusLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statusLabel.setForeground(new java.awt.Color(255, 255, 255));
         statusLabel.setText("Your adopter status is under review......you are not allowed to find details about Orphans");
+        kGradientPanel3.add(statusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 54, 739, -1));
 
         btnDonate.setBackground(new java.awt.Color(252, 74, 26));
         btnDonate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -266,71 +286,14 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                 btnDonateActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
-        kGradientPanel3.setLayout(kGradientPanel3Layout);
-        kGradientPanel3Layout.setHorizontalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblOrphanSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAdoptionRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))))
-                    .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(btnDonate, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        kGradientPanel3Layout.setVerticalGroup(
-            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(statusLabel)
-                .addGap(33, 33, 33)
-                .addComponent(lblOrphanSelection)
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSendRequest)
-                    .addComponent(btnViewDetails)
-                    .addComponent(btnDonate))
-                .addGap(18, 18, 18)
-                .addComponent(lblAdoptionRequest)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-        );
+        kGradientPanel3.add(btnDonate, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 133, 200, -1));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
-//        try {
-
-        int selectedRow = tbOrphanList.getSelectedRow();
-        Orphan or = (Orphan) tbOrphanList.getValueAt(selectedRow, 0);
-
-        ViewOrphanDetailJFrame newJFrame = new ViewOrphanDetailJFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount, or);
-        newJFrame.setLocationRelativeTo(null);
-        newJFrame.setVisible(true);
-
-
-    }//GEN-LAST:event_btnViewDetailsActionPerformed
-
-    private void tbOrphanListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbOrphanListMouseClicked
-
-    }//GEN-LAST:event_tbOrphanListMouseClicked
+    private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDonateActionPerformed
 
     private void btnSendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendRequestActionPerformed
         int selectedRow = tbOrphanList.getSelectedRow();
@@ -363,9 +326,21 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSendRequestActionPerformed
 
-    private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDonateActionPerformed
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        //        try {
+
+            int selectedRow = tbOrphanList.getSelectedRow();
+            Orphan or = (Orphan) tbOrphanList.getValueAt(selectedRow, 0);
+
+            ViewOrphanDetailJFrame newJFrame = new ViewOrphanDetailJFrame(this.ecosys, this.network, this.enterprise, this.org, this.useraccount, or);
+            newJFrame.setLocationRelativeTo(null);
+            newJFrame.setVisible(true);
+
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void tbOrphanListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbOrphanListMouseClicked
+
+    }//GEN-LAST:event_tbOrphanListMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -13,6 +13,7 @@ import Model.WorkQueue.AdopterAuthorizationRequest;
 import Model.WorkQueue.VolunteerRequest;
 import Model.WorkQueue.WorkRequest;
 import UI.Basic.LoginJFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,54 +21,53 @@ import javax.swing.table.DefaultTableModel;
  * @author hp
  */
 public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
+
     EcoSystem ecosys;
     Network network;
     Enterprise enterprise;
     Organization org;
     UserAccount useraccount;
+
     /**
      * Creates new form AuthorityWorkAreaJFrame
      */
-    
-    public AuthorityWorkAreaJFrame(){
+    public AuthorityWorkAreaJFrame() {
         initComponents();
     }
+
     public AuthorityWorkAreaJFrame(EcoSystem ecosys, Network network, Enterprise enterprise, Organization org, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
-        this.ecosys=ecosys;
-        this.network=network;
-        this.enterprise=enterprise;
-        this.org=org;
-        this.useraccount=useraccount;
+        this.ecosys = ecosys;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.org = org;
+        this.useraccount = useraccount;
         populateAdoptionAuthorizationRequestTable();
     }
 
-    
-     public void populateAdoptionAuthorizationRequestTable(){
+    public void populateAdoptionAuthorizationRequestTable() {
         DefaultTableModel model = (DefaultTableModel) tblWorkRequests1.getModel();
-        
-        model.setRowCount(0);
-        
-        for (WorkRequest request : this.useraccount.getWorkQueue().getWorkRequestList()){
-            if (request instanceof AdopterAuthorizationRequest){
-            Object[] row = new Object[7];
-            
-            row[0] = request.getMessage();
-            row[1] = request.getSender();
-            row[2] = request.getSender().getIncome();
-            row[3] = request.getSender().getEmailId();
-            row[4] = request.getSender().getOrgainization();
-            
-            row[2] = request.getReceiver();
-            row[3] = ((VolunteerRequest) request).getAssignedVolunteer() == null ? null : ((VolunteerRequest) request).getAssignedVolunteer();
-            row[4] = request.getReceiver() == null ? null : request.getReceiver().getEnterprise();
-            row[5] = request.getStatus();
 
-            model.addRow(row);
+        model.setRowCount(0);
+
+        for (WorkRequest request : this.enterprise.getWorkQueue().getWorkRequestList()) {
+            if (request instanceof AdopterAuthorizationRequest) {
+                Object[] row = new Object[7];
+
+                row[0] = request;
+                row[1] = request.getSender();
+                row[2] = request.getSender().getIncome();
+                row[3] = request.getSender().getEmailId();
+                row[4] = request.getSender().getOrgainization();
+                row[5] = request.getReceiver() == null ? null : request.getReceiver();
+                row[6] = request.getStatus();
+
+                model.addRow(row);
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,7 +84,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblWorkRequests1 = new javax.swing.JTable();
-        btnAssign = new javax.swing.JButton();
+        btnReceive = new javax.swing.JButton();
         btnApprove = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -149,7 +149,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, true, false, false, false, false
@@ -165,23 +165,38 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblWorkRequests1);
 
-        btnAssign.setBackground(new java.awt.Color(252, 74, 26));
-        btnAssign.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAssign.setForeground(new java.awt.Color(255, 255, 255));
-        btnAssign.setText("Receive this messsage");
-        btnAssign.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReceive.setBackground(new java.awt.Color(252, 74, 26));
+        btnReceive.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnReceive.setForeground(new java.awt.Color(255, 255, 255));
+        btnReceive.setText("Receive this messsage");
+        btnReceive.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReceive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReceiveActionPerformed(evt);
+            }
+        });
 
         btnApprove.setBackground(new java.awt.Color(252, 74, 26));
         btnApprove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnApprove.setForeground(new java.awt.Color(255, 255, 255));
         btnApprove.setText("Approve");
         btnApprove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveActionPerformed(evt);
+            }
+        });
 
         btnReject.setBackground(new java.awt.Color(252, 74, 26));
         btnReject.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnReject.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -204,7 +219,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
                         .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(kGradientPanel3Layout.createSequentialGroup()
-                                .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnReceive, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18))
@@ -225,7 +240,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAssign)
+                    .addComponent(btnReceive)
                     .addComponent(btnApprove)
                     .addComponent(btnReject))
                 .addGap(54, 54, 54))
@@ -239,9 +254,103 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-         this.setVisible(false);
+        this.setVisible(false);
         new LoginJFrame(this.ecosys, this.useraccount);
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void btnReceiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveActionPerformed
+        try {
+        int selectedRow = tblWorkRequests1.getSelectedRow();
+        WorkRequest request = (WorkRequest) tblWorkRequests1.getValueAt(selectedRow, 0);
+
+        if (selectedRow >= 0) {
+
+            if (request.getReceiver() != null) {
+                JOptionPane.showMessageDialog(this, "Request has already been received by other authority.",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+
+            } else {
+                request.setReceiver(this.useraccount);
+                request.setStatus("Processed");
+
+                populateAdoptionAuthorizationRequestTable();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnReceiveActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        try {
+        int selectedRow = tblWorkRequests1.getSelectedRow();
+
+        if (selectedRow >= 0) {
+
+            WorkRequest request = (WorkRequest) tblWorkRequests1.getValueAt(selectedRow, 0);
+            if (request.getReceiver() == null) {
+                JOptionPane.showMessageDialog(this, "Request has not been received.",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+
+            } else if (!request.getReceiver().equals(this.useraccount)) {
+                JOptionPane.showMessageDialog(this, "Request has already been received by other authority.",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (request.getStatus().equalsIgnoreCase("Accepted")) {
+                JOptionPane.showMessageDialog(this, "Request has already been approved!",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+
+                request.setStatus("Rejected");
+                populateAdoptionAuthorizationRequestTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnRejectActionPerformed
+
+    private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
+        try {
+        int selectedRow = tblWorkRequests1.getSelectedRow();
+
+        if (selectedRow >= 0) {
+
+            WorkRequest request = (WorkRequest) tblWorkRequests1.getValueAt(selectedRow, 0);
+            if (request.getReceiver() == null) {
+                JOptionPane.showMessageDialog(this, "Request has not been received.",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+
+            } else if (!request.getReceiver().equals(this.useraccount)) {
+                JOptionPane.showMessageDialog(this, "Request has already been received by other authority.",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+                JOptionPane.showMessageDialog(this, "Request has already been rejected!",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+
+                request.setStatus("Accepted");
+                populateAdoptionAuthorizationRequestTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please select a row.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnApproveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,8 +389,8 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;
-    private javax.swing.JButton btnAssign;
     private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnReceive;
     private javax.swing.JButton btnReject;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
