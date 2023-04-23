@@ -200,45 +200,55 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCreateNetworkActionPerformed
 
     private void btnDeleteNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteNetworkActionPerformed
-        int selectedRow = tbNetwork.getSelectedRow();
+        try {
+            int selectedRow = tbNetwork.getSelectedRow();
 
-        Network nw = (Network) tbNetwork.getValueAt(selectedRow, 0);
+            Network nw = (Network) tbNetwork.getValueAt(selectedRow, 0);
 
-        if (selectedRow >= 0) {
-            this.ecosys.deleteNetwork(nw);
-            txtNetworkName.setText("");
-            refreshNetworkList();
-            JOptionPane.showMessageDialog(this, "Network deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
+            if (selectedRow >= 0) {
+                this.ecosys.deleteNetwork(nw);
+                txtNetworkName.setText("");
+                refreshNetworkList();
+                JOptionPane.showMessageDialog(this, "Network deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
 
-        } else {
+            } else {
+                JOptionPane.showMessageDialog(null, "Please choose a network");
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Please choose a network");
         }
+
     }//GEN-LAST:event_btnDeleteNetworkActionPerformed
 
     private void btnUpdateNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateNetworkActionPerformed
-        String keyword = txtNetworkName.getText();
-        int selectedRow = tbNetwork.getSelectedRow();
+        try {
+            String keyword = txtNetworkName.getText();
+            int selectedRow = tbNetwork.getSelectedRow();
 
-        Network nw = (Network) tbNetwork.getValueAt(selectedRow, 0);
+            Network nw = (Network) tbNetwork.getValueAt(selectedRow, 0);
 
-        if (selectedRow >= 0) {
-            if (!txtNetworkName.getText().isEmpty()) {
-                if (this.ecosys.nameIsUnique(keyword)) {
-                    nw.setName(keyword);
-                    txtNetworkName.setText("");
-                    refreshNetworkList();
-                    JOptionPane.showMessageDialog(this, "Newetwork updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+            if (selectedRow >= 0) {
+                if (!txtNetworkName.getText().isEmpty()) {
+                    if (this.ecosys.nameIsUnique(keyword)) {
+                        nw.setName(keyword);
+                        txtNetworkName.setText("");
+                        refreshNetworkList();
+                        JOptionPane.showMessageDialog(this, "Newetwork updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Network existed");
+                    }
+
                 } else {
-                    JOptionPane.showMessageDialog(null, "Network existed");
+                    JOptionPane.showMessageDialog(null, "Please fill the textfield");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Please fill the textfield");
+                JOptionPane.showMessageDialog(null, "Please choose a network");
             }
-
-        } else {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Please choose a network");
         }
+
     }//GEN-LAST:event_btnUpdateNetworkActionPerformed
 
     private void refreshNetworkList() {

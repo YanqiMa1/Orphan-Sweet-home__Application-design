@@ -21,6 +21,7 @@ public abstract class Enterprise {
     private OrganizationDirectory organizationDirectory;
     private UserAccountDirectory enterpriseUserAccounts;
     
+    
     public enum Type {
         Volunteer("VolunteerEnterprise"),
         MedicalCare("MedicalCareEnterprise"),

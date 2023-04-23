@@ -15,7 +15,9 @@ import Model.Role.AdopterRole;
 import Model.Role.Role;
 import Model.UserAccount.UserAccount;
 import Model.WorkQueue.AdopterAuthorizationRequest;
+import static UI.Basic.RegisterJFrame.isValidIncome;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -73,6 +75,8 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
         btnUpdateUser = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
         Email = new javax.swing.JTextField();
+        lblPassword1 = new javax.swing.JLabel();
+        incomeFID = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(800, 520));
 
@@ -92,14 +96,14 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "User Name", "Email", "Organization", "Enterprise", "Network"
+                "User Name", "Email", "Organization", "Enterprise", "Network", "Income"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -187,106 +191,127 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblPassword1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword1.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword1.setText("Annual Income:");
+
+        incomeFID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incomeFIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(484, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRole, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(465, 465, 465)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblUsersList)
+                        .addGap(382, 382, 382)
+                        .addComponent(lblOrganizationPicker)
+                        .addGap(50, 50, 50)
+                        .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(lblEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(226, 226, 226))))
-            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addGap(250, 250, 250)
-                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addComponent(lblUsersList, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(354, 354, 354)
-                            .addComponent(lblOrganizationPicker, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(50, 50, 50)
-                            .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(29, 29, 29)
-                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(41, 41, 41)
-                                    .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                    .addGap(110, 110, 110)
-                                    .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(lblOrganization)
+                                        .addGap(41, 41, 41)
+                                        .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(lblEmployee)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblUserName)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblPassword)
+                                        .addGap(46, 46, 46)
+                                        .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                        .addComponent(lblPassword1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(incomeFID, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap())
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(lblEmployee)
-                .addGap(34, 34, 34)
+                .addGap(24, 24, 24)
+                .addComponent(lblTitle)
+                .addGap(27, 27, 27)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUsersList)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOrganizationPicker)
+                            .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(16, 16, 16)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(lblRole)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblUserName)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblPassword)))
-                .addContainerGap(199, Short.MAX_VALUE))
-            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblTitle)
-                    .addGap(28, 28, 28)
-                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblUsersList)
-                        .addComponent(lblOrganizationPicker)
-                        .addComponent(cmbNetworkList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(15, 15, 15)
-                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblOrganization)
-                                .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(17, 17, 17)
-                            .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(196, 196, 196)
-                            .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7)
-                            .addComponent(btnUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7)
-                            .addComponent(btnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOrganization)
+                            .addComponent(cmbEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEmployee)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(cmbOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRole)
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUserName)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPassword)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(pwdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword1)
+                            .addComponent(incomeFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -341,26 +366,30 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
                     && !newUsername.isEmpty() && !newPassword.isEmpty() && !newEmailId.isEmpty()) {     //null validation
 
                 if (emailValidator.validate(Email.getText().trim())) {
+                    if (isValidIncome(incomeFID)) {
+                        if (this.ecosys.getUserAccountDirectory().userNameIsUnique(newUsername)) {
+                            UserAccount newUserAccount = this.ecosys.getUserAccountDirectory().createUserAccount(newUsername, newPassword, new AdopterRole(), selectedNetw, enterprise, organization);
+                            newUserAccount.setEmailId(newEmailId);
+                            JOptionPane.showMessageDialog(this, "Adopter user Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
+                            txtUserName.setText("");
+                            pwdUser.setText("");
+                            Email.setText("");
 
-                    if (this.ecosys.getUserAccountDirectory().userNameIsUnique(newUsername)) {
-                        UserAccount newUserAccount = this.ecosys.getUserAccountDirectory().createUserAccount(newUsername, newPassword, new AdopterRole(), selectedNetw, enterprise, organization);
-                        newUserAccount.setEmailId(newEmailId);
-                        JOptionPane.showMessageDialog(this, "Adopter user Account added successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        txtUserName.setText("");
-                        pwdUser.setText("");
-                        Email.setText("");
+                            AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
+                            request.setMessage("New User");
+                            request.setSender(newUserAccount);
+                            request.setStatus("Pending");
 
-                        AdopterAuthorizationRequest request = new AdopterAuthorizationRequest();
-                        request.setMessage("New User");
-                        request.setSender(newUserAccount);
-                        request.setStatus("Pending Review");
-
-                        enterprise.getWorkQueue().getWorkRequestList().add(request);
-                        newUserAccount.getWorkQueue().getWorkRequestList().add(request);
-                        populateUserAccountsTable();
+                            enterprise.getWorkQueue().getWorkRequestList().add(request);
+                            newUserAccount.getWorkQueue().getWorkRequestList().add(request);
+                            populateUserAccountsTable();
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Adopter User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(this, "Adopter User Account already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, " Invalid income", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
@@ -394,24 +423,36 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
             Organization organization = enterprise.getOrganizationDirectory().getOrganizationByName(orgName);
 
             UserAccount selecteduser = (UserAccount) tblUsers.getValueAt(selectedRow, 0);
+            EmailValidator emailValidator = new EmailValidator();
 
             if (selectedRow >= 0) {
                 if ((!keywordName.isEmpty()) && (!keyPass.isEmpty()) && (!keyEm.isEmpty())) {
-                    if (this.ecosys.getUserAccountDirectory().userNameIsUnique(keywordName)) {
-                        selecteduser.setUsername(keywordName);
-                        selecteduser.setPassword(keyPass);
-                        selecteduser.setEmailId(keyEm);
 
-                        JOptionPane.showMessageDialog(this, " Adopter UserAcocunt aupdated", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        txtUserName.setText("");
-                        pwdUser.setText("");
-                        Email.setText("");
-                        populateUserAccountsTable();
+                    if (emailValidator.validate(Email.getText().trim())) {
+                        if (isValidIncome(incomeFID)) {
+                            if (this.ecosys.getUserAccountDirectory().userNameIsUnique(keywordName)) {
+                                selecteduser.setUsername(keywordName);
+                                selecteduser.setPassword(keyPass);
+                                selecteduser.setEmailId(keyEm);
+
+                                JOptionPane.showMessageDialog(this, " Adopter UserAcocunt aupdated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                                txtUserName.setText("");
+                                pwdUser.setText("");
+                                Email.setText("");
+                                populateUserAccountsTable();
+                            } else {
+                                JOptionPane.showMessageDialog(this, "user name alreay existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(this, " Invalid income! ", "Warning", JOptionPane.WARNING_MESSAGE);
+                        }
+
                     } else {
-                        JOptionPane.showMessageDialog(this, "user name alreay existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
+
                 } else {
-                    JOptionPane.showMessageDialog(this, "Name/password cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Email/Name/password cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Please choose an Useraccount");
@@ -456,6 +497,10 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteUserActionPerformed
 
+    private void incomeFIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incomeFIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_incomeFIDActionPerformed
+
     private void populateNetworkCombo() {
 
         cmbNetworkList.removeAllItems();
@@ -475,10 +520,10 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
 
         if (network != null) {
             for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-                if(e.getType().equals(Enterprise.Type.Adoption)){
-                     cmbEnterprise.addItem(e.getType() + " | " + e);
+                if (e.getType().equals(Enterprise.Type.Adoption)) {
+                    cmbEnterprise.addItem(e.getType() + " | " + e);
                 }
-               
+
             }
         }
     }
@@ -495,10 +540,10 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
             Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName(enterpriseName);
 
             for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                if(o.getType().equals(Organization.Type.AdopterManagement)){
-                     cmbOrg.addItem(o.getType() + " | " + o);
+                if (o.getType().equals(Organization.Type.AdopterManagement)) {
+                    cmbOrg.addItem(o.getType() + " | " + o);
                 }
-               
+
             }
         }
     }
@@ -510,21 +555,38 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
         Network selectedNetwork = (Network) cmbNetworkList.getSelectedItem();
 
         for (UserAccount ua : this.ecosys.getUserAccountDirectory().getUserAccountList()) {
-            
+
             if (ua.getNetwork().equals(selectedNetwork) && (ua.getRole().type.equals(Role.RoleType.Adopter))) {
-                
-                Object row[] = new Object[5];
+
+                Object row[] = new Object[6];
                 row[0] = ua;
                 row[1] = ua.getEmailId();
                 row[2] = ua.getOrgainization();
                 row[3] = ua.getEnterprise();
                 row[4] = ua.getNetwork();
+                row[5] = ua.getIncome();
                 model.addRow(row);
             }
-            
 
         }
-        
+
+    }
+
+    public static boolean isValidIncome(JTextField textField) {
+        String input = textField.getText();
+        try {
+            float number = Float.parseFloat(input);
+            if (number >= 0) {
+                // Input is valid, between 1 and 10
+                return true;
+            } else {
+                // Input is not between 1 and 10
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            // Input is not a valid double
+            return false;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -535,12 +597,14 @@ public class ManageAdopterJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox cmbEnterprise;
     private javax.swing.JComboBox cmbNetworkList;
     private javax.swing.JComboBox cmbOrg;
+    private javax.swing.JTextField incomeFID;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblOrganization;
     private javax.swing.JLabel lblOrganizationPicker;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserName;

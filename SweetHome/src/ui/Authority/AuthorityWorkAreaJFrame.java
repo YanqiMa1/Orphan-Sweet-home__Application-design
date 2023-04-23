@@ -251,6 +251,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
@@ -266,7 +267,7 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
         if (selectedRow >= 0) {
 
             if (request.getReceiver() != null) {
-                JOptionPane.showMessageDialog(this, "Request has already been received by other authority.",
+                JOptionPane.showMessageDialog(this, "Request has already been received.",
                         "Warning", JOptionPane.WARNING_MESSAGE);
 
             } else {
@@ -303,9 +304,12 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Request has already been received by other authority.",
                         "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (request.getStatus().equalsIgnoreCase("Accepted")) {
-                JOptionPane.showMessageDialog(this, "Request has already been approved!",
+                JOptionPane.showMessageDialog(this, "Request has already been accepted!",
                         "Warning", JOptionPane.WARNING_MESSAGE);
-            } else {
+            } else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+                JOptionPane.showMessageDialog(this, "Request has already been rejected!",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            }else {
 
                 request.setStatus("Rejected");
                 populateAdoptionAuthorizationRequestTable();
@@ -336,6 +340,9 @@ public class AuthorityWorkAreaJFrame extends javax.swing.JFrame {
                         "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (request.getStatus().equalsIgnoreCase("Rejected")) {
                 JOptionPane.showMessageDialog(this, "Request has already been rejected!",
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (request.getStatus().equalsIgnoreCase("Accepted")) {
+                JOptionPane.showMessageDialog(this, "Request has already been accepted!",
                         "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
 

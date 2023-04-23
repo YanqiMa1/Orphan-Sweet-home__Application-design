@@ -207,6 +207,7 @@ public class AdminWorkAreaJFrame extends javax.swing.JFrame {
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed

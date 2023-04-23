@@ -9,9 +9,24 @@ package Model.Enterprise;
  * @author alilovepeach
  */
 public class AdoptionEnterprise extends Enterprise{
+  private float donation;
+  
+  public void addDonation(Float amount){
+        this.donation+=amount;
+        
+    }
 
+    public float getDonation() {
+        return donation;
+    }
+
+    public void setDonation(float donation) {
+        this.donation = donation;
+    }
+    
     public AdoptionEnterprise(String adoptname) {
         super(adoptname, Enterprise.Type.Adoption);
+        this.donation=0;
     }
 
 }
