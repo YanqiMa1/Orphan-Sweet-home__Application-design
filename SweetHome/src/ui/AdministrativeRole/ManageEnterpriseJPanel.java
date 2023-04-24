@@ -7,6 +7,7 @@ package UI.AdministrativeRole;
 import Model.EcoSystem.EcoSystem;
 import Model.EcoSystem.Network;
 import Model.Enterprise.Enterprise;
+import Model.Role.EnterpriseAdminRole;
 import Model.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -45,6 +46,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblEnterpriseName2 = new javax.swing.JLabel();
+        txtName1 = new javax.swing.JTextField();
         kGradientPanel3 = new keeptoo.KGradientPanel();
         lblTitle = new javax.swing.JLabel();
         lblEnterpriseList = new javax.swing.JLabel();
@@ -59,6 +62,16 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         btnUpdateEnter = new javax.swing.JButton();
         btnDeleteEnter = new javax.swing.JButton();
         EnterpriseCombo = new javax.swing.JComboBox();
+        lblEnterpriseName1 = new javax.swing.JLabel();
+        txtAdminName = new javax.swing.JTextField();
+        lblEnterpriseName3 = new javax.swing.JLabel();
+        txtAdminPass = new javax.swing.JTextField();
+
+        lblEnterpriseName2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEnterpriseName2.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnterpriseName2.setText("Enterprise Name:");
+
+        txtName1.setBackground(new java.awt.Color(245, 245, 255));
 
         setLayout(new java.awt.BorderLayout());
 
@@ -70,26 +83,26 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Enterprise");
-        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 52, -1, -1));
+        kGradientPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         lblEnterpriseList.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEnterpriseList.setForeground(new java.awt.Color(255, 255, 255));
         lblEnterpriseList.setText("Enterprise List:");
-        kGradientPanel3.add(lblEnterpriseList, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 110, -1, -1));
+        kGradientPanel3.add(lblEnterpriseList, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         tblEnterprises.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Type", "Network"
+                "Name", "Type", "Network", "Admin"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -102,20 +115,20 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEnterprises);
 
-        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 440, 360));
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 450, 360));
 
         lblSelectEnterpriseType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectEnterpriseType.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectEnterpriseType.setText("Select Enterprise Type:");
-        kGradientPanel3.add(lblSelectEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, -1, -1));
+        kGradientPanel3.add(lblSelectEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
 
         lblEnterpriseName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEnterpriseName.setForeground(new java.awt.Color(255, 255, 255));
         lblEnterpriseName.setText("Enterprise Name:");
-        kGradientPanel3.add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, -1, -1));
+        kGradientPanel3.add(lblEnterpriseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
 
         txtName.setBackground(new java.awt.Color(245, 245, 255));
-        kGradientPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 200, 32));
+        kGradientPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 200, 32));
 
         btnCreateEnterprise.setBackground(new java.awt.Color(238, 156, 167));
         btnCreateEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -127,12 +140,12 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnCreateEnterpriseActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 130, 33));
+        kGradientPanel3.add(btnCreateEnterprise, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 130, 33));
 
         lblSelectNetwork.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectNetwork.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectNetwork.setText("Select Network:");
-        kGradientPanel3.add(lblSelectNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 28));
+        kGradientPanel3.add(lblSelectNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, 28));
 
         cmbNetworkList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -144,7 +157,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 cmbNetworkListActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 200, 29));
+        kGradientPanel3.add(cmbNetworkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 200, 29));
 
         btnUpdateEnter.setBackground(new java.awt.Color(238, 156, 167));
         btnUpdateEnter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -156,7 +169,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnUpdateEnterActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnUpdateEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, 130, 35));
+        kGradientPanel3.add(btnUpdateEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 130, 35));
 
         btnDeleteEnter.setBackground(new java.awt.Color(238, 156, 167));
         btnDeleteEnter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -168,14 +181,30 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnDeleteEnterActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnDeleteEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, 130, 35));
+        kGradientPanel3.add(btnDeleteEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 130, 35));
 
         EnterpriseCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnterpriseComboActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(EnterpriseCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 200, 30));
+        kGradientPanel3.add(EnterpriseCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 200, 30));
+
+        lblEnterpriseName1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEnterpriseName1.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnterpriseName1.setText("Enterprise Admin Name:");
+        kGradientPanel3.add(lblEnterpriseName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
+
+        txtAdminName.setBackground(new java.awt.Color(245, 245, 255));
+        kGradientPanel3.add(txtAdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 200, 32));
+
+        lblEnterpriseName3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEnterpriseName3.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnterpriseName3.setText("Enterprise Admin Password:");
+        kGradientPanel3.add(lblEnterpriseName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
+
+        txtAdminPass.setBackground(new java.awt.Color(245, 245, 255));
+        kGradientPanel3.add(txtAdminPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 200, 32));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -189,16 +218,30 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             String keyword = txtName.getText();
             int selectedRow = tblEnterprises.getSelectedRow();
             Network nw = (Network) cmbNetworkList.getSelectedItem();
+            String adminname = txtAdminName.getText();
+            String pw = txtAdminPass.getText();
 
             Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
 
             if (selectedRow >= 0) {
-                if (!txtName.getText().isEmpty()) {
+                if ((!txtName.getText().isEmpty()) && (!adminname.isEmpty()) && (!pw.isEmpty())) {
                     if (nw.getEnterpriseDirectory().nameIsUnique(keyword)) {
-                        ent.setName(keyword);
-                        txtName.setText("");
-                        refreshEnterpriseList();
-                        JOptionPane.showMessageDialog(this, "Enterprise updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        if (this.ecosys.getUserAccountDirectory().userNameIsUnique(adminname)) {
+                            ent.setName(keyword);
+                            ent.getEnterpriseAdmin().setUsername(adminname);
+                            ent.getEnterpriseAdmin().setPassword(pw);
+
+                            txtName.setText("");
+                            txtAdminName.setText("");
+                            txtAdminPass.setText("");
+
+                            refreshEnterpriseList();
+
+                            JOptionPane.showMessageDialog(this, "Enterprise updated", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "The enterprise admin already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                        }
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Enterprise name existed");
                     }
@@ -211,7 +254,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please choose a network");
+            JOptionPane.showMessageDialog(null, "Please choose an enterprise");
         }
 
     }//GEN-LAST:event_btnUpdateEnterActionPerformed
@@ -224,9 +267,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             Enterprise ent = (Enterprise) tblEnterprises.getValueAt(selectedRow, 0);
 
             if (selectedRow >= 0) {
-
+                UserAccount admin = ent.getEnterpriseAdmin();
+                this.ecosys.getUserAccountDirectory().deleteUserAccount(admin);
                 nw.getEnterpriseDirectory().deleteEnterprise(ent);
+
                 txtName.setText("");
+                txtAdminName.setText("");
+                txtAdminPass.setText("");
+                
                 refreshEnterpriseList();
                 JOptionPane.showMessageDialog(this, "Enterprise deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
 
@@ -234,7 +282,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please choose a network");
+            JOptionPane.showMessageDialog(null, "Please choose an Enterprise");
         }
 
     }//GEN-LAST:event_btnDeleteEnterActionPerformed
@@ -242,23 +290,43 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private void btnCreateEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEnterpriseActionPerformed
         String name = txtName.getText();
         Network nw = (Network) cmbNetworkList.getSelectedItem();
+        String adminname = txtAdminName.getText();
+        String pw = txtAdminPass.getText();
 
         if (nw != null) {
-            if (!name.isEmpty()) {
+            if ((!name.isEmpty()) && (!adminname.isEmpty()) && (!pw.isEmpty())) {
                 if (nw.getEnterpriseDirectory().nameIsUnique(name)) {
-                    Enterprise.Type type = (Enterprise.Type) EnterpriseCombo.getSelectedItem();
-                    nw.getEnterpriseDirectory().createAndAddEnterprise(name, type);
-                    JOptionPane.showMessageDialog(this, "new Enterprise added", "Information", JOptionPane.INFORMATION_MESSAGE);
-                    txtName.setText("");
-                    refreshEnterpriseList();
+                    if (this.ecosys.getUserAccountDirectory().userNameIsUnique(adminname)) {
+                        Enterprise.Type type = (Enterprise.Type) EnterpriseCombo.getSelectedItem();
+                        Enterprise newEnter = nw.getEnterpriseDirectory().createAndAddEnterprise(name, type);
+
+                        UserAccount enterpriseAdmin = new UserAccount();
+                        enterpriseAdmin.setUsername(adminname);
+                        enterpriseAdmin.setPassword(pw);
+                        enterpriseAdmin.setRole(new EnterpriseAdminRole());
+                        enterpriseAdmin.setNetwork(nw);
+                        newEnter.setEnterpriseAdmin(enterpriseAdmin);
+
+                        JOptionPane.showMessageDialog(this, "new Enterprise added", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                        txtName.setText("");
+                        txtAdminName.setText("");
+                        txtAdminPass.setText("");
+
+                        refreshEnterpriseList();
+
+                    } else {
+                        JOptionPane.showMessageDialog(this, "The enterprise admin already existed", "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Enterprise already existed", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Name cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "All fields cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Network cannot be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please choose a network", "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_btnCreateEnterpriseActionPerformed
@@ -288,10 +356,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         if (selectedNetwork != null) {
 
             for (Enterprise e : selectedNetwork.getEnterpriseDirectory().getEnterpriseList()) {
-                Object[] row = new Object[3];
+                Object[] row = new Object[4];
                 row[0] = e;
                 row[1] = e.getType();
                 row[2] = selectedNetwork.getName();
+                row[3] = e.getEnterpriseAdmin();
 
                 model.addRow(row);
             }
@@ -318,10 +387,16 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JLabel lblEnterpriseList;
     private javax.swing.JLabel lblEnterpriseName;
+    private javax.swing.JLabel lblEnterpriseName1;
+    private javax.swing.JLabel lblEnterpriseName2;
+    private javax.swing.JLabel lblEnterpriseName3;
     private javax.swing.JLabel lblSelectEnterpriseType;
     private javax.swing.JLabel lblSelectNetwork;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblEnterprises;
+    private javax.swing.JTextField txtAdminName;
+    private javax.swing.JTextField txtAdminPass;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName1;
     // End of variables declaration//GEN-END:variables
 }

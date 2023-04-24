@@ -68,6 +68,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Adoption Request");
         kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
 
@@ -160,7 +161,8 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                 } else {
                     request.setStatus("Approved");
                     populateRequestTable();
-                    JOptionPane.showMessageDialog(this, "Approved successfully", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Approved successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
+
                 }
 
             } else {
@@ -211,9 +213,8 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
             if (selectedRow >= 0) {
 
                 if (request.getReceiver() != null) {
-                    JOptionPane.showMessageDialog(this, "Request has already been received.",
-                            "Warning", JOptionPane.WARNING_MESSAGE);
 
+                    JOptionPane.showMessageDialog(this, "Request has already been received.", "Information", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     request.setReceiver(this.useraccount);
                     request.setStatus("Processed");

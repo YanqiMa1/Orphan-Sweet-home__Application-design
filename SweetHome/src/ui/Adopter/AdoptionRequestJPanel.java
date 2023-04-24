@@ -184,7 +184,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         lblOrphanSelection.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOrphanSelection.setForeground(new java.awt.Color(255, 255, 255));
         lblOrphanSelection.setText("Orphans who are waiting for a sweet home");
-        kGradientPanel3.add(lblOrphanSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 175, 365, -1));
+        kGradientPanel3.add(lblOrphanSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 365, -1));
 
         tbOrphanList.setBackground(new java.awt.Color(204, 204, 204));
         tbOrphanList.setModel(new javax.swing.table.DefaultTableModel(
@@ -217,7 +217,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tbOrphanList);
 
-        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 790, 137));
+        kGradientPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 790, 137));
 
         btnViewDetails.setBackground(new java.awt.Color(252, 74, 26));
         btnViewDetails.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -229,7 +229,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                 btnViewDetailsActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 133, 200, -1));
+        kGradientPanel3.add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 200, -1));
 
         btnSendRequest.setBackground(new java.awt.Color(252, 74, 26));
         btnSendRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -241,7 +241,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                 btnSendRequestActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnSendRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 133, 200, -1));
+        kGradientPanel3.add(btnSendRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 200, -1));
 
         lblAdoptionRequest.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAdoptionRequest.setForeground(new java.awt.Color(255, 255, 255));
@@ -284,14 +284,14 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
         btnDonate.setBackground(new java.awt.Color(252, 74, 26));
         btnDonate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDonate.setForeground(new java.awt.Color(255, 255, 255));
-        btnDonate.setText("Donate for the Sweet Home");
+        btnDonate.setText("Donate US");
         btnDonate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDonate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDonateActionPerformed(evt);
             }
         });
-        kGradientPanel3.add(btnDonate, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 133, 200, -1));
+        kGradientPanel3.add(btnDonate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 200, -1));
 
         add(kGradientPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
