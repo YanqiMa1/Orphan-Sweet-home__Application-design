@@ -52,7 +52,6 @@ public class EnterpriseAdminJFrame extends javax.swing.JFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         btnLogout = new javax.swing.JButton();
         btnManage = new javax.swing.JButton();
-        btnDashboard = new javax.swing.JButton();
         kGradientPanel2 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,17 +83,6 @@ public class EnterpriseAdminJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnDashboard.setBackground(new java.awt.Color(217, 167, 174));
-        btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDashboard.setForeground(new java.awt.Color(255, 255, 255));
-        btnDashboard.setText("Dashboard");
-        btnDashboard.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDashboardActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -104,9 +92,7 @@ public class EnterpriseAdminJFrame extends javax.swing.JFrame {
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150)
                 .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,8 +100,7 @@ public class EnterpriseAdminJFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -161,10 +146,6 @@ public class EnterpriseAdminJFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(new ManageOrganization1JPanel(this.ecosys, this.useraccount,this.network,this.enterprise));
     }//GEN-LAST:event_btnManageActionPerformed
 
-    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-          jSplitPane1.setRightComponent(new dashboardJPanel(this.ecosys, this.useraccount,this.network,this.enterprise));
-    }//GEN-LAST:event_btnDashboardActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -201,7 +182,6 @@ public class EnterpriseAdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnManage;
     private javax.swing.JSplitPane jSplitPane1;
