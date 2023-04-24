@@ -106,8 +106,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
                         ArrayList<WorkRequest> list = new ArrayList<WorkRequest>();
                         for (WorkRequest beg : o.getWorkQueue().getWorkRequestList()) {
                             //request
-                            if ((beg instanceof MedCareRequest && beg.getStatus().equalsIgnoreCase("Completed"))
-                                    || (beg instanceof PharmacistWorkRequest && beg.getStatus().equalsIgnoreCase("Completed"))) {
+                            if ((beg instanceof MedCareRequest && beg.getStatus().equalsIgnoreCase("Completed"))) {
                                 list.add(beg);
                             }
                         }

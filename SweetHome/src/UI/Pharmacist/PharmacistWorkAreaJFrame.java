@@ -286,7 +286,7 @@ public class PharmacistWorkAreaJFrame extends javax.swing.JFrame {
         //if no row is selected
         if (selectedRow < 0) {
             
-            JOptionPane.showMessageDialog(this, "You should select a row from the table please",
+            JOptionPane.showMessageDialog(this, "Please select a row",
                     "Warning",JOptionPane.WARNING_MESSAGE);
             
             return;

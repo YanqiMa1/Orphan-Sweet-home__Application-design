@@ -75,6 +75,14 @@ public abstract class Enterprise {
         this.workQueue = workQueue;
     }
 
+    public UserAccountDirectory getUserAccountDirectory() {
+        return enterpriseUserAccounts;
+    }
+
+    public void setUserAccountDirectory(UserAccountDirectory enterpriseUserAccounts) {
+        this.enterpriseUserAccounts = enterpriseUserAccounts;
+    }
+
     @Override
     public String toString() {
         return name;

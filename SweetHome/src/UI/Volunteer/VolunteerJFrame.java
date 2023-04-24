@@ -172,7 +172,7 @@ public class VolunteerJFrame extends javax.swing.JFrame {
                 populateTable();
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Please select a requestx", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a request", "Warning", JOptionPane.WARNING_MESSAGE);
         }  
         
     }//GEN-LAST:event_btnCompleteActionPerformed
