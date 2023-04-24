@@ -376,7 +376,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
         String input = textField.getText();
         try {
             float number = Float.parseFloat(input);
-            if (number >= 0) {
+            if (number > 0) {
                 // Input is valid, between 1 and 10
                 return true;
             } else {
