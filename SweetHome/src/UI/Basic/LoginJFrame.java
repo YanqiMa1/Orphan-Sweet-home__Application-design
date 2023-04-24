@@ -25,7 +25,6 @@ public class LoginJFrame extends javax.swing.JFrame {
     
     public LoginJFrame() {
         initComponents();
-        this.setVisible(true);
         this.sys = ConfigureABusiness.configure();
     }
     

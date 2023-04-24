@@ -6,6 +6,7 @@ package Model.Enterprise;
 
 import Model.Organization.OrganizationDirectory;
 import Model.Orphan.OrphanDirectory;
+import Model.UserAccount.UserAccount;
 import Model.UserAccount.UserAccountDirectory;
 import Model.WorkQueue.WorkQueue;
 
@@ -20,8 +21,8 @@ public abstract class Enterprise {
     private WorkQueue workQueue;
     private OrganizationDirectory organizationDirectory;
     private UserAccountDirectory enterpriseUserAccounts;
-    
-    
+    private UserAccount enterpriseAdmin;
+
     public enum Type {
         Volunteer("VolunteerEnterprise"),
         MedicalCare("MedicalCareEnterprise"),
@@ -81,6 +82,14 @@ public abstract class Enterprise {
 
     public void setUserAccountDirectory(UserAccountDirectory enterpriseUserAccounts) {
         this.enterpriseUserAccounts = enterpriseUserAccounts;
+    }
+
+    public UserAccount getEnterpriseAdmin() {
+        return enterpriseAdmin;
+    }
+
+    public void setEnterpriseAdmin(UserAccount enterpriseAdmin) {
+        this.enterpriseAdmin = enterpriseAdmin;
     }
 
     @Override

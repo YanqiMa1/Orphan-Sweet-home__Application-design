@@ -436,7 +436,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         Network selectedNetwork = (Network) cmbNetworkList.getSelectedItem();
 
         for (UserAccount ua : this.ecosys.getUserAccountDirectory().getUserAccountList()) {
-            if ((ua.getNetwork().equals(selectedNetwork)) && (!ua.getRole().type.equals(Role.RoleType.Adopter))) {
+            if ((ua.getNetwork().equals(selectedNetwork)) && (!ua.getRole().type.equals(Role.RoleType.Adopter) && (!ua.getRole().type.equals(Role.RoleType.EnterpriseAdmin)))) {
                 Object row[] = new Object[5];
                 row[0] = ua;
                 row[1] = ua.getRole();
