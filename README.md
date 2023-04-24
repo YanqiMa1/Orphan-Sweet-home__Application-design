@@ -5,9 +5,9 @@
 
 * [x] Statistics from Johns Hopkins University show that the cumulative number of deaths in the United States is approaching one million. Many of those who have died are the parents or primary caregivers of children who have become "orphans of the new strain".
 
-* [x] Statistics from Imperial College in the United Kingdom show that as of early April 2022, approximately 197,000 minors under the age of 18 in the United States have lost at least one of both parents to the New Crown epidemic; close to 250,000 children have lost their primary or secondary guardians to the New Crown epidemic. The Atlantic Monthly article cites data showing that one in 12 orphans under the age of 18 in the United States will lose a guardian in the New Crown epidemic.
+* [x] Statistics from Imperial College in the United Kingdom show that as of early April 2022, approximately 197,000 minors under the age of 18 in the United States have lost at least one of both parents to the COVID-19 Global Pandemic; close to 250,000 children have lost their primary or secondary guardians to the Pandemic. The Atlantic Monthly article cites data showing that one in 12 orphans under the age of 18 in the United States will lose a guardian in the Pandemic.
 
-* [x] According to the Pew Research Center, mental illnesses such as anxiety, depression, trauma and depression are on the rise among "newly crowned orphans," so it is important to create a system of sweet home for orphans to help them get out of the physical and mental gloom and find warm families to adopt.
+* [x] According to the Pew Research Center, mental illnesses such as anxiety, depression, trauma and depression are on the rise among "COVID-19 affected orphans," so it is important to create a system of sweet home for orphans to help them get out of the physical and mental gloom and find warm families to adopt.
 
 #### Solutions
 * [x] We combine these problems together and provide a system that makes the process of adopting stray orphans easy and convenient with **Java Swing** .
@@ -25,12 +25,12 @@
 
 
 ● Organization
-1. OrphanManagement Org
-2. Doctor Org
-3. Pharmacy Org
-4. AdopterManagerment Org
-5. Authorization Org
-6. Volunteer Management Org
+1. OrphanManagement Organization
+2. Doctor Organization
+3. Pharmacy Organization
+4. Adopter Organization
+5. Authorization Organization
+6. Volunteer Management Organization
 
 
 ● User Role
@@ -43,6 +43,7 @@
 7. Volunteer Manager
 8. Volunteer 
 9. System admin
+10. Enterprise admin
 
 
 
