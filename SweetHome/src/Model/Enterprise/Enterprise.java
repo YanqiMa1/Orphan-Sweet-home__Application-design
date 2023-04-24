@@ -22,8 +22,7 @@ public abstract class Enterprise {
     private OrganizationDirectory organizationDirectory;
     private UserAccountDirectory enterpriseUserAccounts;
     private UserAccount enterpriseAdmin;
-    
-    
+
     public enum Type {
         Volunteer("VolunteerEnterprise"),
         MedicalCare("MedicalCareEnterprise"),
@@ -77,11 +76,11 @@ public abstract class Enterprise {
         this.workQueue = workQueue;
     }
 
-    public UserAccountDirectory getEnterpriseUserAccounts() {
+    public UserAccountDirectory getUserAccountDirectory() {
         return enterpriseUserAccounts;
     }
 
-    public void setEnterpriseUserAccounts(UserAccountDirectory enterpriseUserAccounts) {
+    public void setUserAccountDirectory(UserAccountDirectory enterpriseUserAccounts) {
         this.enterpriseUserAccounts = enterpriseUserAccounts;
     }
 
@@ -92,8 +91,6 @@ public abstract class Enterprise {
     public void setEnterpriseAdmin(UserAccount enterpriseAdmin) {
         this.enterpriseAdmin = enterpriseAdmin;
     }
-    
-    
 
     @Override
     public String toString() {

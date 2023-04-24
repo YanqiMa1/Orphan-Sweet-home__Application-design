@@ -160,6 +160,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
 
                 } else {
                     request.setStatus("Approved");
+                    request.getOrphan().setAdoptor(request.getSender());
                     populateRequestTable();
                     JOptionPane.showMessageDialog(this, "Approved successfully.", "Information", JOptionPane.INFORMATION_MESSAGE);
 
@@ -167,7 +168,7 @@ public class AdoptionRequestJPanel extends javax.swing.JPanel {
 
             } else {
 
-                request.setStatus("Approveded");
+                request.setStatus("Approved");
                 populateRequestTable();
             }
         } else {
