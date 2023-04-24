@@ -59,7 +59,6 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 204));
         setMinimumSize(new java.awt.Dimension(800, 520));
         setPreferredSize(new java.awt.Dimension(800, 520));
-        setSize(new java.awt.Dimension(800, 520));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         kGradientPanel1.setkEndColor(new java.awt.Color(101, 78, 163));
@@ -105,6 +104,7 @@ public class OrphanAssignmentJPanel extends javax.swing.JPanel {
         kGradientPanel1.add(btnAssignOrphanToMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, -1, 40));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Manage Orphan");
         kGradientPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 150, -1));

@@ -27,7 +27,8 @@ public abstract class Role {
         AdoptionManager("Adoption Manager"), 
         VolunteerManeger("Volunteer Manager"),
         Volunteer("Volunteer"),
-        SystemAdmin ("System Admin");
+        SystemAdmin ("System Admin"),
+        EnterpriseAdmin("Enterprise Admin");
 
         private final String value;
 
